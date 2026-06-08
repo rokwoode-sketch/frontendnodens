@@ -18,10 +18,22 @@ import ComplexTreatmentsPage from './pages/ComplexTreatmentsPage';
 import DoctorsPage from './pages/DoctorsPage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
+import BlogPostPage from './pages/BlogPostPage';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (hash) {
+      const scrollToHash = () => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+      setTimeout(scrollToHash, 100);
+      setTimeout(scrollToHash, 400);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
   return null;
 }
 
@@ -44,6 +56,7 @@ function AppInner() {
           <Route path="/doctors" element={<DoctorsPage />} />
           <Route path="/results" element={<GalleryPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
         </Routes>
       </main>
       <Footer />
