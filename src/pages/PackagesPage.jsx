@@ -1,26 +1,27 @@
-import { Helmet } from 'react-helmet-async';
-import PageHeader from '../components/PageHeader';
-import Treatments from '../components/Treatments';
-import { useLanguage } from '../i18n/LanguageContext';
-
-export default function PackagesPage() {
-  const { t } = useLanguage();
-
-  return (
-    <>
-      <Helmet>
-        <title>Treatment Packages & Pricing | NodensCare Istanbul</title>
-        <meta name="description" content="All-inclusive treatment packages for hair transplant, Hollywood Smile, rhinoplasty, dental implants, liposuction, and more. Transparent pricing from NodensCare Istanbul." />
-      </Helmet>
-
-      <PageHeader
-        title="Treatment"
-        titleAccent="Packages"
-        subtitle={t.treatments.subtitle}
-        breadcrumbs={[{ label: 'Packages' }]}
-      />
-
-      <Treatments />
-    </>
-  );
-}
+import { Helmet } from 'react-helmet-async';
+import PageHeader from '../components/PageHeader';
+import Treatments from '../components/Treatments';
+import { useLanguage } from '../i18n/LanguageContext';
+
+export default function PackagesPage() {
+  const { t } = useLanguage();
+  const p = t.pages.packages;
+
+  return (
+    <>
+      <Helmet>
+        <title>{p.metaTitle}</title>
+        <meta name="description" content={p.metaDescription} />
+      </Helmet>
+
+      <PageHeader
+        title={p.title}
+        titleAccent={p.titleAccent}
+        subtitle={t.treatments.subtitle}
+        breadcrumbs={[{ label: p.breadcrumb }]}
+      />
+
+      <Treatments />
+    </>
+  );
+}
