@@ -16,6 +16,7 @@ import DentalPage from './pages/DentalPage';
 import PlasticSurgeryPage from './pages/PlasticSurgeryPage';
 import ComplexTreatmentsPage from './pages/ComplexTreatmentsPage';
 import DoctorsPage from './pages/DoctorsPage';
+import DoctorProfilePage from './pages/DoctorProfilePage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
 import BlogPostPage from './pages/BlogPostPage';
@@ -60,6 +61,7 @@ function AppInner() {
           <Route path="/complex-treatments" element={<ComplexTreatmentsPage />} />
           <Route path="/packages" element={<PackagesPage />} />
           <Route path="/doctors" element={<DoctorsPage />} />
+          <Route path="/doctors/:slug" element={<DoctorProfilePage />} />
           <Route path="/results" element={<GalleryPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/contact" element={<ContactPage />} />
