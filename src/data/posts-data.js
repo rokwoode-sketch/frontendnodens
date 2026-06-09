@@ -1,8 +1,10 @@
+import { siteImages } from './siteImages.js';
+
 export const posts = [
   {
     slug: 'hair-transplant',
     category: 'Hair Transplant',
-    image_url: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&h=630&fit=crop',
+    image_url: siteImages.hair,
     translations: {
       en: {
         title: 'Hair Transplant in Istanbul, Turkey: Complete Patient Guide 2026',
@@ -82,7 +84,7 @@ export const posts = [
   {
     slug: 'dental',
     category: 'Dental',
-    image_url: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=630&fit=crop',
+    image_url: siteImages.hollywoodSmile,
     translations: {
       en: {
         title: 'Dental Tourism in Istanbul: Hollywood Smile, Implants & Full Guide',
@@ -154,7 +156,7 @@ export const posts = [
   {
     slug: 'plastic-surgery',
     category: 'Plastic Surgery',
-    image_url: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&h=630&fit=crop',
+    image_url: siteImages.rhinoplasty,
     translations: {
       en: {
         title: 'Plastic Surgery in Istanbul: Rhinoplasty, BBL & Aesthetic Guide 2026',
@@ -226,7 +228,7 @@ export const posts = [
   {
     slug: 'complex-treatments',
     category: 'Complex',
-    image_url: 'https://images.unsplash.com/photo-1518152006812-edab29b069ac?w=1200&h=630&fit=crop',
+    image_url: siteImages.complex,
     translations: {
       en: {
         title: 'Complex Medical Treatments in Istanbul: Cancer, Transplant & IVF Guide',
