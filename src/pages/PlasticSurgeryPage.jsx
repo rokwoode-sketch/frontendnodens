@@ -6,14 +6,14 @@ import ProcedurePageHero from '../components/ProcedurePageHero';
 import { siteImages } from '../data/siteImages';
 
 const procedureImages = {
-  rhinoplasty: siteImages.rhinoplasty,
-  liposuction: siteImages.bbl,
-  bbl: siteImages.bbl,
+  rhinoplasty: siteImages.rhinoplastyProc,
+  liposuction: siteImages.liposuction,
+  bbl: siteImages.bblProc,
   'breast-aug': siteImages.breastAug,
   facelift: siteImages.facelift,
-  blepharoplasty: siteImages.facelift,
+  blepharoplasty: siteImages.blepharoplasty,
   abdominoplasty: siteImages.abdominoplasty,
-  'mommy-makeover': siteImages.breastAug,
+  'mommy-makeover': siteImages.mommyMakeover,
 };
 
 export default function PlasticSurgeryPage() {
