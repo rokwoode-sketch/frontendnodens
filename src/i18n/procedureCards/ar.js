@@ -1,3 +1,7 @@
+import hair from './hair-ar';
+import plastic from './plastic-ar';
+import complex from './complex-ar';
+
 export default {
   dental: {
     sectionLabel: 'علاجاتنا السنية',
@@ -16,6 +20,9 @@ export default {
       { id: 'all-on-6', tag: 'إعادة تأهيل كاملة', title: 'All-on-6 زراعة أسنان', subtitle: 'فك كامل · جسر ثابت · أسنان دائمة', price: '6,200 يورو / 7,400 دولار للفك', description: 'All-on-6 يستخدم 6 زرعات تدعم جسراً ثابتاً من البورسلين — استبدال دائم للفك بالكامل.', includes: ['أشعة 3D وتخطيط كامل', '6 زرعات تيتانيوم', 'جسر مؤقت ثابت فوري', 'جسر نهائي زركونيا', 'إقامة 7 أيام', 'نقل وإقامة'], faqs: [{ q: 'All-on-4 مقابل All-on-6؟', a: 'All-on-6 يوفر توزيعاً أفضل للضغط واستقراراً أطول.' }, { q: 'أسنان في يوم العملية؟', a: 'نعم — جسر مؤقت ثابت عادة في نفس اليوم.' }] },
     ],
   },
+  hair,
+  plastic,
+  complex,
   packages: [
     { id: 1, categoryKey: 'hair', category: 'زراعة الشعر', name: 'زراعة الشعر', subtitle: 'FUE سافير · DHI', priceEur: '1,500', priceUsd: '1,800', highlights: ['نتائج دائمة', '3,000–5,000 بصيلة', 'خط شعر طبيعي', '3 ليالٍ مشمولة'], popular: true, imageKey: 'hair', link: '/hair-transplant' },
     { id: 2, categoryKey: 'dental', category: 'طب الأسنان', name: 'ابتسامة هوليوود', subtitle: 'فينير E-max · زركونيا', priceEur: '3,200', priceUsd: '3,800', highlights: ['20 فينير', 'معاينة رقمية', 'بدون معدن', '5 ليالٍ مشمولة'], popular: false, imageKey: 'hollywoodSmile', link: '/dental' },
