@@ -1,3 +1,7 @@
+import hair from './hair-es';
+import plastic from './plastic-es';
+import complex from './complex-es';
+
 export default {
   dental: {
     sectionLabel: 'Nuestros Tratamientos Dentales',
@@ -16,6 +20,9 @@ export default {
       { id: 'all-on-6', tag: 'Rehabilitación Completa', title: 'All-on-6 Implantes', subtitle: 'Arco · Puente Fijo · Dientes Permanentes', price: '€6,200 / $7,400 por arco', description: 'All-on-6 usa 6 implantes estratégicos que soportan un puente fijo de porcelana — reemplazo permanente de un arco completo.', includes: ['TAC 3D y planificación completa', '6 implantes de titanio premium', 'Puente temporal fijo inmediato', 'Puente final de zirconia', 'Estancia 7 días', 'Traslados y alojamiento'], faqs: [{ q: '¿All-on-4 vs All-on-6?', a: 'All-on-6 ofrece mejor distribución de carga y mayor estabilidad.' }, { q: '¿Dientes el día de la cirugía?', a: 'Sí — generalmente se coloca un puente temporal fijo el mismo día.' }] },
     ],
   },
+  hair,
+  plastic,
+  complex,
   packages: [
     { id: 1, categoryKey: 'hair', category: 'Trasplante Capilar', name: 'Trasplante Capilar', subtitle: 'FUE Zafiro · Método DHI', priceEur: '1,500', priceUsd: '1,800', highlights: ['Resultados permanentes', '3,000–5,000 injertos', 'Línea capilar natural', '3 noches incluidas'], popular: true, imageKey: 'hair', link: '/hair-transplant' },
     { id: 2, categoryKey: 'dental', category: 'Dental', name: 'Hollywood Smile', subtitle: 'Carillas E-max · Zirconia', priceEur: '3,200', priceUsd: '3,800', highlights: ['20 carillas de porcelana', 'Vista previa digital', 'Sin metal, aspecto natural', '5 noches incluidas'], popular: false, imageKey: 'hollywoodSmile', link: '/dental' },
