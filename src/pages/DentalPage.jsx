@@ -98,7 +98,7 @@ export default function DentalPage() {
                 {[
                   { num: '3,000+', label: 'Smiles Transformed' },
                   { num: '60–70%', label: 'Cost Savings vs. UK/US' },
-                  { num: '5★', label: 'Patient Rated' },
+                  { num: '5.0', label: 'Patient Rated' },
                 ].map(({ num, label }) => (
                   <div key={label} className="bg-white/10 backdrop-blur rounded-xl p-4 text-center border border-white/10">
                     <div className="font-serif text-xl font-bold text-gold-400">{num}</div>
