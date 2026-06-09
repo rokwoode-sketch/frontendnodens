@@ -59,7 +59,7 @@ export default function BlogPostPage() {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center pt-32 gap-4">
         <p className="text-gray-500">Article not found.</p>
-        <Link to="/" className="text-gold-600 hover:underline text-sm">Back to Home</Link>
+        <Link to="/blog" className="text-gold-600 hover:underline text-sm">Back to Guides</Link>
       </div>
     );
   }
@@ -99,8 +99,10 @@ export default function BlogPostPage() {
 
       <section className="relative pt-32 pb-16 gradient-navy overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="flex items-center gap-2 text-gold-400 text-sm mb-6">
+          <div className="flex items-center gap-2 text-gold-400 text-sm mb-6 flex-wrap">
             <Link to="/" className="hover:text-white transition-colors">Home</Link>
+            <ChevronRight size={14} />
+            <Link to="/blog" className="hover:text-white transition-colors">Guides</Link>
             <ChevronRight size={14} />
             <Link to={categoryLink} className="hover:text-white transition-colors">{post.category}</Link>
             <ChevronRight size={14} />
