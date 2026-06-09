@@ -1,7 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import PageHeader from '../components/PageHeader';
 import Gallery from '../components/Gallery';
-import Testimonials from '../components/Testimonials';
 import { useLanguage } from '../i18n/LanguageContext';
 
 export default function GalleryPage() {
@@ -22,8 +21,7 @@ export default function GalleryPage() {
         breadcrumbs={[{ label: p.breadcrumb }]}
       />
 
-      <Gallery />
-      <Testimonials />
+      <Gallery mode="page" />
     </>
   );
 }
