@@ -1,3 +1,7 @@
+import hair from './hair-en';
+import plastic from './plastic-en';
+import complex from './complex-en';
+
 export default {
   dental: {
     sectionLabel: 'Our Dental Treatments',
@@ -63,6 +67,9 @@ export default {
       },
     ],
   },
+  hair,
+  plastic,
+  complex,
   packages: [
     { id: 1, categoryKey: 'hair', category: 'Hair Transplant', name: 'Hair Transplant', subtitle: 'FUE Sapphire · DHI Method', priceEur: '1,500', priceUsd: '1,800', highlights: ['Permanent results', '3,000–5,000 grafts', 'Natural hairline design', '3-night stay included'], popular: true, imageKey: 'hair', link: '/hair-transplant' },
     { id: 2, categoryKey: 'dental', category: 'Dental', name: 'Hollywood Smile', subtitle: 'E-max Veneers · Zirconia', priceEur: '3,200', priceUsd: '3,800', highlights: ['20 porcelain veneers', 'Digital Smile Design preview', 'Metal-free, natural look', '5-night stay included'], popular: false, imageKey: 'hollywoodSmile', link: '/dental' },
