@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Star, Users } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { siteImages } from '../data/siteImages';
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -63,7 +64,7 @@ export default function Hero() {
           <div className="relative hidden lg:block">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
               <img
-                src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&h=700&fit=crop&crop=center"
+                src={siteImages.hero}
                 alt="Istanbul JCI-accredited surgical center"
                 className="w-full h-[520px] object-cover"
               />
