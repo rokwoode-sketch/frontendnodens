@@ -25,6 +25,12 @@ const en = {
     faq: 'FAQ',
     contact: 'Contact',
     cta: 'Free Consultation',
+    tagline: 'Professor-Led · JCI Hospitals',
+    trustBar: {
+      jci: 'JCI Accredited',
+      professors: 'Professor-Led Care',
+      location: 'Istanbul, Turkey',
+    },
     procedures: {
       rhinoplasty: 'Rhinoplasty',
       liposuction: 'Liposuction 360',
