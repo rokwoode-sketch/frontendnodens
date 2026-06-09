@@ -1,4 +1,5 @@
 import pages from './pages/ar';
+import procedureCards from './procedureCards/ar';
 
 const ar = {
   lang: 'ar',
@@ -133,7 +134,6 @@ const ar = {
       rhinoplasty: { procedure: 'تجميل الأنف', description: 'تحسين ملامح الأنف — مريض نودنزكير' },
       allOn6: { procedure: 'All-on-6 زراعة أسنان', description: 'إعادة تأهيل كاملة للفك — نتيجة مريض' },
       facelift: { procedure: 'شد الوجه', description: 'تجديد الوجه deep plane — مريض نودنزكير' },
-      zirconium: { procedure: 'تيجان الزركونيوم', description: 'تحويل الابتسامة بدون معدن — نتيجة مريض' },
     },
   },
   doctors: {
@@ -210,6 +210,7 @@ const ar = {
     privacy: 'معلوماتك سرية ومحمية. لا إزعاج أبداً.',
   },
   pages,
+  procedureCards,
   homeExplore: {
     sectionLabel: 'استكشف نودنزكير',
     h2: 'صفحات مخصصة لكل احتياج',
