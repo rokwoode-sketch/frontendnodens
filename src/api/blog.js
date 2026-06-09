@@ -9,9 +9,16 @@ function getApiUrl() {
 const API_URL = getApiUrl();
 
 export async function fetchBlogPost(slug, lang = 'en') {
-  const res = await fetch(`${API_URL}/api/posts/${slug}?lang=${lang}`);
-  if (!res.ok) throw new Error('Post not found');
-  return res.json();
+  try {
+    const res = await fetch(`${API_URL}/api/posts/${slug}?lang=${lang}`);
+    if (res.ok) return res.json();
+  } catch {
+    // API unavailable — fall back to static data
+  }
+  const { getStaticPost } = await import('../data/blogPosts.js');
+  const post = getStaticPost(slug, lang);
+  if (!post) throw new Error('Post not found');
+  return post;
 }
 
 export async function fetchBlogPosts(lang = 'en') {
