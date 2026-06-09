@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import Gallery from '../components/Gallery';
+import Testimonials from '../components/Testimonials';
 
 export default function GalleryPage() {
   return (
@@ -30,6 +31,7 @@ export default function GalleryPage() {
       <div className="pt-0">
         <Gallery />
       </div>
+      <Testimonials />
     </>
   );
 }
