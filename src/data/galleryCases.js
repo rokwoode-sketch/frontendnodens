@@ -1,13 +1,11 @@
-import { siteImages } from './siteImages';
-
-// Each image is a patient before/after composite from nodenscare.com — shown as single cards, not mixed sliders
-export const galleryCases = [
-  { id: 1, type: 'single', image: siteImages.hollywoodSmile, procedureKey: 'hollywoodSmile' },
-  { id: 2, type: 'single', image: siteImages.hair, procedureKey: 'hairTransplant' },
-  { id: 3, type: 'single', image: siteImages.bbl, procedureKey: 'bbl' },
-  { id: 4, type: 'single', image: siteImages.rhinoplasty, procedureKey: 'rhinoplasty' },
-  { id: 5, type: 'single', image: siteImages.allOn6, procedureKey: 'allOn6' },
-  { id: 6, type: 'single', image: siteImages.facelift, procedureKey: 'facelift' },
-  { id: 7, type: 'single', image: siteImages.zirconium, procedureKey: 'zirconium' },
-];
-
+import { siteImages } from './siteImages';
+
+// Exact 6 items from nodenscare.com homepage "Before & After" gallery block — order preserved
+export const galleryCases = [
+  { id: 1, image: siteImages.hollywoodSmile, procedureKey: 'hollywoodSmile' },
+  { id: 2, image: siteImages.hair, procedureKey: 'hairTransplant' },
+  { id: 3, image: siteImages.bbl, procedureKey: 'bbl' },
+  { id: 4, image: siteImages.rhinoplasty, procedureKey: 'rhinoplasty' },
+  { id: 5, image: siteImages.allOn6, procedureKey: 'allOn6' },
+  { id: 6, image: siteImages.facelift, procedureKey: 'facelift' },
+];
