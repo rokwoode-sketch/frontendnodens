@@ -59,6 +59,12 @@ export default {
     readGuide: 'اقرأ الدليل',
     procedures: 'إجراءات',
   },
+  doctorProfile: {
+    overview: 'نظرة عامة مهنية',
+    affiliation: 'الانتماء',
+    consultBtn: 'طلب استشارة',
+    allDoctors: 'جميع الأطباء',
+  },
   doctors: {
     metaTitle: 'أطباؤنا | فريق طبي بقيادة أساتذة — نودنزكير إسطنبول',
     metaDescription: 'تعرف على الفريق الطبي لنودنزكير في إسطنبول. أساتذة جامعيون في الزراعة والأورام والعلاج الإشعاعي.',
