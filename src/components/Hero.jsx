@@ -1,10 +1,9 @@
+import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Star, Users } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
 export default function Hero() {
   const { t } = useLanguage();
-
-  const scrollTo = (id) => document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -37,13 +36,13 @@ export default function Hero() {
             <p className="text-white/70 text-lg leading-relaxed mb-10 max-w-lg">{t.hero.subtitle}</p>
 
             <div className="flex flex-wrap gap-4 mb-14">
-              <button onClick={() => scrollTo('#contact')} className="btn-primary text-base px-8 py-4">
+              <Link to="/contact" className="btn-primary text-base px-8 py-4">
                 {t.hero.ctaPrimary}
                 <ArrowRight size={16} />
-              </button>
-              <button onClick={() => scrollTo('#gallery')} className="btn-outline text-base px-8 py-4">
+              </Link>
+              <Link to="/results" className="btn-outline text-base px-8 py-4">
                 {t.hero.ctaSecondary}
-              </button>
+              </Link>
             </div>
 
             <div className="flex flex-wrap gap-4">
