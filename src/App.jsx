@@ -19,6 +19,10 @@ import DoctorsPage from './pages/DoctorsPage';
 import GalleryPage from './pages/GalleryPage';
 import ContactPage from './pages/ContactPage';
 import BlogPostPage from './pages/BlogPostPage';
+import BlogIndexPage from './pages/BlogIndexPage';
+import AboutPage from './pages/AboutPage';
+import PackagesPage from './pages/PackagesPage';
+import FAQPage from './pages/FAQPage';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -49,13 +53,17 @@ function AppInner() {
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/hair-transplant" element={<HairTransplantPage />} />
           <Route path="/dental" element={<DentalPage />} />
           <Route path="/plastic-surgery" element={<PlasticSurgeryPage />} />
           <Route path="/complex-treatments" element={<ComplexTreatmentsPage />} />
+          <Route path="/packages" element={<PackagesPage />} />
           <Route path="/doctors" element={<DoctorsPage />} />
           <Route path="/results" element={<GalleryPage />} />
+          <Route path="/faq" element={<FAQPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/blog" element={<BlogIndexPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
         </Routes>
       </main>
