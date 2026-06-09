@@ -4,6 +4,7 @@ import { ArrowRight, GraduationCap, CheckCircle } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import PageHeader from '../components/PageHeader';
 import { getDoctor } from '../data/doctors';
+import { siteImages } from '../data/siteImages';
 
 export default function DoctorProfilePage() {
   const { slug } = useParams();
@@ -47,7 +48,12 @@ export default function DoctorProfilePage() {
                 <img
                   src={doctor.image}
                   alt={d.name}
+                  referrerPolicy="no-referrer"
                   className="w-full rounded-2xl shadow-xl object-cover object-top aspect-[3/4]"
+                  onError={(e) => {
+                    const raw = siteImages[`${doctor.imageKey}Raw`];
+                    if (raw && e.currentTarget.src !== raw) e.currentTarget.src = raw;
+                  }}
                 />
                 <div className="mt-6 bg-navy-50 rounded-2xl p-6 border border-gray-100">
                   <p className="text-gold-600 text-sm font-semibold mb-2">{p.affiliation}</p>
