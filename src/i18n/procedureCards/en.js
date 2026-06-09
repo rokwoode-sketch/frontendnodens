@@ -87,9 +87,9 @@ export default {
     viewProfile: 'View Full Profile',
     meetAll: 'Meet All Doctors',
     list: [
-      { name: 'Prof. Dr. Halil Erbiş', specialty: 'Organ Transplant & Hepatobiliary Surgery', affiliation: 'Istanbul University Faculty of Medicine', expertise: ['Kidney Transplant', 'Liver Transplant', 'Hepatobiliary Surgery'], stats: [{ num: '20+', label: 'Years Experience' }, { num: '2,400+', label: 'Transplants' }, { num: '1,200+', label: 'Citations' }], imageKey: 'doctorHalil' },
-      { name: 'Prof. Dr. Senem Karabulut', specialty: 'Medical Oncology Specialist', affiliation: 'Istanbul University — Cerrahpaşa', expertise: ['Immunotherapy', 'Targeted Smart Drugs', 'Cancer Follow-up'], stats: [{ num: '15+', label: 'Years in Oncology' }, { num: 'ESMO', label: 'Member' }, { num: 'MDT', label: 'Tumor Board Lead' }], imageKey: 'doctorSenem' },
-      { name: 'Prof. Dr. Esra Kaytan Sağlam', specialty: 'Radiation Oncology — Former Faculty Dean', affiliation: 'Istanbul University — İstanbul Faculty', expertise: ['CyberKnife Radiosurgery', 'TrueBeam STx', 'Precision Radiotherapy'], stats: [{ num: 'CyberKnife', label: 'Expert' }, { num: 'TrueBeam', label: 'STx' }, { num: 'Former', label: 'Dean' }], imageKey: 'doctorEsra' },
+      { slug: 'halil-erbis', name: 'Prof. Dr. Halil Erbiş', specialty: 'Organ Transplant & Hepatobiliary Surgery', affiliation: 'Istanbul University Faculty of Medicine', expertise: ['Kidney Transplant', 'Liver Transplant', 'Hepatobiliary Surgery'], stats: [{ num: '20+', label: 'Years Experience' }, { num: '2,400+', label: 'Transplants' }, { num: '1,200+', label: 'Citations' }], imageKey: 'doctorHalil' },
+      { slug: 'senem-karabulut', name: 'Prof. Dr. Senem Karabulut', specialty: 'Medical Oncology Specialist', affiliation: 'Istanbul University — Cerrahpaşa', expertise: ['Immunotherapy', 'Targeted Smart Drugs', 'Cancer Follow-up'], stats: [{ num: '15+', label: 'Years in Oncology' }, { num: 'ESMO', label: 'Member' }, { num: 'MDT', label: 'Tumor Board Lead' }], imageKey: 'doctorSenem' },
+      { slug: 'esra-kaytan-saglam', name: 'Prof. Dr. Esra Kaytan Sağlam', specialty: 'Radiation Oncology — Former Faculty Dean', affiliation: 'Istanbul University — İstanbul Faculty', expertise: ['CyberKnife Radiosurgery', 'TrueBeam STx', 'Precision Radiotherapy'], stats: [{ num: 'CyberKnife', label: 'Expert' }, { num: 'TrueBeam', label: 'STx' }, { num: 'Former', label: 'Dean' }], imageKey: 'doctorEsra' },
     ],
   },
 };
