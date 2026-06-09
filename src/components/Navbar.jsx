@@ -5,6 +5,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 
 import { useLanguage } from '../i18n/LanguageContext';
+import { siteImages } from '../data/siteImages';
 
 
 
@@ -188,11 +189,11 @@ export default function Navbar() {
 
           <img
 
-            src="https://static.wixstatic.com/media/aac3c1_a296d25f8cb9453dbfd51198fac6ccc8~mv2.png/v1/fill/w_200,h_80,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/aac3c1_a296d25f8cb9453dbfd51198fac6ccc8~mv2.png"
+            src={siteImages.logo}
 
             alt="NodensCare"
 
-            className="h-10 w-auto object-contain brightness-0 invert"
+            className="h-11 w-auto max-w-[140px] object-contain object-left brightness-0 invert"
 
             onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
 
