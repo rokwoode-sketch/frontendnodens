@@ -25,6 +25,7 @@ export const siteImages = {
   dentalImplants: wix('aac3c1_770098405f7e438f867723c05af613d8~mv2.jpeg', 'WhatsApp Image 2026-02-21 at 12_55_20(2).jpeg'),
   breastAug: wix('aac3c1_5d511981d9864e249c732992fee8373f~mv2.jpeg', 'WhatsApp Image 2026-02-21 at 12_55_20(3).jpeg'),
   armLift: wixFit('aac3c1_638a1b90042a4e50ac153602c67b3e1a~mv2.jpg', 688, 688),
+  abdominoplasty: wix('aac3c1_c9952fd332ff4e7d8f5ef2fa63672e7f~mv2.jpeg', 'WhatsApp Image 2026-02-21 at 12_55_20(4).jpeg'),
   prp: wix('aac3c1_16370d695c8c4568bb725fe3fb1069be~mv2.jpeg', 'WhatsApp Image 2026-02-21 at 12_55_20(1).jpeg'),
 
   dental: wix('aac3c1_4a7ff6e0d437480cadba92f2fd0d7b59~mv2.jpeg', 'WhatsApp Image 2026-02-21 at 12_55_18(2).jpeg', 700, 450),
@@ -32,7 +33,7 @@ export const siteImages = {
   complex: wixFit('aac3c1_a4847bce76c14078a88a51782a507500~mv2.png', 700, 450),
 
   // Doctor portraits from nodenscare.com site assets
-  doctorHalil: wixFit('aac3c1_4c4e67d73976405492a9d00408d5f989~mv2.jpg', 400, 500),
+  doctorHalil: wixFit('aac3c1_648bb774fa88468e8b63a1edc46434c9~mv2.jpg', 400, 500),
   doctorSenem: wixFit('aac3c1_9de23ebfae584ba3b222af9d4e511bf1~mv2.png', 400, 500),
   doctorEsra: wixFit('aac3c1_2992ab2f1cc1488383a9b206f0ef7505~mv2.jpg', 400, 500),
 };
