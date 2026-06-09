@@ -6,10 +6,10 @@ import ProcedurePageHero from '../components/ProcedurePageHero';
 import { siteImages } from '../data/siteImages';
 
 const techniqueImages = {
-  fue: siteImages.hair,
-  dhi: siteImages.hair,
-  prp: siteImages.prp,
-  exosome: siteImages.prp,
+  fue: siteImages.hairFue,
+  dhi: siteImages.hairDhi,
+  prp: siteImages.hairPrp,
+  exosome: siteImages.hairExosome,
 };
 
 export default function HairTransplantPage() {
@@ -24,7 +24,7 @@ export default function HairTransplantPage() {
         <meta name="description" content={p.metaDescription} />
       </Helmet>
 
-      <ProcedurePageHero pageKey="hair" image={siteImages.hair}>
+      <ProcedurePageHero pageKey="hair" image={siteImages.hairHero}>
         <div className="flex flex-wrap gap-4 mb-10">
           <a href="https://wa.me/905546745516?text=I%27d%20like%20a%20free%20hair%20analysis" target="_blank" rel="noopener noreferrer" className="btn-primary">
             {p.cta1} <ArrowRight size={16} />
