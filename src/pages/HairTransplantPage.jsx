@@ -1,6 +1,9 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { CheckCircle, ArrowRight, Clock, Star, Shield, Phone, ChevronRight } from 'lucide-react';
+import { CheckCircle, ArrowRight, Clock, Star, Shield, Phone } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
+import ProcedurePageHero from '../components/ProcedurePageHero';
+import { siteImages } from '../data/siteImages';
 
 const techniques = [
   {
@@ -9,7 +12,7 @@ const techniques = [
     title: 'FUE Sapphire: The Precision Gold Standard',
     subtitle: 'Most Advanced · Highest Density · Natural Results',
     price: '€1,500 / $1,800',
-    image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=700&h=450&fit=crop',
+    image: siteImages.hair,
     description: 'Our Sapphire FUE protocol uses blades crafted from genuine sapphire gemstone, creating V-shaped micro-channels rather than U-shaped. This single innovation allows for 40% less scalp trauma, higher graft density per cm², and dramatically faster healing.',
     phases: [
       { label: 'Phase 1 — Academic Consultation & Design', desc: 'Your journey begins at our university facility with a professional hair analysis. Our doctors design your hairline based on facial symmetry, donor capacity, and how your hair will look as you age.' },
@@ -44,7 +47,7 @@ const techniques = [
     title: 'DHI Choi Pen: Direct Implantation for Maximum Density',
     subtitle: 'Zero Channel Creation · Superior Angle Control · High Density',
     price: '€1,800 / $2,100',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&h=450&fit=crop',
+    image: siteImages.hair,
     description: 'DHI (Direct Hair Implantation) uses a patented Choi implanter pen to extract and implant follicles simultaneously — without pre-creating channels. This direct method achieves superior angle precision, better graft survival, and higher density in the implanted area.',
     phases: [
       { label: 'Extraction', desc: 'Follicles extracted individually using micro-punches under local anesthesia.' },
@@ -70,7 +73,7 @@ const techniques = [
     title: 'PRP & Mesotherapy: Non-Surgical Follicle Revitalization',
     subtitle: 'No Surgery · No Downtime · Strengthens Existing Hair',
     price: '€400 / $480 per session',
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=700&h=450&fit=crop',
+    image: siteImages.hair,
     description: 'Platelet-Rich Plasma therapy uses your own blood\'s growth factors to awaken dormant follicles, slow hair shedding, and improve scalp health. Mesotherapy delivers vitamins, minerals, and amino acids directly to the scalp. Both are used as standalone treatments or in combination with transplants to maximize results.',
     includes: [
       'Medical-grade PRP centrifuge processing',
@@ -90,7 +93,7 @@ const techniques = [
     title: 'Exosome Therapy: Next-Generation Regenerative Medicine',
     subtitle: 'Cutting-Edge · Activates Dormant Follicles · Clinically Studied',
     price: '€900 / $1,050 per session',
-    image: 'https://images.unsplash.com/photo-1518152006812-edab29b069ac?w=700&h=450&fit=crop',
+    image: siteImages.hair,
     description: 'Exosomes are extracellular vesicles containing powerful growth signals. Applied to the scalp, they activate dormant hair follicles, improve hair shaft thickness, and repair scalp tissue at the cellular level — representing the frontier of non-surgical hair restoration.',
     includes: [
       'Laboratory-grade exosome concentrate',
@@ -112,76 +115,32 @@ const faqsGlobal = [
 ];
 
 export default function HairTransplantPage() {
+  const { t } = useLanguage();
+  const p = t.pages.hair;
+
   return (
     <>
       <Helmet>
-        <title>Hair Transplant Istanbul | FUE Sapphire & DHI — NodensCare</title>
-        <meta name="description" content="Hair transplant in Istanbul from €1,500. FUE Sapphire & DHI Choi Pen techniques. JCI-accredited hospitals. Professor-led care. 98% graft survival rate. Free virtual hair analysis." />
+        <title>{p.metaTitle}</title>
+        <meta name="description" content={p.metaDescription} />
       </Helmet>
 
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 gradient-navy overflow-hidden">
-        <div className="absolute inset-0 opacity-10"
-          style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/svg%3E")` }}
-        />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="flex items-center gap-2 text-gold-400 text-sm mb-6">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
-            <ChevronRight size={14} />
-            <span className="text-white">Hair Transplant</span>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-500/30 rounded-full px-4 py-1.5 mb-6">
-                <span className="w-2 h-2 bg-gold-400 rounded-full animate-pulse" />
-                <span className="text-gold-300 text-xs font-semibold tracking-widest uppercase">Advanced Hair Restoration Istanbul</span>
-              </div>
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                Hair Transplant <span className="text-gold-400">Istanbul</span>
-                <br />FUE Sapphire & DHI
-              </h1>
-              <p className="text-white/70 text-lg leading-relaxed mb-8">
-                Permanent hair restoration performed by university-affiliated professors in JCI-accredited hospitals. From €1,500 all-inclusive. Over 5,000 successful procedures.
-              </p>
-              <div className="flex flex-wrap gap-4 mb-10">
-                <a href="https://wa.me/905546745516?text=I%27d%20like%20a%20free%20hair%20analysis" target="_blank" rel="noopener noreferrer" className="btn-primary">
-                  Get Free Hair Analysis
-                  <ArrowRight size={16} />
-                </a>
-                <Link to="/contact" className="btn-outline">Contact a Coordinator</Link>
-              </div>
-              <div className="grid grid-cols-3 gap-4">
-                {[
-                  { num: '5,000+', label: 'Procedures Performed' },
-                  { num: '98%', label: 'Graft Survival Rate' },
-                  { num: '12 mo', label: 'Follow-Up Included' },
-                ].map(({ num, label }) => (
-                  <div key={label} className="bg-white/10 backdrop-blur rounded-xl p-4 text-center border border-white/10">
-                    <div className="font-serif text-2xl font-bold text-gold-400">{num}</div>
-                    <div className="text-white/70 text-xs mt-1">{label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="relative hidden lg:block">
-              <img
-                src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=600&h=500&fit=crop"
-                alt="Hair transplant consultation Istanbul"
-                className="rounded-2xl shadow-2xl w-full h-[420px] object-cover border border-white/10"
-              />
-              <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl p-4 shadow-2xl flex items-center gap-3 border border-gray-100">
-                <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
-                  <CheckCircle size={20} className="text-green-600" />
-                </div>
-                <div>
-                  <div className="font-bold text-navy-950 text-sm">JCI Accredited</div>
-                  <div className="text-gray-500 text-xs">International Safety Standard</div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <ProcedurePageHero pageKey="hair" image={siteImages.hair}>
+        <div className="flex flex-wrap gap-4 mb-10">
+          <a href="https://wa.me/905546745516?text=I%27d%20like%20a%20free%20hair%20analysis" target="_blank" rel="noopener noreferrer" className="btn-primary">
+            {p.cta1} <ArrowRight size={16} />
+          </a>
+          <Link to="/contact" className="btn-outline">{p.cta2}</Link>
         </div>
-      </section>
+        <div className="grid grid-cols-3 gap-4">
+          {p.stats.map((label, i) => (
+            <div key={label} className="bg-white/10 backdrop-blur rounded-xl p-4 text-center border border-white/10">
+              <div className="font-serif text-2xl font-bold text-gold-400">{p.statNums[i]}</div>
+              <div className="text-white/70 text-xs mt-1">{label}</div>
+            </div>
+          ))}
+        </div>
+      </ProcedurePageHero>
 
       {/* Trust bar */}
       <section className="bg-white border-b border-gray-100">
