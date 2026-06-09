@@ -59,6 +59,12 @@ export default {
     readGuide: 'Read guide',
     procedures: 'procedures',
   },
+  doctorProfile: {
+    overview: 'Professional Overview',
+    affiliation: 'Affiliation',
+    consultBtn: 'Request Consultation',
+    allDoctors: 'All Doctors',
+  },
   doctors: {
     metaTitle: 'Our Doctors | Professor-Led Medical Team — NodensCare Istanbul',
     metaDescription: 'Meet NodensCare\'s professor-led medical team in Istanbul. University-affiliated specialists across transplant, oncology, radiotherapy, and aesthetic surgery.',
