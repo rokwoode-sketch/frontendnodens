@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { GraduationCap, Award, ArrowRight } from 'lucide-react';
@@ -5,6 +6,12 @@ import { GraduationCap, Award, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
 import { siteImages } from '../data/siteImages';
+
+const doctorFallback = {
+  doctorHalil: 'doctorHalilRaw',
+  doctorSenem: 'doctorSenemRaw',
+  doctorEsra: 'doctorEsraRaw',
+};
 
 
 
@@ -25,6 +32,22 @@ const specialistAreas = {
 const colors = ['from-navy-800 to-navy-950', 'from-teal-700 to-teal-900', 'from-gold-700 to-amber-900'];
 
 
+
+function DoctorPhoto({ imageKey, name }) {
+  const [src, setSrc] = useState(siteImages[imageKey]);
+  return (
+    <img
+      src={src}
+      alt={name}
+      referrerPolicy="no-referrer"
+      className="w-full h-full object-cover object-top opacity-95 group-hover:scale-105 transition-transform duration-500"
+      onError={() => {
+        const fallbackKey = doctorFallback[imageKey];
+        if (fallbackKey && src !== siteImages[fallbackKey]) setSrc(siteImages[fallbackKey]);
+      }}
+    />
+  );
+}
 
 export default function Doctors() {
 
@@ -64,17 +87,9 @@ export default function Doctors() {
 
             <div key={doc.name} className="group bg-white rounded-2xl overflow-hidden border border-gray-100 card-hover shadow-sm flex flex-col" data-aos="fade-up" data-aos-delay={i * 120}>
 
-              <div className={`relative h-56 overflow-hidden bg-gradient-to-br ${colors[i]}`}>
+              <div className={`relative h-72 overflow-hidden bg-gradient-to-br ${colors[i]}`}>
 
-                <img
-
-                  src={siteImages[doc.imageKey]}
-
-                  alt={doc.name}
-
-                  className="w-full h-full object-cover object-top opacity-95 group-hover:scale-105 transition-transform duration-500"
-
-                />
+                <DoctorPhoto imageKey={doc.imageKey} name={doc.name} />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/80 via-transparent to-transparent" />
 
@@ -122,14 +137,13 @@ export default function Doctors() {
 
                 </div>
 
-                <Link to={`/doctors/${doc.slug}`} className="mt-auto flex items-center gap-1.5 text-navy-700 hover:text-gold-600 font-semibold text-sm transition-colors group/btn">
-
-                  <GraduationCap size={14} className="text-gold-500" />
-
+                <Link
+                  to={`/doctors/${doc.slug}`}
+                  className="mt-auto inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl border-2 border-navy-200 text-navy-800 hover:border-gold-500 hover:text-gold-700 font-semibold text-sm transition-colors group/btn"
+                >
+                  <GraduationCap size={15} className="text-gold-500" />
                   {dc.viewProfile}
-
-                  <ArrowRight size={13} className="transition-transform group-hover/btn:translate-x-1" />
-
+                  <ArrowRight size={14} className="transition-transform group-hover/btn:translate-x-1" />
                 </Link>
 
               </div>
