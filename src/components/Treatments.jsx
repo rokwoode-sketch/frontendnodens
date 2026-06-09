@@ -63,7 +63,7 @@ export default function Treatments() {
                 <img src={item.image} alt={`${item.nameKey} Istanbul Turkey`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/50 to-transparent" />
                 {item.popular && (
-                  <div className="absolute top-4 right-4 bg-gold-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">★ Popular</div>
+                  <div className="absolute top-4 right-4 bg-gold-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">Popular</div>
                 )}
                 <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full border border-white/30">
                   {item.category}
