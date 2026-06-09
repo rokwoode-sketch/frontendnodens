@@ -1,14 +1,10 @@
 import { Link } from 'react-router-dom';
 import { Scissors, Smile, Leaf, Heart, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { siteImages } from '../data/siteImages';
 
 const icons = [Leaf, Smile, Scissors, Heart];
-const images = [
-  'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&h=320&fit=crop',
-  'https://images.unsplash.com/photo-1588776814546-1ffedba28bc4?w=500&h=320&fit=crop',
-  'https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=500&h=320&fit=crop',
-  'https://images.unsplash.com/photo-1551076805-e1869033e561?w=500&h=320&fit=crop',
-];
+const images = [siteImages.hair, siteImages.hollywoodSmile, siteImages.rhinoplasty, siteImages.complex];
 const badgeColors = ['bg-gold-500', 'bg-teal-600', 'bg-navy-700', 'bg-red-700'];
 const pageLinks = ['/hair-transplant', '/dental', '/plastic-surgery', '/complex-treatments'];
 
