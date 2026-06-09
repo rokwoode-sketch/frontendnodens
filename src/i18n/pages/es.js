@@ -59,6 +59,12 @@ export default {
     readGuide: 'Leer guía',
     procedures: 'procedimientos',
   },
+  doctorProfile: {
+    overview: 'Resumen Profesional',
+    affiliation: 'Afiliación',
+    consultBtn: 'Solicitar Consulta',
+    allDoctors: 'Todos los Médicos',
+  },
   doctors: {
     metaTitle: 'Nuestros Médicos | Equipo Médico — NodensCare Estambul',
     metaDescription: 'Conozca el equipo médico de NodensCare en Estambul. Profesores universitarios en trasplante, oncología y radioterapia.',
