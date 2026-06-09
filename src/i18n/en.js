@@ -1,4 +1,5 @@
 import pages from './pages/en';
+import procedureCards from './procedureCards/en';
 
 const en = {
   lang: 'en',
@@ -155,11 +156,10 @@ const en = {
     cases: {
       hollywoodSmile: { procedure: 'Hollywood Smile', description: 'Full-mouth veneer transformation — NodensCare patient' },
       hairTransplant: { procedure: 'Hair Transplant', description: 'FUE Sapphire natural hairline restoration — patient result' },
-      bbl: { procedure: '360 Liposuction + BBL', description: 'Body contouring and fat transfer — patient result' },
+      bbl: { procedure: '360° Liposuction + BBL', description: 'High-definition body contouring and fat transfer — patient result' },
       rhinoplasty: { procedure: 'Rhinoplasty', description: 'Ethnic nose refinement — NodensCare patient' },
       allOn6: { procedure: 'All-on-6 Dental Implants', description: 'Full-arch fixed bridge restoration — patient result' },
       facelift: { procedure: 'Facelift', description: 'Deep plane facial rejuvenation — NodensCare patient' },
-      zirconium: { procedure: 'Zirconium Crowns', description: 'Metal-free smile makeover — patient result' },
     },
   },
   doctors: {
@@ -236,6 +236,7 @@ const en = {
     privacy: 'Your information is confidential and protected. No spam, ever.',
   },
   pages,
+  procedureCards,
   homeExplore: {
     sectionLabel: 'Explore NodensCare',
     h2: 'Dedicated Pages for Every Need',
