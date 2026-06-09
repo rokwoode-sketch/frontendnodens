@@ -50,6 +50,9 @@ export const siteImages = {
 
   hero: wixFit('aac3c1_ee988dab13854acc9d8b55c7bab546e2~mv2.jpg', 600, 700),
 
+  // About page — nodenscare.com/about-us hero (2000×1334 clinical facility image)
+  aboutHero: wixFit('aac3c1_a96b83adedab4888bd0bd7d14be75573~mv2.webp', 800, 560),
+
 
 
   // Homepage Before & After gallery (exact 6)
