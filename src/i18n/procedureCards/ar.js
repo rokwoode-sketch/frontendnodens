@@ -40,9 +40,9 @@ export default {
     viewProfile: 'عرض الملف الكامل',
     meetAll: 'جميع أطبائنا',
     list: [
-      { name: 'أ.د. خليل إربيش', specialty: 'زراعة الأعضاء والجراحة الكبدية', affiliation: 'جامعة إسطنبول', expertise: ['زراعة الكلى', 'زراعة الكبد', 'جراحة الكبد'], stats: [{ num: '+20', label: 'سنة خبرة' }, { num: '+2,400', label: 'زراعة' }, { num: '+1,200', label: 'استشهاد' }], imageKey: 'doctorHalil' },
-      { name: 'أ.د. سنيم كارابولوت', specialty: 'أخصائية الأورام', affiliation: 'جامعة إسطنبول — جراح باشا', expertise: ['العلاج المناعي', 'الأدوية الذكية', 'متابعة السرطان'], stats: [{ num: '+15', label: 'سنة في الأورام' }, { num: 'ESMO', label: 'عضو' }, { num: 'MDT', label: 'رئيسة الفريق' }], imageKey: 'doctorSenem' },
-      { name: 'أ.د. إسراء كايتان صاغلام', specialty: 'الأورام الإشعاعية — عميدة سابقة', affiliation: 'جامعة إسطنبول', expertise: ['CyberKnife', 'TrueBeam', 'علاج إشعاعي دقيق'], stats: [{ num: 'CyberKnife', label: 'خبيرة' }, { num: 'TrueBeam', label: 'STx' }, { num: 'سابقة', label: 'عميدة' }], imageKey: 'doctorEsra' },
+      { slug: 'halil-erbis', name: 'أ.د. خليل إربيش', specialty: 'زراعة الأعضاء والجراحة الكبدية', affiliation: 'جامعة إسطنبول', expertise: ['زراعة الكلى', 'زراعة الكبد', 'جراحة الكبد'], stats: [{ num: '+20', label: 'سنة خبرة' }, { num: '+2,400', label: 'زراعة' }, { num: '+1,200', label: 'استشهاد' }], imageKey: 'doctorHalil' },
+      { slug: 'senem-karabulut', name: 'أ.د. سنيم كارابولوت', specialty: 'أخصائية الأورام', affiliation: 'جامعة إسطنبول — جراح باشا', expertise: ['العلاج المناعي', 'الأدوية الذكية', 'متابعة السرطان'], stats: [{ num: '+15', label: 'سنة في الأورام' }, { num: 'ESMO', label: 'عضو' }, { num: 'MDT', label: 'رئيسة الفريق' }], imageKey: 'doctorSenem' },
+      { slug: 'esra-kaytan-saglam', name: 'أ.د. إسراء كايتان صاغلام', specialty: 'الأورام الإشعاعية — عميدة سابقة', affiliation: 'جامعة إسطنبول', expertise: ['CyberKnife', 'TrueBeam', 'علاج إشعاعي دقيق'], stats: [{ num: 'CyberKnife', label: 'خبيرة' }, { num: 'TrueBeam', label: 'STx' }, { num: 'سابقة', label: 'عميدة' }], imageKey: 'doctorEsra' },
     ],
   },
 };
