@@ -1,6 +1,9 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { AlertCircle, CheckCircle, ArrowRight, ChevronRight, Shield, GraduationCap } from 'lucide-react';
+import { AlertCircle, CheckCircle, ArrowRight, Shield, GraduationCap } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
+import ProcedurePageHero from '../components/ProcedurePageHero';
+import { siteImages } from '../data/siteImages';
 
 const MEDICAL_DISCLAIMER = 'The information on this page is provided for educational purposes only and is not intended as medical advice. Treatment options, procedures, and outcomes vary based on individual patient circumstances. All clinical decisions are made by qualified medical specialists following thorough patient assessment. NodensCare acts as a medical consultancy and does not practice medicine.';
 
@@ -10,7 +13,7 @@ const treatments = [
     tag: 'Oncology',
     title: 'Advanced Cancer Treatment in Turkey',
     leadDoctor: 'Prof. Dr. Senem Karabulut — Medical Oncology',
-    image: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=700&h=450&fit=crop',
+    image: siteImages.complex,
     overview: 'Our partner oncology centers in Istanbul offer multi-disciplinary cancer care coordinated by a Tumor Board — a panel of specialists including medical oncologists, radiation oncologists, surgeons, and radiologists who collectively review and plan each patient\'s treatment. Every case is unique; therefore, genetic and molecular analysis is conducted before treatment begins.',
     options: [
       { name: 'Immunotherapy & Targeted Smart Drugs', desc: 'Immunotherapy stimulates your immune system to recognize and destroy cancer cells. Targeted therapy focuses on specific molecular structures of tumors, resulting in fewer side effects and higher success rates than traditional chemotherapy in qualifying cases.' },
@@ -37,7 +40,7 @@ const treatments = [
     tag: 'Organ Transplantation',
     title: 'Organ Transplant Center Istanbul',
     leadDoctor: 'Prof. Dr. Halil ERBIS — 2,400+ Successful Transplants',
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=700&h=450&fit=crop',
+    image: siteImages.complex,
     overview: 'Prof. Dr. Halil Erbiş leads one of Turkey\'s most experienced transplant centers, specializing in live-donor kidney and liver transplantation. With over 2,400 successful procedures and 20+ years of academic surgical experience, his team implements a 48-hour evaluation protocol that is among the fastest in Europe.',
     options: [
       { name: 'Kidney Transplantation', desc: 'Live-donor and cadaveric kidney transplantation with laparoscopic donor nephrectomy. Average hospital stay: 5 days. Prof. Erbiş\'s center achieves graft success rates aligned with the highest international standards.' },
@@ -63,7 +66,7 @@ const treatments = [
     tag: 'Reproductive Medicine',
     title: 'IVF Treatment & Genetic Screening in Istanbul',
     leadDoctor: 'Specialist Reproductive Endocrinology Team',
-    image: 'https://images.unsplash.com/photo-1518152006812-edab29b069ac?w=700&h=450&fit=crop',
+    image: siteImages.complex,
     overview: 'Our partner IVF centers in Istanbul combine the latest reproductive technology with academically trained embryologists and reproductive endocrinologists. Programs include standard IVF, ICSI, egg donation, embryo donation, and advanced genetic screening (PGD/PGS) for couples seeking the highest possible success rates.',
     options: [
       { name: 'IVF & ICSI', desc: 'Conventional IVF and Intracytoplasmic Sperm Injection (ICSI) using time-lapse incubator technology (EmbryoScope), which allows continuous monitoring of embryo development without removing embryos from the incubator.' },
@@ -87,37 +90,24 @@ const treatments = [
 ];
 
 export default function ComplexTreatmentsPage() {
+  const { t } = useLanguage();
+  const p = t.pages.complex;
+
   return (
     <>
       <Helmet>
-        <title>Cancer Treatment, Organ Transplant & IVF Turkey | NodensCare Istanbul</title>
-        <meta name="description" content="Advanced cancer treatment, organ transplantation, and IVF in Istanbul with university professor-led teams. JCI-accredited. Prof. Dr. Halil ERBIS — 2,400+ transplants. Free medical assessment." />
+        <title>{p.metaTitle}</title>
+        <meta name="description" content={p.metaDescription} />
       </Helmet>
 
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 gradient-navy overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="flex items-center gap-2 text-gold-400 text-sm mb-6">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
-            <ChevronRight size={14} />
-            <span className="text-white">Complex Treatments</span>
-          </div>
-          <div className="max-w-3xl">
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              Complex Medical Treatments <span className="text-gold-400">Istanbul</span>
-            </h1>
-            <p className="text-white/70 text-lg leading-relaxed mb-8">
-              Oncology. Organ transplantation. Reproductive medicine. NodensCare coordinates the most complex medical journeys through Turkey's leading academic hospitals — with professor-led, multidisciplinary teams.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="https://wa.me/905546745516?text=Complex%20treatment%20inquiry" target="_blank" rel="noopener noreferrer" className="btn-primary">
-                Speak with a Medical Coordinator <ArrowRight size={16} />
-              </a>
-              <Link to="/doctors" className="btn-outline">Meet Our Professors</Link>
-            </div>
-          </div>
+      <ProcedurePageHero pageKey="complex" image={siteImages.complex}>
+        <div className="flex flex-wrap gap-4">
+          <a href="https://wa.me/905546745516?text=Complex%20treatment%20inquiry" target="_blank" rel="noopener noreferrer" className="btn-primary">
+            {p.cta1} <ArrowRight size={16} />
+          </a>
+          <Link to="/doctors" className="btn-outline">{p.cta2}</Link>
         </div>
-      </section>
+      </ProcedurePageHero>
 
       {/* YMYL Disclaimer — prominent */}
       <div className="bg-amber-50 border-y border-amber-200">
