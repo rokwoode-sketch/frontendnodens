@@ -15,6 +15,8 @@ const es = {
     home: 'Inicio', about: 'Nosotros', packages: 'Paquetes', guides: 'Guías', complex: 'Tratamientos Complejos',
     plasticSurgery: 'Cirugía Plástica', dental: 'Dental', hairTransplant: 'Trasplante Capilar',
     ourDoctors: 'Nuestros Médicos', beforeAfter: 'Antes y Después', faq: 'Preguntas Frecuentes', contact: 'Contacto', cta: 'Consulta Gratuita',
+    tagline: 'Profesores · Hospitales JCI',
+    trustBar: { jci: 'Acreditado JCI', professors: 'Atención de Profesores', location: 'Estambul, Turquía' },
     procedures: {
       rhinoplasty: 'Rinoplastia', liposuction: 'Liposucción 360', bbl: 'Brazilian Butt Lift (BBL)',
       breastAug: 'Aumento de Senos', facelift: 'Lifting Facial', blepharoplasty: 'Blefaroplastia',
