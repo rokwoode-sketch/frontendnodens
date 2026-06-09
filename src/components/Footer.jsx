@@ -3,53 +3,6 @@ import { MapPin, Phone, Mail } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { FaWhatsapp, FaInstagram, FaFacebook, FaLinkedin, FaYoutube, FaTiktok } from 'react-icons/fa';
 
-const navLinks = [
-  {
-    category: 'Plastic Surgery',
-    items: [
-      { label: 'Rhinoplasty', to: '/plastic-surgery#rhinoplasty' },
-      { label: 'Liposuction 360', to: '/plastic-surgery#liposuction' },
-      { label: 'Brazilian Butt Lift', to: '/plastic-surgery#bbl' },
-      { label: 'Breast Augmentation', to: '/plastic-surgery#breast-aug' },
-      { label: 'Facelift', to: '/plastic-surgery#facelift' },
-      { label: 'Abdominoplasty', to: '/plastic-surgery#abdominoplasty' },
-      { label: 'Mommy Makeover', to: '/plastic-surgery#mommy-makeover' },
-    ],
-  },
-  {
-    category: 'Dental',
-    items: [
-      { label: 'Hollywood Smile', to: '/dental#hollywood-smile' },
-      { label: 'Dental Implants', to: '/dental#implants' },
-      { label: 'Zirconium Crowns', to: '/dental#zirconium' },
-      { label: 'All-on-4', to: '/dental#all-on-4' },
-      { label: 'All-on-6', to: '/dental#all-on-6' },
-    ],
-  },
-  {
-    category: 'Hair Transplant',
-    items: [
-      { label: 'FUE Sapphire', to: '/hair-transplant#fue' },
-      { label: 'DHI / Choi Pen', to: '/hair-transplant#dhi' },
-      { label: 'PRP & Mesotherapy', to: '/hair-transplant#prp' },
-      { label: 'Exosome Therapy', to: '/hair-transplant#exosome' },
-    ],
-  },
-  {
-    category: 'Company',
-    items: [
-      { label: 'About Us', to: '/about' },
-      { label: 'Our Doctors', to: '/doctors' },
-      { label: 'Treatment Packages', to: '/packages' },
-      { label: 'Patient Guides', to: '/blog' },
-      { label: 'Complex Treatments', to: '/complex-treatments' },
-      { label: 'Before & After', to: '/results' },
-      { label: 'FAQ', to: '/faq' },
-      { label: 'Contact', to: '/contact' },
-    ],
-  },
-];
-
 const socials = [
   { icon: FaWhatsapp, href: 'https://wa.me/905546745516', label: 'WhatsApp', color: 'hover:text-green-400' },
   { icon: FaInstagram, href: 'https://www.instagram.com/nodenscare', label: 'Instagram', color: 'hover:text-pink-400' },
@@ -61,6 +14,55 @@ const socials = [
 
 export default function Footer() {
   const { t } = useLanguage();
+  const l = t.footer.links;
+  const c = t.footer.categories;
+
+  const navLinks = [
+    {
+      category: c.plasticSurgery,
+      items: [
+        { label: l.rhinoplasty, to: '/plastic-surgery#rhinoplasty' },
+        { label: l.liposuction, to: '/plastic-surgery#liposuction' },
+        { label: l.bbl, to: '/plastic-surgery#bbl' },
+        { label: l.breastAug, to: '/plastic-surgery#breast-aug' },
+        { label: l.facelift, to: '/plastic-surgery#facelift' },
+        { label: l.abdominoplasty, to: '/plastic-surgery#abdominoplasty' },
+        { label: l.mommyMakeover, to: '/plastic-surgery#mommy-makeover' },
+      ],
+    },
+    {
+      category: c.dental,
+      items: [
+        { label: l.hollywoodSmile, to: '/dental#hollywood-smile' },
+        { label: l.implants, to: '/dental#implants' },
+        { label: l.zirconium, to: '/dental#zirconium' },
+        { label: l.allOn4, to: '/dental#all-on-4' },
+        { label: l.allOn6, to: '/dental#all-on-6' },
+      ],
+    },
+    {
+      category: c.hair,
+      items: [
+        { label: l.fue, to: '/hair-transplant#fue' },
+        { label: l.dhi, to: '/hair-transplant#dhi' },
+        { label: l.prp, to: '/hair-transplant#prp' },
+        { label: l.exosome, to: '/hair-transplant#exosome' },
+      ],
+    },
+    {
+      category: c.company,
+      items: [
+        { label: l.about, to: '/about' },
+        { label: l.doctors, to: '/doctors' },
+        { label: l.packages, to: '/packages' },
+        { label: l.guides, to: '/blog' },
+        { label: l.complex, to: '/complex-treatments' },
+        { label: l.results, to: '/results' },
+        { label: l.faq, to: '/faq' },
+        { label: l.contact, to: '/contact' },
+      ],
+    },
+  ];
 
   return (
     <footer className="bg-navy-950 text-white">
@@ -89,7 +91,7 @@ export default function Footer() {
               <h4 className="text-gold-400 font-semibold text-xs tracking-[0.15em] uppercase mb-4">{category}</h4>
               <ul className="space-y-2.5">
                 {items.map(({ label, to }) => (
-                  <li key={label}>
+                  <li key={to}>
                     <Link to={to} className="text-white/50 hover:text-white text-sm transition-colors">{label}</Link>
                   </li>
                 ))}
