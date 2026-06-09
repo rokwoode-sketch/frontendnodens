@@ -28,7 +28,15 @@ function wixLogo(id, w = 140, h = 44) {
 
 function wixWebp(id, w = 400, h = 520) {
 
-  return `https://static.wixstatic.com/media/${id}/v1/fit/w_${w},h_${h},q_90,enc_avif,quality_auto/${id}`;
+  return `https://static.wixstatic.com/media/${id}/v1/fill/w_${w},h_${h},al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/${encodeURIComponent(id)}`;
+
+}
+
+
+
+function wixRaw(id) {
+
+  return `https://static.wixstatic.com/media/${id}`;
 
 }
 
@@ -128,11 +136,17 @@ export const siteImages = {
 
   // Doctor portraits — nodenscare.com/prof-dr-esra-kaytan-saglam (explicit professor photos)
 
-  doctorHalil: wixWebp('aac3c1_ffbc0bf1f46f4fa4ba5fab7d56352c35~mv2.webp', 400, 520),
+  doctorHalil: wixWebp('aac3c1_ffbc0bf1f46f4fa4ba5fab7d56352c35~mv2.webp', 480, 600),
 
-  doctorSenem: wixWebp('aac3c1_629c94c76dbb47c9985ad69fb5fdf15c~mv2.webp', 400, 520),
+  doctorSenem: wixWebp('aac3c1_629c94c76dbb47c9985ad69fb5fdf15c~mv2.webp', 480, 600),
 
-  doctorEsra: wixWebp('aac3c1_06e090308a4543d9aa7c73fc8b027db1~mv2.webp', 400, 520),
+  doctorEsra: wixWebp('aac3c1_06e090308a4543d9aa7c73fc8b027db1~mv2.webp', 480, 600),
+
+  doctorHalilRaw: wixRaw('aac3c1_ffbc0bf1f46f4fa4ba5fab7d56352c35~mv2.webp'),
+
+  doctorSenemRaw: wixRaw('aac3c1_629c94c76dbb47c9985ad69fb5fdf15c~mv2.webp'),
+
+  doctorEsraRaw: wixRaw('aac3c1_06e090308a4543d9aa7c73fc8b027db1~mv2.webp'),
 
 };
 
