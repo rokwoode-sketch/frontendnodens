@@ -25,6 +25,12 @@ const fr = {
     faq: 'FAQ',
     contact: 'Contact',
     cta: 'Consultation Gratuite',
+    tagline: 'Professeurs · Hôpitaux JCI',
+    trustBar: {
+      jci: 'Accrédité JCI',
+      professors: 'Soins par Professeurs',
+      location: 'Istanbul, Turquie',
+    },
     procedures: {
       rhinoplasty: 'Rhinoplastie', liposuction: 'Liposuccion 360', bbl: 'Brazilian Butt Lift (BBL)',
       breastAug: 'Augmentation Mammaire', facelift: 'Lifting du Visage', blepharoplasty: 'Blépharoplastie',
