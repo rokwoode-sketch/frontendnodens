@@ -1,3 +1,5 @@
+import pages from './pages/ar';
+
 const ar = {
   lang: 'ar',
   dir: 'rtl',
@@ -124,13 +126,15 @@ const ar = {
     agreeBtn: 'أفهم — عرض المعرض',
     requestBtn: 'طلب المزيد من النتائج',
     before: 'قبل', after: 'بعد',
-    cases: [
-      { procedure: 'ابتسامة هوليوود', description: 'تحويل كامل بالفينير — مريض نودنزكير' },
-      { procedure: 'زراعة الشعر', description: 'استعادة FUE سافير — نتيجة مريض' },
-      { procedure: 'تجميل الأنف', description: 'تحسين ملامح الوجه — مريض نودنزكير' },
-      { procedure: 'زراعة الأسنان', description: 'إعادة تأهيل كاملة — نتيجة مريض' },
-      { procedure: 'جراحة تجميلية', description: 'إجراء تجميلي — مريض نودنزكير' },
-    ],
+    cases: {
+      hollywoodSmile: { procedure: 'ابتسامة هوليوود', description: 'تحويل كامل بالفينير — مريض نودنزكير' },
+      hairTransplant: { procedure: 'زراعة الشعر', description: 'استعادة خط شعر طبيعي FUE سافير — نتيجة مريض' },
+      bbl: { procedure: 'شفط 360 + رفع الأرداف', description: 'نحت الجسم ونقل الدهون — نتيجة مريض' },
+      rhinoplasty: { procedure: 'تجميل الأنف', description: 'تحسين ملامح الأنف — مريض نودنزكير' },
+      allOn6: { procedure: 'All-on-6 زراعة أسنان', description: 'إعادة تأهيل كاملة للفك — نتيجة مريض' },
+      facelift: { procedure: 'شد الوجه', description: 'تجديد الوجه deep plane — مريض نودنزكير' },
+      zirconium: { procedure: 'تيجان الزركونيوم', description: 'تحويل الابتسامة بدون معدن — نتيجة مريض' },
+    },
   },
   doctors: {
     sectionLabel: 'فريقنا الطبي',
@@ -205,6 +209,7 @@ const ar = {
     errorText: 'حدث خطأ ما. يرجى التواصل معنا عبر واتساب.',
     privacy: 'معلوماتك سرية ومحمية. لا إزعاج أبداً.',
   },
+  pages,
   homeExplore: {
     sectionLabel: 'استكشف نودنزكير',
     h2: 'صفحات مخصصة لكل احتياج',
