@@ -1,6 +1,9 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { CheckCircle, ArrowRight, ChevronRight } from 'lucide-react';
+import { CheckCircle, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
+import ProcedurePageHero from '../components/ProcedurePageHero';
+import { siteImages } from '../data/siteImages';
 
 const procedures = [
   {
@@ -9,7 +12,7 @@ const procedures = [
     title: 'Hollywood Smile',
     subtitle: 'E-max Veneers · Zirconia · Full Smile Design',
     price: '€3,200 / $3,800',
-    image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=700&h=450&fit=crop',
+    image: siteImages.hollywoodSmile,
     description: 'A Hollywood Smile is a full aesthetic smile transformation — typically 16–20 ultra-thin porcelain veneers designed specifically for your face shape, skin tone, and lip position. Our prosthodontists use Digital Smile Design (DSD) technology, allowing you to preview your new smile digitally before any work begins.',
     includes: ['Digital Smile Design preview', '16–20 E-max porcelain or zirconia veneers', 'Gum contouring if required', '5-day Istanbul stay', 'All transfers and accommodation', 'Lifetime warranty on materials'],
     faqs: [
@@ -23,7 +26,7 @@ const procedures = [
     title: 'Dental Implants',
     subtitle: 'Single · Multiple · Full Arch',
     price: 'From €800 / $950 per implant',
-    image: 'https://images.unsplash.com/photo-1588776814546-1ffedba28bc4?w=700&h=450&fit=crop',
+    image: siteImages.zirconium,
     description: 'Dental implants are the gold standard for replacing missing teeth — titanium posts surgically placed into the jawbone that fuse with bone over time to create a permanent, stable foundation for crowns, bridges, or full-arch restorations. Our implantologists use Nobel Biocare and Straumann systems.',
     includes: ['Premium implant system (Nobel Biocare / Straumann)', 'Digital implant planning with 3D CT scan', 'Surgical placement and healing abutment', 'Zirconia or E-max crown', 'All transfers and coordinator support'],
     faqs: [
@@ -37,7 +40,7 @@ const procedures = [
     title: 'Zirconium Crowns',
     subtitle: 'Metal-Free · Natural Appearance · Durable',
     price: '€200–350 / $240–420 per crown',
-    image: 'https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=700&h=450&fit=crop',
+    image: siteImages.zirconium,
     description: 'Zirconium dioxide crowns offer the ideal combination of strength and aesthetics. Unlike PFM (porcelain-fused-to-metal) crowns, zirconia is 100% metal-free, eliminating the grey gum line that appears as traditional crowns age. Our labs produce monolithic zirconia crowns with custom shading in 2–3 working days.',
     includes: ['Full mouth X-ray and evaluation', 'Digital shade matching', 'Monolithic or layered zirconia crown', '3–5 day turnaround', 'Temporary crowns during fabrication'],
     faqs: [
@@ -50,7 +53,7 @@ const procedures = [
     title: 'All-on-6 Dental Implants',
     subtitle: 'Full Arch · Fixed Bridge · Permanent Teeth',
     price: '€6,200 / $7,400 per arch',
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=700&h=450&fit=crop',
+    image: siteImages.allOn6,
     description: 'All-on-6 is a full-arch restoration using 6 strategically placed implants supporting a fixed porcelain bridge — replacing a full set of upper or lower teeth permanently. Unlike dentures, All-on-6 is fixed, never removed, and preserves jawbone. Many patients receive their final bridge within 3–5 days.',
     includes: ['3D CT scan and full treatment planning', '6 premium titanium implants per arch', 'Immediate fixed temporary bridge', 'Final zirconia or E-max fixed bridge', '7-day Istanbul stay', 'All transfers and accommodation'],
     faqs: [
@@ -61,63 +64,36 @@ const procedures = [
 ];
 
 export default function DentalPage() {
+  const { t } = useLanguage();
+  const p = t.pages.dental;
+
   return (
     <>
       <Helmet>
-        <title>Dental Treatments Istanbul | Hollywood Smile, Implants, All-on-6 — NodensCare</title>
-        <meta name="description" content="World-class dental treatments in Istanbul, Turkey. Hollywood Smile from €3,200. Dental implants, All-on-6, zirconia crowns. JCI-accredited clinics. Professor-supervised prosthodontists. Free consultation." />
+        <title>{p.metaTitle}</title>
+        <meta name="description" content={p.metaDescription} />
       </Helmet>
 
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 gradient-navy overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="flex items-center gap-2 text-gold-400 text-sm mb-6">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
-            <ChevronRight size={14} />
-            <span className="text-white">Dental Treatments</span>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-500/30 rounded-full px-4 py-1.5 mb-6">
-                <span className="w-2 h-2 bg-gold-400 rounded-full animate-pulse" />
-                <span className="text-gold-300 text-xs font-semibold tracking-widest uppercase">World-Class Dental Care Istanbul</span>
-              </div>
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-                Dental Treatments <span className="text-gold-400">Istanbul</span>
-              </h1>
-              <p className="text-white/70 text-lg leading-relaxed mb-8">
-                Transform your smile with Turkey's leading prosthodontists and implantologists. Hollywood Smile, dental implants, All-on-6 — in JCI-accredited facilities at 60–70% less than UK or US prices.
-              </p>
-              <div className="flex flex-wrap gap-4 mb-10">
-                <a href="https://wa.me/905546745516?text=Dental%20consultation%20inquiry" target="_blank" rel="noopener noreferrer" className="btn-primary">
-                  Get Free Dental Consultation <ArrowRight size={16} />
-                </a>
-                <Link to="/contact" className="btn-outline">Send Dental X-rays</Link>
-              </div>
-              <div className="grid grid-cols-3 gap-4">
-                {[
-                  { num: '3,000+', label: 'Smiles Transformed' },
-                  { num: '60–70%', label: 'Cost Savings vs. UK/US' },
-                  { num: '5.0', label: 'Patient Rated' },
-                ].map(({ num, label }) => (
-                  <div key={label} className="bg-white/10 backdrop-blur rounded-xl p-4 text-center border border-white/10">
-                    <div className="font-serif text-xl font-bold text-gold-400">{num}</div>
-                    <div className="text-white/70 text-xs mt-1">{label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="hidden lg:block">
-              <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&h=450&fit=crop" alt="Hollywood smile Istanbul dental treatment" className="rounded-2xl shadow-2xl w-full h-[400px] object-cover border border-white/10" />
-            </div>
-          </div>
+      <ProcedurePageHero pageKey="dental" image={siteImages.dental}>
+        <div className="flex flex-wrap gap-4 mb-10">
+          <a href="https://wa.me/905546745516?text=Dental%20consultation%20inquiry" target="_blank" rel="noopener noreferrer" className="btn-primary">
+            {p.cta1} <ArrowRight size={16} />
+          </a>
+          <Link to="/contact" className="btn-outline">{p.cta2}</Link>
         </div>
-      </section>
+        <div className="grid grid-cols-3 gap-4">
+          {p.stats.map((label, i) => (
+            <div key={label} className="bg-white/10 backdrop-blur rounded-xl p-4 text-center border border-white/10">
+              <div className="font-serif text-xl font-bold text-gold-400">{p.statNums[i]}</div>
+              <div className="text-white/70 text-xs mt-1">{label}</div>
+            </div>
+          ))}
+        </div>
+      </ProcedurePageHero>
 
-      {/* Trust bar */}
       <section className="bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-wrap justify-center gap-8 text-sm font-medium text-navy-800">
-          {['✓ JCI-Accredited Dental Facilities', '✓ Nobel Biocare & Straumann Implants', '✓ Digital Smile Design Technology', '✓ All-Inclusive Pricing — No Hidden Fees', '✓ Multilingual Patient Coordinators'].map(i => <span key={i}>{i}</span>)}
+          {p.trustBar.map((i) => <span key={i}>✓ {i}</span>)}
         </div>
       </section>
 
