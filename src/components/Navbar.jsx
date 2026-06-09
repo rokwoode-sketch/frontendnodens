@@ -3,17 +3,13 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
-const langLabels = {
-  en: 'EN',
-  fr: 'FR',
-  ar: 'AR',
-  es: 'ES',
-};
+const langLabels = { en: 'EN', fr: 'FR', ar: 'AR', es: 'ES' };
 
 export default function Navbar() {
   const { lang, t, changeLanguage } = useLanguage();
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+  const p = t.nav.procedures;
 
   const [scrolled, setScrolled] = useState(!isHomePage);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -31,51 +27,51 @@ export default function Navbar() {
   useEffect(() => { setMobileOpen(false); }, [location]);
 
   const navLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'About', href: '/about' },
+    { label: t.nav.home, href: '/' },
+    { label: t.nav.about, href: '/about' },
     {
       label: t.nav.plasticSurgery,
       href: '/plastic-surgery',
       children: [
-        { label: 'Rhinoplasty', href: '/plastic-surgery#rhinoplasty' },
-        { label: 'Liposuction 360', href: '/plastic-surgery#liposuction' },
-        { label: 'Brazilian Butt Lift (BBL)', href: '/plastic-surgery#bbl' },
-        { label: 'Breast Augmentation', href: '/plastic-surgery#breast-aug' },
-        { label: 'Facelift', href: '/plastic-surgery#facelift' },
-        { label: 'Blepharoplasty', href: '/plastic-surgery#blepharoplasty' },
-        { label: 'Abdominoplasty', href: '/plastic-surgery#abdominoplasty' },
-        { label: 'Mommy Makeover', href: '/plastic-surgery#mommy-makeover' },
-        { label: 'Neck Lift', href: '/plastic-surgery#neck-lift' },
-        { label: 'Breast Lift', href: '/plastic-surgery#breast-lift' },
-        { label: 'Gynecomastia', href: '/plastic-surgery#gynecomastia' },
-        { label: 'Arm Lift', href: '/plastic-surgery#arm-lift' },
+        { label: p.rhinoplasty, href: '/plastic-surgery#rhinoplasty' },
+        { label: p.liposuction, href: '/plastic-surgery#liposuction' },
+        { label: p.bbl, href: '/plastic-surgery#bbl' },
+        { label: p.breastAug, href: '/plastic-surgery#breast-aug' },
+        { label: p.facelift, href: '/plastic-surgery#facelift' },
+        { label: p.blepharoplasty, href: '/plastic-surgery#blepharoplasty' },
+        { label: p.abdominoplasty, href: '/plastic-surgery#abdominoplasty' },
+        { label: p.mommyMakeover, href: '/plastic-surgery#mommy-makeover' },
+        { label: p.neckLift, href: '/plastic-surgery#neck-lift' },
+        { label: p.breastLift, href: '/plastic-surgery#breast-lift' },
+        { label: p.gynecomastia, href: '/plastic-surgery#gynecomastia' },
+        { label: p.armLift, href: '/plastic-surgery#arm-lift' },
       ],
     },
     {
       label: t.nav.dental,
       href: '/dental',
       children: [
-        { label: 'Hollywood Smile', href: '/dental#hollywood-smile' },
-        { label: 'Dental Implants', href: '/dental#implants' },
-        { label: 'Zirconium Crowns', href: '/dental#zirconium' },
-        { label: 'All-on-4', href: '/dental#all-on-4' },
-        { label: 'All-on-6', href: '/dental#all-on-6' },
-        { label: 'Bone Graft & Sinus Lift', href: '/dental#bone-graft' },
+        { label: p.hollywoodSmile, href: '/dental#hollywood-smile' },
+        { label: p.implants, href: '/dental#implants' },
+        { label: p.zirconium, href: '/dental#zirconium' },
+        { label: p.allOn4, href: '/dental#all-on-4' },
+        { label: p.allOn6, href: '/dental#all-on-6' },
+        { label: p.boneGraft, href: '/dental#bone-graft' },
       ],
     },
     {
       label: t.nav.hairTransplant,
       href: '/hair-transplant',
       children: [
-        { label: 'FUE Sapphire', href: '/hair-transplant#fue' },
-        { label: 'DHI / Choi Pen', href: '/hair-transplant#dhi' },
-        { label: 'PRP & Mesotherapy', href: '/hair-transplant#prp' },
-        { label: 'Exosome Therapy', href: '/hair-transplant#exosome' },
+        { label: p.fue, href: '/hair-transplant#fue' },
+        { label: p.dhi, href: '/hair-transplant#dhi' },
+        { label: p.prp, href: '/hair-transplant#prp' },
+        { label: p.exosome, href: '/hair-transplant#exosome' },
       ],
     },
-    { label: 'Complex Treatments', href: '/complex-treatments' },
-    { label: 'Packages', href: '/packages' },
-    { label: 'Guides', href: '/blog' },
+    { label: t.nav.complex, href: '/complex-treatments' },
+    { label: t.nav.packages, href: '/packages' },
+    { label: t.nav.guides, href: '/blog' },
     { label: t.nav.ourDoctors, href: '/doctors' },
     { label: t.nav.beforeAfter, href: '/results' },
     { label: t.nav.faq, href: '/faq' },
@@ -86,9 +82,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${
-        scrolled
-          ? 'bg-navy-950 shadow-2xl py-3'
-          : 'bg-gradient-to-b from-black/65 via-black/30 to-transparent py-5'
+        scrolled ? 'bg-navy-950 shadow-2xl py-3' : 'bg-gradient-to-b from-black/65 via-black/30 to-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
@@ -97,10 +91,7 @@ export default function Navbar() {
             src="https://nodenscare.com/wp-content/uploads/2024/09/nodens-png.png"
             alt="NodensCare"
             className="h-10 w-auto object-contain brightness-0 invert"
-            onError={(e) => {
-              e.target.style.display = 'none';
-              e.target.nextSibling.style.display = 'flex';
-            }}
+            onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
           />
           <span className="hidden font-serif text-xl font-bold text-white">NodensCare</span>
         </Link>
@@ -127,12 +118,12 @@ export default function Navbar() {
                 <div className={`absolute top-full ${isRTL ? 'right-0' : 'left-0'} mt-0 bg-white rounded-xl shadow-2xl border border-gray-100 py-2 min-w-[220px] z-50`}>
                   <div className="px-3 pb-2 pt-1 border-b border-gray-100 mb-1">
                     <Link to={link.href} className="text-xs font-bold text-gold-600 uppercase tracking-wider hover:text-gold-700">
-                      View All {link.label}
+                      {p.viewAll} {link.label}
                     </Link>
                   </div>
                   {link.children.map((child) => (
                     <Link
-                      key={child.label}
+                      key={child.href}
                       to={child.href}
                       className="block px-4 py-2 text-sm text-navy-800 hover:bg-gold-50 hover:text-gold-700 transition-colors duration-150"
                     >
@@ -176,10 +167,7 @@ export default function Navbar() {
             {t.nav.cta}
           </Link>
 
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="xl:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
-          >
+          <button onClick={() => setMobileOpen(!mobileOpen)} className="xl:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors">
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
@@ -197,18 +185,11 @@ export default function Navbar() {
               </button>
             ))}
           </div>
-
           {navLinks.map((link) => (
-            <div key={link.label}>
-              <Link
-                to={link.href}
-                className="block w-full text-left text-white/90 hover:text-gold-400 font-semibold py-3 text-sm border-b border-white/5 transition-colors"
-              >
-                {link.label}
-              </Link>
-            </div>
+            <Link key={link.href} to={link.href} className="block w-full text-left text-white/90 hover:text-gold-400 font-semibold py-3 text-sm border-b border-white/5 transition-colors">
+              {link.label}
+            </Link>
           ))}
-
           <Link to="/contact" className="mt-4 btn-primary w-full justify-center">
             <Phone size={14} />
             {t.nav.cta}
