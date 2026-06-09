@@ -15,6 +15,8 @@ const ar = {
     home: 'الرئيسية', about: 'من نحن', packages: 'الباقات', guides: 'الأدلة', complex: 'علاجات معقدة',
     plasticSurgery: 'جراحة التجميل', dental: 'طب الأسنان', hairTransplant: 'زراعة الشعر',
     ourDoctors: 'أطباؤنا', beforeAfter: 'قبل وبعد', faq: 'الأسئلة الشائعة', contact: 'اتصل بنا', cta: 'استشارة مجانية',
+    tagline: 'بإشراف أساتذة · مستشفيات JCI',
+    trustBar: { jci: 'معتمد JCI', professors: 'رعاية بقيادة أساتذة', location: 'إسطنبول، تركيا' },
     procedures: {
       rhinoplasty: 'تجميل الأنف', liposuction: 'شفط الدهون 360', bbl: 'رفع الأرداف BBL',
       breastAug: 'تكبير الثدي', facelift: 'شد الوجه', blepharoplasty: 'تجميل الجفون',
