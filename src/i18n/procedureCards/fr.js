@@ -1,3 +1,7 @@
+import hair from './hair-fr';
+import plastic from './plastic-fr';
+import complex from './complex-fr';
+
 export default {
   dental: {
     sectionLabel: 'Nos Soins Dentaires',
@@ -16,6 +20,9 @@ export default {
       { id: 'all-on-6', tag: 'Réhabilitation Complète', title: 'All-on-6 Implants', subtitle: 'Arcade · Bridge Fixe · Dents Permanentes', price: '6 200 € / 7 400 $ par arcade', description: 'All-on-6 utilise 6 implants stratégiques supportant un bridge fixe en porcelaine — remplacement permanent d\'une arcade complète.', includes: ['Scanner 3D et planification', '6 implants titane premium', 'Bridge temporaire fixe immédiat', 'Bridge final zirconia ou E-max', 'Séjour 7 jours', 'Transferts et hébergement'], faqs: [{ q: 'All-on-4 vs All-on-6 ?', a: 'All-on-6 offre une meilleure répartition des charges et plus de stabilité.' }, { q: 'Dents le jour de l\'opération ?', a: 'Oui — un bridge temporaire fixe est généralement posé le jour même.' }] },
     ],
   },
+  hair,
+  plastic,
+  complex,
   packages: [
     { id: 1, categoryKey: 'hair', category: 'Greffe de Cheveux', name: 'Greffe de Cheveux', subtitle: 'FUE Saphir · Méthode DHI', priceEur: '1 500', priceUsd: '1 800', highlights: ['Résultats permanents', '3 000–5 000 greffons', 'Ligne capillaire naturelle', '3 nuits incluses'], popular: true, imageKey: 'hair', link: '/hair-transplant' },
     { id: 2, categoryKey: 'dental', category: 'Dentaire', name: 'Hollywood Smile', subtitle: 'Facettes E-max · Zirconia', priceEur: '3 200', priceUsd: '3 800', highlights: ['20 facettes porcelaine', 'Aperçu Digital Smile Design', 'Sans métal, aspect naturel', '5 nuits incluses'], popular: false, imageKey: 'hollywoodSmile', link: '/dental' },
