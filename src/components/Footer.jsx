@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
 import { useLanguage } from '../i18n/LanguageContext';
+import { siteImages } from '../data/siteImages';
 
 import { FaWhatsapp, FaInstagram, FaFacebook, FaLinkedin, FaYoutube, FaTiktok } from 'react-icons/fa';
 
@@ -142,11 +143,11 @@ export default function Footer() {
 
             <img
 
-              src="https://static.wixstatic.com/media/aac3c1_a296d25f8cb9453dbfd51198fac6ccc8~mv2.png/v1/fill/w_200,h_80,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/aac3c1_a296d25f8cb9453dbfd51198fac6ccc8~mv2.png"
+              src={siteImages.logo}
 
               alt="NodensCare"
 
-              className="h-10 mb-5 object-contain brightness-0 invert"
+              className="h-11 mb-5 w-auto max-w-[160px] object-contain object-left brightness-0 invert"
 
               onError={(e) => { e.target.style.display = 'none'; }}
 
