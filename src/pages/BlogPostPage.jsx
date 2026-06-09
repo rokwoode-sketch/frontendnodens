@@ -10,6 +10,8 @@ const categoryLinks = {
   Dental: '/dental',
   'Plastic Surgery': '/plastic-surgery',
   Complex: '/complex-treatments',
+  Oncology: '/complex-treatments',
+  Fertility: '/complex-treatments',
 };
 
 function ContentBlock({ block }) {
