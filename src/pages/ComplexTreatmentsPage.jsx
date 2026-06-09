@@ -6,9 +6,9 @@ import ProcedurePageHero from '../components/ProcedurePageHero';
 import { siteImages } from '../data/siteImages';
 
 const treatmentImages = {
-  cancer: siteImages.doctorSenem,
-  transplant: siteImages.doctorHalil,
-  ivf: siteImages.complex,
+  cancer: siteImages.cancerTreatment,
+  transplant: siteImages.transplantTreatment,
+  ivf: siteImages.ivfTreatment,
 };
 
 const credentialIcons = [GraduationCap, Shield, CheckCircle];
