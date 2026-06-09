@@ -1,4 +1,5 @@
 import pages from './pages/fr';
+import procedureCards from './procedureCards/fr';
 
 const fr = {
   lang: 'fr',
@@ -144,7 +145,6 @@ const fr = {
       rhinoplasty: { procedure: 'Rhinoplastie', description: 'Affinement du profil — patient NodensCare' },
       allOn6: { procedure: 'All-on-6 Implants', description: 'Réhabilitation complète de l\'arcade — résultat patient' },
       facelift: { procedure: 'Lifting du Visage', description: 'Rajeunissement facial deep plane — patient NodensCare' },
-      zirconium: { procedure: 'Couronnes Zirconium', description: 'Transformation du sourire sans métal — résultat patient' },
     },
   },
   doctors: {
@@ -221,6 +221,7 @@ const fr = {
     privacy: 'Vos informations sont confidentielles et protégées. Aucun spam, jamais.',
   },
   pages,
+  procedureCards,
   homeExplore: {
     sectionLabel: 'Explorer NodensCare',
     h2: 'Des Pages Dédiées pour Chaque Besoin',
