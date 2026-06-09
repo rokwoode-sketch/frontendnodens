@@ -1,13 +1,16 @@
 import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function PageHeader({ title, titleAccent, subtitle, breadcrumbs = [] }) {
+  const { t } = useLanguage();
+
   return (
     <div className="pt-24 pb-10 gradient-navy">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {breadcrumbs.length > 0 && (
           <div className="flex items-center gap-2 text-gold-400 text-sm mb-6 flex-wrap">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
+            <Link to="/" className="hover:text-white transition-colors">{t.nav.home}</Link>
             {breadcrumbs.map((crumb) => (
               <span key={crumb.label} className="flex items-center gap-2">
                 <ChevronRight size={14} />
