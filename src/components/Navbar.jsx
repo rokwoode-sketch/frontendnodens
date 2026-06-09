@@ -9,7 +9,12 @@ import { siteImages } from '../data/siteImages';
 
 
 
-const langLabels = { en: 'EN', fr: 'FR', ar: 'AR', es: 'ES' };
+const langOptions = {
+  en: { label: 'EN', flag: '🇬🇧', name: 'English' },
+  fr: { label: 'FR', flag: '🇫🇷', name: 'Français' },
+  ar: { label: 'AR', flag: '🇸🇦', name: 'العربية' },
+  es: { label: 'ES', flag: '🇪🇸', name: 'Español' },
+};
 
 
 
@@ -292,25 +297,27 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setLangOpen((v) => !v)}
-              className="flex items-center gap-1.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold px-3 py-2 rounded-full transition-all"
+              className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold px-3 py-2 rounded-full transition-all"
             >
-              <span>{langLabels[lang]}</span>
+              <span className="text-base leading-none" aria-hidden="true">{langOptions[lang].flag}</span>
+              <span>{langOptions[lang].label}</span>
               <ChevronDown size={11} className={`transition-transform ${langOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {langOpen && (
               <div className={`absolute top-full ${isRTL ? 'left-0' : 'right-0'} pt-2 z-50`}>
-                <div className="bg-white rounded-xl shadow-2xl border border-gray-100 py-1.5 min-w-[100px]">
-                  {Object.entries(langLabels).map(([code, label]) => (
+                <div className="bg-white rounded-xl shadow-2xl border border-gray-100 py-1.5 min-w-[148px]">
+                  {Object.entries(langOptions).map(([code, opt]) => (
                     <button
                       key={code}
                       type="button"
                       onClick={() => { changeLanguage(code); setLangOpen(false); }}
-                      className={`flex items-center w-full px-4 py-2.5 text-sm transition-colors ${
+                      className={`flex items-center gap-2.5 w-full px-4 py-2.5 text-sm transition-colors ${
                         code === lang ? 'bg-gold-50 text-gold-700 font-bold' : 'text-navy-800 hover:bg-gray-50'
                       }`}
                     >
-                      {label}
+                      <span className="text-base leading-none" aria-hidden="true">{opt.flag}</span>
+                      <span>{opt.label}</span>
                     </button>
                   ))}
                 </div>
@@ -355,17 +362,19 @@ export default function Navbar() {
 
           <div className="flex gap-2 mb-5 flex-wrap">
 
-            {Object.entries(langLabels).map(([code, label]) => (
+            {Object.entries(langOptions).map(([code, opt]) => (
 
               <button key={code} onClick={() => changeLanguage(code)}
 
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${
 
                   code === lang ? 'bg-gold-500 border-gold-500 text-white' : 'bg-white/10 border-white/20 text-white/70 hover:bg-white/20'
 
                 }`}>
 
-                {label}
+                <span className="text-sm leading-none" aria-hidden="true">{opt.flag}</span>
+
+                <span>{opt.label}</span>
 
               </button>
 
