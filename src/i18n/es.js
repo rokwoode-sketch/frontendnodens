@@ -1,3 +1,5 @@
+import pages from './pages/es';
+
 const es = {
   lang: 'es',
   dir: 'ltr',
@@ -124,13 +126,15 @@ const es = {
     agreeBtn: 'Entiendo — Ver Galería',
     requestBtn: 'Solicitar Más Resultados',
     before: 'ANTES', after: 'DESPUÉS',
-    cases: [
-      { procedure: 'Hollywood Smile', description: 'Transformación completa con carillas — paciente NodensCare' },
-      { procedure: 'Trasplante Capilar', description: 'Restauración FUE Zafiro — resultado de paciente' },
-      { procedure: 'Rinoplastia', description: 'Refinamiento del perfil facial — paciente NodensCare' },
-      { procedure: 'Implantes Dentales', description: 'Rehabilitación completa — resultado de paciente' },
-      { procedure: 'Cirugía Plástica', description: 'Procedimiento estético — paciente NodensCare' },
-    ],
+    cases: {
+      hollywoodSmile: { procedure: 'Hollywood Smile', description: 'Transformación completa con carillas — paciente NodensCare' },
+      hairTransplant: { procedure: 'Trasplante Capilar', description: 'Restauración de línea capilar FUE Zafiro — resultado de paciente' },
+      bbl: { procedure: 'Liposucción 360 + BBL', description: 'Contorno corporal y transferencia de grasa — resultado de paciente' },
+      rhinoplasty: { procedure: 'Rinoplastia', description: 'Refinamiento del perfil — paciente NodensCare' },
+      allOn6: { procedure: 'All-on-6 Implantes', description: 'Rehabilitación completa del arco — resultado de paciente' },
+      facelift: { procedure: 'Lifting Facial', description: 'Rejuvenecimiento facial deep plane — paciente NodensCare' },
+      zirconium: { procedure: 'Coronas de Zirconio', description: 'Transformación de sonrisa sin metal — resultado de paciente' },
+    },
   },
   doctors: {
     sectionLabel: 'Nuestro Equipo Médico',
@@ -205,6 +209,7 @@ const es = {
     errorText: 'Algo salió mal. Por favor contáctanos por WhatsApp.',
     privacy: 'Tu información es confidencial y está protegida. Sin spam, nunca.',
   },
+  pages,
   homeExplore: {
     sectionLabel: 'Explorar NodensCare',
     h2: 'Páginas Dedicadas para Cada Necesidad',
