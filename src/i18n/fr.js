@@ -1,3 +1,5 @@
+import pages from './pages/fr';
+
 const fr = {
   lang: 'fr',
   dir: 'ltr',
@@ -135,13 +137,15 @@ const fr = {
     requestBtn: 'Demander Plus de Résultats',
     before: 'AVANT',
     after: 'APRÈS',
-    cases: [
-      { procedure: 'Hollywood Smile', description: 'Transformation complète par facettes — patient NodensCare' },
-      { procedure: 'Greffe de Cheveux', description: 'Restauration FUE Saphir — résultat patient' },
-      { procedure: 'Rhinoplastie', description: 'Affinement du profil facial — patient NodensCare' },
-      { procedure: 'Implants Dentaires', description: 'Réhabilitation complète — résultat patient' },
-      { procedure: 'Chirurgie Esthétique', description: 'Procédure esthétique — patient NodensCare' },
-    ],
+    cases: {
+      hollywoodSmile: { procedure: 'Hollywood Smile', description: 'Transformation complète par facettes — patient NodensCare' },
+      hairTransplant: { procedure: 'Greffe de Cheveux', description: 'Restauration FUE Saphir — résultat patient' },
+      bbl: { procedure: 'Liposuccion 360 + BBL', description: 'Sculpture corporelle et transfert de graisse — résultat patient' },
+      rhinoplasty: { procedure: 'Rhinoplastie', description: 'Affinement du profil — patient NodensCare' },
+      allOn6: { procedure: 'All-on-6 Implants', description: 'Réhabilitation complète de l\'arcade — résultat patient' },
+      facelift: { procedure: 'Lifting du Visage', description: 'Rajeunissement facial deep plane — patient NodensCare' },
+      zirconium: { procedure: 'Couronnes Zirconium', description: 'Transformation du sourire sans métal — résultat patient' },
+    },
   },
   doctors: {
     sectionLabel: 'Notre Équipe Médicale',
@@ -216,6 +220,7 @@ const fr = {
     errorText: 'Une erreur s\'est produite. Veuillez nous contacter sur WhatsApp.',
     privacy: 'Vos informations sont confidentielles et protégées. Aucun spam, jamais.',
   },
+  pages,
   homeExplore: {
     sectionLabel: 'Explorer NodensCare',
     h2: 'Des Pages Dédiées pour Chaque Besoin',
