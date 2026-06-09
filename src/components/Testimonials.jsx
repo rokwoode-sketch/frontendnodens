@@ -6,7 +6,6 @@ const testimonials = [
   {
     name: 'Sarah Mitchell',
     country: 'London, UK',
-    flag: '🇬🇧',
     procedure: 'Hollywood Smile',
     rating: 5,
     text: 'I researched dental clinics for two years before choosing NodensCare. My coordinator walked me through every step before I even boarded the flight. The Digital Smile Design meant I approved my result on a screen before any work began. Six months on — strangers compliment my smile weekly.',
@@ -16,7 +15,6 @@ const testimonials = [
   {
     name: 'James Okonkwo',
     country: 'Lagos, Nigeria',
-    flag: '🇳🇬',
     procedure: 'FUE Sapphire Hair Transplant',
     rating: 5,
     text: 'I had consulted clinics in London and Lagos — both quoted double the price for half the care. NodensCare\'s FUE Sapphire result at 12 months is remarkable. More importantly, their medical clearance before I flew home gave my family real peace of mind.',
@@ -26,7 +24,6 @@ const testimonials = [
   {
     name: 'Amira Al-Hassan',
     country: 'Dubai, UAE',
-    flag: '🇦🇪',
     procedure: 'Rhinoplasty',
     rating: 5,
     text: 'The professor genuinely understood ethnic preservation — I wanted refinement, not a Westernized nose. The 3D digital planning session was the deciding factor. I could see my projected result and ask questions before committing. The outcome exceeded what I had imagined.',
@@ -36,7 +33,6 @@ const testimonials = [
   {
     name: 'محمد العنزي',
     country: 'الرياض، المملكة العربية السعودية',
-    flag: '🇸🇦',
     procedure: 'زراعة الشعر FUE Sapphire',
     rating: 5,
     text: 'كنت أعاني من تساقط الشعر منذ سنوات وجربت كل شيء. فريق نودنزكير كان محترفاً من أول تواصل معهم وحتى عودتي للرياض. النتيجة بعد ١٢ شهراً فاقت توقعاتي تماماً. المستشفى بمستوى عالمي والطبيب كان دقيقاً جداً في تصميم خط الشعر. أنصح كل من يعاني من هذه المشكلة.',
@@ -46,7 +42,6 @@ const testimonials = [
   {
     name: 'فاطمة الزهراني',
     country: 'جدة، المملكة العربية السعودية',
-    flag: '🇸🇦',
     procedure: 'ابتسامة هوليوود',
     rating: 5,
     text: 'تجربتي مع نودنزكير كانت استثنائية بكل معنى الكلمة. قبل السفر أرسلت صور أسناني وحصلت على تصميم رقمي للابتسامة خلال ٢٤ ساعة. الطبيب فهم ما أريده بالضبط والنتيجة طبيعية جداً وليست مبالغة. المنسقة العربية كانت معي في كل خطوة وهذا أهدأ من روعي كثيراً.',
@@ -56,7 +51,6 @@ const testimonials = [
   {
     name: 'خالد المنصوري',
     country: 'دبي، الإمارات',
-    flag: '🇦🇪',
     procedure: 'تجميل الأنف',
     rating: 5,
     text: 'كنت قلقاً جداً من فكرة السفر للخارج لعملية تجميلية، لكن نودنزكير غيّرت نظرتي تماماً. الاستشارة الأولى عبر الفيديو مع الجراح كانت احترافية ومطمئنة. التخطيط ثلاثي الأبعاد مكّنني من رؤية النتيجة قبل العملية. المستشفى معتمد دولياً ومستوى الرعاية لا يختلف عن أفضل مستشفيات دبي.',
@@ -66,7 +60,6 @@ const testimonials = [
   {
     name: 'Katarzyna Wiśniewska',
     country: 'Warsaw, Poland',
-    flag: '🇵🇱',
     procedure: 'All-on-6 Dental Implants',
     rating: 5,
     text: 'I received quotes from three Warsaw clinics — all nearly double NodensCare\'s price. The Istanbul hospital was more modern than any I had visited in Poland. My fixed bridge was fitted on Day 2, and I flew home Day 7 with a completely new smile. Absolutely flawless experience.',
@@ -76,7 +69,6 @@ const testimonials = [
   {
     name: 'Priya Sharma',
     country: 'Toronto, Canada',
-    flag: '🇨🇦',
     procedure: 'Mommy Makeover',
     rating: 5,
     text: 'After two pregnancies I felt invisible in my own body. NodensCare\'s coordinator helped me understand exactly what was realistic, what the recovery would look like, and how to prepare. The multidisciplinary team — one surgeon, one anesthesiologist, one recovery coordinator — made me feel completely safe.',
@@ -86,7 +78,6 @@ const testimonials = [
   {
     name: 'Thomas Leroy',
     country: 'Paris, France',
-    flag: '🇫🇷',
     procedure: 'Facelift (Deep Plane)',
     rating: 5,
     text: 'At 58, I was skeptical. My Parisian surgeon had quoted €18,000 for a facelift I wasn\'t sure about. NodensCare arranged a video consultation with the professor before I committed to anything. The deep plane result is completely natural — colleagues assume I simply look "well-rested". Extraordinary.',
@@ -152,7 +143,7 @@ export default function Testimonials() {
               </div>
               <div>
                 <div className={`font-semibold text-navy-950 text-sm ${/[\u0600-\u06FF]/.test(review.name) ? 'font-[Noto_Naskh_Arabic]' : ''}`}>{review.name}</div>
-                <div className="text-gray-400 text-xs">{review.flag} {review.country} · {review.procedure}</div>
+                <div className="text-gray-400 text-xs">{review.country} · {review.procedure}</div>
               </div>
             </div>
           </div>
