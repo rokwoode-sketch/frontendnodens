@@ -1,3 +1,5 @@
+import pages from './pages/en';
+
 const en = {
   lang: 'en',
   dir: 'ltr',
@@ -144,19 +146,21 @@ const en = {
     h2a: 'Before & After',
     h2b: 'Patient Gallery',
     disclaimer: 'This section contains medical imagery for educational purposes. Viewer discretion is advised.',
-    dragHint: 'Drag the slider on each card to compare before and after results.',
+    dragHint: 'Real patient before and after photos from NodensCare Istanbul. Tap to enlarge.',
     noticeTitle: 'Medical Imagery Notice',
     agreeBtn: 'I Understand — View Gallery',
     requestBtn: 'Request More Results',
     before: 'BEFORE',
     after: 'AFTER',
-    cases: [
-      { procedure: 'Hollywood Smile', description: 'Full-mouth veneer transformation — NodensCare patient' },
-      { procedure: 'Hair Transplant', description: 'FUE Sapphire restoration — patient result' },
-      { procedure: 'Rhinoplasty', description: 'Facial profile refinement — NodensCare patient' },
-      { procedure: 'Dental Implants', description: 'Full-arch rehabilitation — patient result' },
-      { procedure: 'Plastic Surgery', description: 'Aesthetic procedure — NodensCare patient' },
-    ],
+    cases: {
+      hollywoodSmile: { procedure: 'Hollywood Smile', description: 'Full-mouth veneer transformation — NodensCare patient' },
+      hairTransplant: { procedure: 'Hair Transplant', description: 'FUE Sapphire natural hairline restoration — patient result' },
+      bbl: { procedure: '360 Liposuction + BBL', description: 'Body contouring and fat transfer — patient result' },
+      rhinoplasty: { procedure: 'Rhinoplasty', description: 'Ethnic nose refinement — NodensCare patient' },
+      allOn6: { procedure: 'All-on-6 Dental Implants', description: 'Full-arch fixed bridge restoration — patient result' },
+      facelift: { procedure: 'Facelift', description: 'Deep plane facial rejuvenation — NodensCare patient' },
+      zirconium: { procedure: 'Zirconium Crowns', description: 'Metal-free smile makeover — patient result' },
+    },
   },
   doctors: {
     sectionLabel: 'Our Medical Team',
@@ -231,6 +235,7 @@ const en = {
     errorText: 'Something went wrong. Please contact us on WhatsApp instead.',
     privacy: 'Your information is confidential and protected. No spam, ever.',
   },
+  pages,
   homeExplore: {
     sectionLabel: 'Explore NodensCare',
     h2: 'Dedicated Pages for Every Need',
