@@ -6,7 +6,7 @@ export default function PageHeader({ title, titleAccent, subtitle, breadcrumbs =
   const { t } = useLanguage();
 
   return (
-    <div className="pt-24 pb-10 gradient-navy">
+    <div className="pt-32 pb-10 gradient-navy">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {breadcrumbs.length > 0 && (
           <div className="flex items-center gap-2 text-gold-400 text-sm mb-6 flex-wrap">
