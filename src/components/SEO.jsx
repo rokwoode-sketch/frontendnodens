@@ -2,7 +2,8 @@ import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../i18n/LanguageContext';
 
 const BASE_URL = 'https://www.nodenscare.com';
-const LOGO = 'https://nodenscare.com/wp-content/uploads/2024/09/nodens-png.png';
+import { siteImages } from '../data/siteImages';
+const LOGO = siteImages.logo;
 const PHONE = '+905546745516';
 const EMAIL = 'info@nodenscare.com';
 const ADDRESS = {
