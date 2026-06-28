@@ -168,7 +168,7 @@ export default function Navbar() {
       <div className={`hidden lg:block transition-all duration-500 ${solidNav ? 'nav-glass-top' : 'bg-navy-950/50 backdrop-blur-sm border-b border-white/[0.04]'}`}>
         <div className={`max-w-7xl mx-auto px-4 sm:px-6 py-1.5 flex items-center justify-center gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
           {trustItems.map(({ icon: Icon, text }) => (
-            <div key={text} className={`flex items-center gap-1.5 text-[11px] font-medium tracking-widest uppercase text-white/50 ${isRTL ? 'flex-row-reverse' : ''}`}>
+            <div key={text} className={`flex items-center gap-1.5 text-[11px] font-medium tracking-widest uppercase text-white/60 ${isRTL ? 'flex-row-reverse' : ''}`}>
               <Icon size={12} className="text-gold-500/80 flex-shrink-0" />
               <span>{text}</span>
             </div>
@@ -185,6 +185,10 @@ export default function Navbar() {
               <img
                 src={siteImages.logo}
                 alt="NodensCare"
+                width={130}
+                height={40}
+                fetchPriority="high"
+                decoding="async"
                 className="h-10 w-auto max-w-[100px] 2xl:max-w-[130px] object-contain object-left brightness-0 invert transition-transform duration-300 group-hover:scale-[1.02]"
                 onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
               />
@@ -210,6 +214,8 @@ export default function Navbar() {
                 type="button"
                 className={`nav-link-premium ${secondaryLinks.some((l) => isActive(l.href)) ? 'active' : ''}`}
                 aria-expanded={openDropdown === '__more__'}
+                aria-haspopup="true"
+                aria-label={t.nav.more}
               >
                 {t.nav.more}
                 <ChevronDown size={12} className={`opacity-60 transition-transform duration-200 ${openDropdown === '__more__' ? 'rotate-180' : ''}`} />
@@ -241,6 +247,9 @@ export default function Navbar() {
                 type="button"
                 onClick={() => setLangOpen((v) => !v)}
                 className="flex items-center gap-1.5 bg-white/[0.08] hover:bg-white/[0.14] border border-white/20 hover:border-gold-500/30 text-white text-[11px] 2xl:text-xs font-semibold px-2.5 py-1.5 2xl:px-3.5 2xl:py-2 rounded-full transition-all backdrop-blur-sm flex-shrink-0 whitespace-nowrap"
+                aria-label={`Language: ${langOptions[lang].label}`}
+                aria-expanded={langOpen}
+                aria-haspopup="listbox"
               >
                 <span className="text-base leading-none" aria-hidden="true">{langOptions[lang].flag}</span>
                 <span className="tracking-wide">{langOptions[lang].label}</span>
@@ -282,7 +291,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
               className="xl:hidden text-white p-2.5 rounded-xl bg-white/[0.08] border border-white/15 hover:bg-white/[0.14] transition-colors flex-shrink-0"
-              aria-label="Menu"
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             >
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}
             </button>

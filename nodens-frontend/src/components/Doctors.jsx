@@ -39,6 +39,10 @@ function DoctorPhoto({ imageKey, name }) {
     <img
       src={src}
       alt={name}
+      width={480}
+      height={600}
+      loading="lazy"
+      decoding="async"
       referrerPolicy="no-referrer"
       className="w-full h-full object-cover object-top opacity-95 group-hover:scale-105 transition-transform duration-500"
       onError={() => {

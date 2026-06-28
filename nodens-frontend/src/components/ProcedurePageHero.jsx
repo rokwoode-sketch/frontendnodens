@@ -62,7 +62,7 @@ export default function ProcedurePageHero({ pageKey, image, children }) {
 
             <div className="hidden lg:block">
 
-              <img src={image} alt={p.breadcrumb} className="rounded-2xl shadow-2xl w-full h-[400px] object-cover border border-white/10" />
+              <img src={image} alt={p.breadcrumb} width={1200} height={600} loading="eager" decoding="async" className="rounded-2xl shadow-2xl w-full h-[400px] object-cover border border-white/10" />
 
             </div>
 

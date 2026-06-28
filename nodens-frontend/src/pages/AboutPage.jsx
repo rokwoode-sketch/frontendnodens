@@ -92,6 +92,10 @@ export default function AboutPage() {
                 <img
                   src={siteImages.aboutHero}
                   alt="NodensCare Istanbul medical facility"
+                  width={800}
+                  height={560}
+                  loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                   className="w-full aspect-[4/3] object-cover"
                 />

@@ -22,7 +22,7 @@ export default function WhyNodens() {
             </h2>
           </div>
           <div data-aos="fade-left">
-            <p className="text-white/60 text-lg leading-relaxed">
+            <p className="text-white/70 text-lg leading-relaxed">
               {t.why.intro}{' '}
               <strong className="text-white">{t.why.introHighlight}</strong>
               {t.why.introRest}
@@ -44,7 +44,7 @@ export default function WhyNodens() {
                   <Icon size={22} className="text-gold-400" />
                 </div>
                 <h3 className="font-serif text-lg font-bold text-white mb-3 leading-snug">{item.title}</h3>
-                <p className="text-white/55 text-sm leading-relaxed">{item.desc}</p>
+                <p className="text-white/65 text-sm leading-relaxed">{item.desc}</p>
               </div>
             );
           })}

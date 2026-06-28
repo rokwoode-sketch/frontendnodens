@@ -89,7 +89,7 @@ export default function HairTransplantPage() {
                   </div>
 
                   <div className={i % 2 === 1 ? 'lg:col-start-1' : ''}>
-                    <img src={techniqueImages[tech.id]} alt={tech.title} className="rounded-2xl shadow-xl w-full h-72 lg:h-auto lg:aspect-[4/3] object-cover" />
+                    <img src={techniqueImages[tech.id]} alt={tech.title} width={700} height={525} loading="lazy" decoding="async" className="rounded-2xl shadow-xl w-full h-72 lg:h-auto lg:aspect-[4/3] object-cover" />
                     {tech.includes && (
                       <div className="mt-6 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
                         <h4 className="font-bold text-navy-950 mb-4 text-sm">{h.packageIncludes}</h4>

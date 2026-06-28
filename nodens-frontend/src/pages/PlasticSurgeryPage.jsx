@@ -67,7 +67,7 @@ export default function PlasticSurgeryPage() {
                   </a>
                 </div>
                 <div className={i % 2 === 1 ? 'lg:col-start-1' : ''}>
-                  <img src={procedureImages[proc.id]} alt={proc.title} className="rounded-2xl shadow-xl w-full h-72 lg:h-80 object-cover" />
+                  <img src={procedureImages[proc.id]} alt={proc.title} width={700} height={500} loading="lazy" decoding="async" className="rounded-2xl shadow-xl w-full h-72 lg:h-80 object-cover" />
                 </div>
               </div>
             </div>

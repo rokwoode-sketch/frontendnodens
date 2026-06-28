@@ -34,7 +34,7 @@ export default function Hero() {
               {t.hero.h1c}
             </h1>
 
-            <p className="text-white/70 text-lg leading-relaxed mb-10 max-w-lg">{t.hero.subtitle}</p>
+            <p className="text-white/80 text-lg leading-relaxed mb-10 max-w-lg">{t.hero.subtitle}</p>
 
             <div className="flex flex-wrap gap-4 mb-14">
               <Link to="/contact" className="btn-primary text-base px-8 py-4">
@@ -66,6 +66,10 @@ export default function Hero() {
               <img
                 src={siteImages.hero}
                 alt="Istanbul JCI-accredited surgical center"
+                width={600}
+                height={700}
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-[520px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent" />

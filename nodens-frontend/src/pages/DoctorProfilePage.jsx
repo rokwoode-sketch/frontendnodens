@@ -48,6 +48,10 @@ export default function DoctorProfilePage() {
                 <img
                   src={doctor.image}
                   alt={d.name}
+                  width={480}
+                  height={640}
+                  loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                   className="w-full rounded-2xl shadow-xl object-cover object-top aspect-[3/4]"
                   onError={(e) => {

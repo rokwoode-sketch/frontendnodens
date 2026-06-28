@@ -104,6 +104,10 @@ export default function BlogPostPage() {
           <img
             src={post.image_url}
             alt={post.title}
+            width={800}
+            height={450}
+            loading="lazy"
+            decoding="async"
             className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-xl"
           />
         </div>

@@ -266,12 +266,9 @@ export default function SEO() {
       <meta name="medical.accreditation" content="JCI (Joint Commission International)" />
 
       {/* Verification placeholders */}
-      <meta name="google-site-verification" content="REPLACE_WITH_GOOGLE_VERIFICATION_CODE" />
+      {/* Add google-site-verification meta when Search Console is configured */}
 
-      {/* Performance hints */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-      <link rel="dns-prefetch" href="https://wa.me" />
+      {/* Performance hints — fonts & CDN preconnect live in index.html */}
 
       {/* Schema.org JSON-LD — all schemas */}
       {schemas.map((schema, i) => (

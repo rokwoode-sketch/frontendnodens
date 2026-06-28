@@ -100,7 +100,7 @@ export default function ComplexTreatmentsPage() {
               </div>
 
               <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
-                <img src={treatmentImages[treatment.id]} alt={treatment.title} className="rounded-2xl shadow-xl w-full h-64 lg:h-80 object-cover object-top" />
+                <img src={treatmentImages[treatment.id]} alt={treatment.title} width={700} height={500} loading="lazy" decoding="async" className="rounded-2xl shadow-xl w-full h-64 lg:h-80 object-cover object-top" />
 
                 <div className="mt-6 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
                   <h4 className="font-bold text-navy-950 mb-4 text-sm">{c.whyIstanbul} {treatment.tag}:</h4>

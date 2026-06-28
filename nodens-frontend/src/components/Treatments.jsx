@@ -65,11 +65,10 @@ export default function Treatments() {
           {t.treatments.filter.map((cat, i) => (
 
             <button
-
               key={cat}
-
+              type="button"
               onClick={() => setActiveCategory(i)}
-
+              aria-pressed={activeCategory === i}
               className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
 
                 activeCategory === i ? 'bg-navy-950 text-white shadow-lg' : 'bg-white text-gray-500 hover:bg-gray-100 border border-gray-200'
@@ -96,7 +95,7 @@ export default function Treatments() {
 
               <div className="relative h-52 overflow-hidden">
 
-                <img src={siteImages[item.imageKey]} alt={item.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src={siteImages[item.imageKey]} alt={item.name} width={688} height={416} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/50 to-transparent" />
 
@@ -172,7 +171,7 @@ export default function Treatments() {
 
                     )}
 
-                    <a href={whatsappMessage(item.name)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 bg-navy-950 hover:bg-navy-800 text-white text-xs font-semibold px-4 py-2.5 rounded-full transition-all duration-200 hover:-translate-y-0.5">
+                    <a href={whatsappMessage(item.name)} target="_blank" rel="noopener noreferrer" aria-label={`Chat on WhatsApp about ${item.name}`} className="flex items-center gap-1.5 bg-navy-950 hover:bg-navy-800 text-white text-xs font-semibold px-4 py-2.5 rounded-full transition-all duration-200 hover:-translate-y-0.5">
 
                       <MessageCircle size={13} />{t.treatments.chatNow}
 

@@ -28,15 +28,24 @@ export default function FAQ() {
               data-aos-delay={i * 40}
             >
               <button
+                type="button"
                 onClick={() => setOpen(open === i ? null : i)}
                 className="w-full flex items-start justify-between gap-4 p-6 text-left hover:bg-gray-50 transition-colors"
+                aria-expanded={open === i}
+                aria-controls={`faq-panel-${i}`}
+                id={`faq-button-${i}`}
               >
                 <span className="font-semibold text-navy-950 text-sm leading-snug pr-2">{faq.q}</span>
-                <span className="flex-shrink-0 w-7 h-7 bg-navy-50 rounded-full flex items-center justify-center mt-0.5">
+                <span className="flex-shrink-0 w-7 h-7 bg-navy-50 rounded-full flex items-center justify-center mt-0.5" aria-hidden="true">
                   {open === i ? <Minus size={14} className="text-gold-600" /> : <Plus size={14} className="text-navy-600" />}
                 </span>
               </button>
-              <div className={`overflow-hidden transition-all duration-300 ${open === i ? 'max-h-96' : 'max-h-0'}`}>
+              <div
+                id={`faq-panel-${i}`}
+                role="region"
+                aria-labelledby={`faq-button-${i}`}
+                className={`overflow-hidden transition-all duration-300 ${open === i ? 'max-h-96' : 'max-h-0'}`}
+              >
                 <div className="px-6 pb-6">
                   <div className="h-px bg-gray-100 mb-4" />
                   <p className="text-gray-500 text-sm leading-relaxed">{faq.a}</p>

@@ -114,9 +114,9 @@ export default function Gallery({ mode = 'home' }) {
 
                 <div className="relative aspect-square">
 
-                  <img src={c.image} alt={meta.procedure || 'Patient result'} className="w-full h-full object-cover" loading="lazy" />
+                  <img src={c.image} alt={meta.procedure || 'Patient result'} width={688} height={688} className="w-full h-full object-cover" loading="lazy" decoding="async" />
 
-                  <button type="button" onClick={() => setLightbox({ ...c, meta })} className="absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow opacity-0 group-hover:opacity-100 transition-opacity z-20">
+                  <button type="button" onClick={() => setLightbox({ ...c, meta })} aria-label={`View larger image: ${meta.procedure || 'Patient result'}`} className="absolute top-3 right-3 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow opacity-0 group-hover:opacity-100 transition-opacity z-20">
 
                     <ZoomIn size={14} className="text-navy-950" />
 
@@ -160,11 +160,11 @@ export default function Gallery({ mode = 'home' }) {
 
         <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={() => setLightbox(null)} role="presentation">
 
-          <button type="button" onClick={() => setLightbox(null)} className="absolute top-5 right-5 text-white bg-white/20 rounded-full p-2 hover:bg-white/30 transition"><X size={22} /></button>
+          <button type="button" onClick={() => setLightbox(null)} aria-label="Close image viewer" className="absolute top-5 right-5 text-white bg-white/20 rounded-full p-2 hover:bg-white/30 transition"><X size={22} /></button>
 
           <div className="w-full max-w-4xl max-h-[85vh] rounded-2xl overflow-hidden" onClick={(e) => e.stopPropagation()} role="presentation">
 
-            <img src={lightbox.image} alt={lightbox.meta?.procedure} className="w-full h-full object-contain bg-black" />
+            <img src={lightbox.image} alt={lightbox.meta?.procedure || 'Patient result'} width={688} height={688} className="w-full h-full object-contain bg-black" />
 
           </div>
 

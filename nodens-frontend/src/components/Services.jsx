@@ -35,7 +35,7 @@ export default function Services() {
                 data-aos-delay={i * 100}
               >
                 <div className="relative h-48 overflow-hidden">
-                  <img src={images[i]} alt={service.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <img src={images[i]} alt={service.title} width={688} height={384} loading="lazy" decoding="async" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-navy-950/20 to-transparent" />
                   <div className={`absolute top-4 left-4 ${badgeColors[i]} text-white text-xs font-semibold px-3 py-1 rounded-full`}>
                     {service.badge}
