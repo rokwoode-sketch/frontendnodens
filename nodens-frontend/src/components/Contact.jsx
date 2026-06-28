@@ -2,7 +2,16 @@ import { useState } from 'react';
 import { Send, CheckCircle, MapPin, Mail, Phone, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
-const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY?.trim();
+const PLACEHOLDER_KEYS = new Set(['your_key_here', 'your_web3forms_access_key_here']);
+
+function web3formsMessage(data) {
+  return data?.message ?? data?.body?.message ?? data?.error ?? null;
+}
+
+function isWeb3formsSuccess(data) {
+  return data?.success === true || data?.body?.success === true;
+}
 
 const procedures = {
   en: ['Hair Transplant', 'Hollywood Smile', 'Dental Implants', 'Rhinoplasty', '360 Liposuction + BBL', 'Facelift', 'Breast Augmentation', 'Abdominoplasty', 'Organ Transplant', 'Cancer Treatment', 'IVF Treatment', 'Other / Multiple'],
@@ -20,24 +29,27 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!WEB3FORMS_KEY) {
+    if (!WEB3FORMS_KEY || PLACEHOLDER_KEYS.has(WEB3FORMS_KEY)) {
       console.error(
-        '[Contact] VITE_WEB3FORMS_KEY is missing. Locally: copy nodens-frontend/.env.example to .env and set the key. ' +
-        'Production: Cloudflare Pages → Settings → Environment variables → Production → add VITE_WEB3FORMS_KEY, then Retry deployment.'
+        '[Contact] VITE_WEB3FORMS_KEY is missing or still a placeholder. Locally: copy nodens-frontend/.env.example to .env and set the key. ' +
+        'Production: Cloudflare Pages → Settings → Environment variables → Production → add VITE_WEB3FORMS_KEY (no trailing spaces/newlines), then Retry deployment.'
       );
       setStatus('config');
       return;
     }
     setStatus('loading');
     try {
+      const fullName = `${form.firstName} ${form.lastName}`.trim();
       const payload = {
         access_key: WEB3FORMS_KEY,
         subject: `NodensCare Inquiry — ${form.procedure || 'General'} [${lang.toUpperCase()}]`,
-        name: `${form.firstName} ${form.lastName}`.trim(),
+        name: fullName,
+        from_name: fullName,
         email: form.email,
         message: form.message,
         phone: form.phone,
         procedure: form.procedure,
+        botcheck: false,
       };
 
       const res = await fetch('https://api.web3forms.com/submit', {
@@ -45,12 +57,25 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(payload),
       });
-      const data = await res.json();
-      if (res.ok && data.success) {
+
+      let data;
+      try {
+        data = await res.json();
+      } catch (parseErr) {
+        console.error('[Contact] Web3Forms returned non-JSON response:', res.status, parseErr);
+        setStatus('error');
+        return;
+      }
+
+      if (isWeb3formsSuccess(data)) {
         setStatus('success');
         setForm({ firstName: '', lastName: '', email: '', phone: '', procedure: '', message: '' });
       } else {
-        console.error('[Contact] Web3Forms rejected submission:', data.message || data);
+        console.error('[Contact] Web3Forms rejected submission:', {
+          httpStatus: res.status,
+          message: web3formsMessage(data),
+          response: data,
+        });
         setStatus('error');
       }
     } catch (err) {

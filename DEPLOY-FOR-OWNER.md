@@ -18,7 +18,7 @@ Vite **bakes environment variables into the JavaScript at build time**. If `VITE
 2. **Settings** → **Environment variables**.
 3. Under **Production**, click **Add variable**:
    - **Variable name:** `VITE_WEB3FORMS_KEY`
-   - **Value:** paste your Web3Forms access key (same value as in local `nodens-frontend/.env` — never commit this file).
+   - **Value:** paste your Web3Forms access key (same value as in local `nodens-frontend/.env` — never commit this file). **No trailing spaces or newlines** — a stray line break in Cloudflare makes the key invalid and the form shows “Something went wrong”.
 4. Click **Save**.
 5. **You must redeploy** — saving env vars alone does nothing for an already-built site:
    - Go to **Deployments**.
