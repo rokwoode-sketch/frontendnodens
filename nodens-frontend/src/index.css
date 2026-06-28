@@ -153,6 +153,94 @@
   .nav-mobile-lang-active {
     @apply bg-gold-500/90 border-gold-400 text-white;
   }
+
+  /* Homepage hero — desktop image column depth & integration */
+  .hero-visual {
+    @apply relative;
+    perspective: 1400px;
+    padding: 0.75rem 0.5rem 1.5rem;
+  }
+
+  .hero-visual-glow {
+    @apply absolute pointer-events-none;
+    inset: 8% -8% -8% 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 55% 45%, rgba(26, 92, 107, 0.5) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 45% at 80% 70%, rgba(184, 152, 106, 0.22) 0%, transparent 60%);
+    filter: blur(48px);
+    z-index: 0;
+  }
+
+  .hero-visual-card {
+    @apply relative z-[1];
+    transform: rotateY(-5deg) rotateX(2deg) translateZ(0);
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .hero-visual:hover .hero-visual-card {
+    transform: rotateY(-2deg) rotateX(1deg) translateY(-4px);
+  }
+
+  .hero-visual-frame {
+    @apply relative overflow-hidden;
+    border-radius: 1.25rem;
+    box-shadow:
+      0 2px 4px rgba(11, 29, 46, 0.2),
+      0 20px 40px -8px rgba(11, 29, 46, 0.55),
+      0 40px 80px -20px rgba(11, 29, 46, 0.45),
+      0 0 0 1px rgba(255, 255, 255, 0.14),
+      0 0 60px rgba(26, 92, 107, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  }
+
+  .hero-visual-frame::before {
+    content: '';
+    @apply absolute inset-0 pointer-events-none z-[2];
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      transparent 35%,
+      transparent 65%,
+      rgba(11, 29, 46, 0.15) 100%
+    );
+  }
+
+  .hero-visual-image {
+    @apply block w-full;
+    height: 540px;
+    object-fit: cover;
+    object-position: center 32%;
+    transform: scale(1.03);
+    transform-origin: center center;
+  }
+
+  .hero-visual-overlay {
+    @apply absolute inset-0 pointer-events-none z-[1];
+    background:
+      linear-gradient(to top, rgba(11, 29, 46, 0.72) 0%, rgba(11, 29, 46, 0.15) 35%, transparent 58%),
+      linear-gradient(135deg, rgba(11, 29, 46, 0.35) 0%, transparent 45%),
+      radial-gradient(ellipse 90% 80% at 50% 50%, transparent 40%, rgba(11, 29, 46, 0.18) 100%);
+    mix-blend-mode: multiply;
+  }
+
+  .hero-visual-ring {
+    @apply absolute -inset-px pointer-events-none z-[3];
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(184, 152, 106, 0.35) 35%,
+      rgba(255, 255, 255, 0.08) 60%,
+      rgba(26, 92, 107, 0.25) 100%
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    padding: 1px;
+    opacity: 0.85;
+  }
 }
 
 /* Custom scrollbar */

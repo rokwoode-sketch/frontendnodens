@@ -60,30 +60,36 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right column */}
-          <div className="relative hidden lg:block">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-              <img
-                src={siteImages.hero}
-                alt="Istanbul JCI-accredited surgical center"
-                width={600}
-                height={700}
-                fetchPriority="high"
-                decoding="async"
-                className="w-full h-[520px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 flex gap-3">
-                {[
-                  { num: '15+', label: t.hero.stat1 },
-                  { num: '50+', label: t.hero.stat2 },
-                  { num: '100%', label: t.hero.stat3 },
-                ].map(({ num, label }) => (
-                  <div key={label} className="flex-1 bg-white/15 backdrop-blur-md rounded-xl p-3 border border-white/20 text-center">
-                    <div className="text-gold-400 font-bold text-xl font-serif">{num}</div>
-                    <div className="text-white/80 text-xs mt-0.5">{label}</div>
-                  </div>
-                ))}
+          {/* Right column — desktop only */}
+          <div className="hero-visual hidden lg:block">
+            <div className="hero-visual-glow" aria-hidden="true" />
+            <div className="hero-visual-card">
+              <div className="hero-visual-frame">
+                <img
+                  src={siteImages.hero}
+                  srcSet={siteImages.heroSrcSet}
+                  sizes="(min-width: 1280px) 560px, 50vw"
+                  alt="Istanbul JCI-accredited surgical center"
+                  width={1200}
+                  height={1400}
+                  fetchPriority="high"
+                  decoding="async"
+                  className="hero-visual-image"
+                />
+                <div className="hero-visual-overlay" aria-hidden="true" />
+                <div className="hero-visual-ring" aria-hidden="true" />
+                <div className="absolute bottom-6 left-6 right-6 z-[4] flex gap-3">
+                  {[
+                    { num: '15+', label: t.hero.stat1 },
+                    { num: '50+', label: t.hero.stat2 },
+                    { num: '100%', label: t.hero.stat3 },
+                  ].map(({ num, label }) => (
+                    <div key={label} className="flex-1 bg-white/15 backdrop-blur-md rounded-xl p-3 border border-white/20 text-center shadow-lg">
+                      <div className="text-gold-400 font-bold text-xl font-serif">{num}</div>
+                      <div className="text-white/80 text-xs mt-0.5">{label}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
