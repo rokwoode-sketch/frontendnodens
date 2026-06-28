@@ -257,6 +257,7 @@ const en = {
     successText: 'A clinical coordinator will reach out within 2 hours. For faster response, message us on WhatsApp.',
     successBtn: 'Open WhatsApp',
     errorText: 'Something went wrong. Please contact us on WhatsApp instead.',
+    configErrorText: 'The contact form is not configured on this site. Please message us on WhatsApp — we respond within 30 minutes.',
     privacy: 'Your information is confidential and protected. No spam, ever.',
   },
   pages,

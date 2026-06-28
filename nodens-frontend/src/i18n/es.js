@@ -227,6 +227,7 @@ const es = {
     successText: 'Un coordinador clínico se pondrá en contacto en 2 horas. Para una respuesta más rápida, escríbenos por WhatsApp.',
     successBtn: 'Abrir WhatsApp',
     errorText: 'Algo salió mal. Por favor contáctanos por WhatsApp.',
+    configErrorText: 'El formulario no está configurado en este sitio. Escríbenos por WhatsApp — respondemos en 30 minutos.',
     privacy: 'Tu información es confidencial y está protegida. Sin spam, nunca.',
   },
   pages,

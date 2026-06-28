@@ -242,6 +242,7 @@ const fr = {
     successText: 'Un coordinateur clinique vous contactera dans les 2 heures. Pour une réponse plus rapide, écrivez-nous sur WhatsApp.',
     successBtn: 'Ouvrir WhatsApp',
     errorText: 'Une erreur s\'est produite. Veuillez nous contacter sur WhatsApp.',
+    configErrorText: 'Le formulaire n\'est pas configuré sur ce site. Écrivez-nous sur WhatsApp — réponse sous 30 minutes.',
     privacy: 'Vos informations sont confidentielles et protégées. Aucun spam, jamais.',
   },
   pages,

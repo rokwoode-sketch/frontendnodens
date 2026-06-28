@@ -8,6 +8,30 @@ The Web3Forms access key is stored **only** in `nodens-frontend/.env` on your ma
 
 ## 1. Cloudflare Pages (production site)
 
+### CRITICAL — contact form (`VITE_WEB3FORMS_KEY`)
+
+Vite **bakes environment variables into the JavaScript at build time**. If `VITE_WEB3FORMS_KEY` is missing when Cloudflare runs `npm run build`, the live contact form will always fail (users see the WhatsApp error message).
+
+**Do this before expecting the form to work:**
+
+1. Cloudflare dashboard → **Workers & Pages** → your Pages project (e.g. `frontendnodens`).
+2. **Settings** → **Environment variables**.
+3. Under **Production**, click **Add variable**:
+   - **Variable name:** `VITE_WEB3FORMS_KEY`
+   - **Value:** paste your Web3Forms access key (same value as in local `nodens-frontend/.env` — never commit this file).
+4. Click **Save**.
+5. **You must redeploy** — saving env vars alone does nothing for an already-built site:
+   - Go to **Deployments**.
+   - On the latest production deployment, open **⋯** (three dots) → **Retry deployment**  
+     *(or push any commit to `main` to trigger a fresh build)*.
+6. Wait for the build to finish **green**, then test the contact form on the live site.
+
+If the key is missing, production builds now **fail loudly** in the Cloudflare build log with a clear error about `VITE_WEB3FORMS_KEY`.
+
+Also add `NODE_VERSION` = `20` under Production if not already set.
+
+---
+
 1. Sign in at [dash.cloudflare.com](https://dash.cloudflare.com) (free plan).
 2. **Workers & Pages â†’ Create â†’ Pages â†’ Connect to Git** â€” connect GitHub and select the frontend repo (create/push the repo first if it is not on GitHub yet).
 3. Build settings (pick **one** layout — both work):
@@ -42,7 +66,7 @@ odens-frontend/dist |
    | `VITE_WEB3FORMS_KEY` | *(paste your access key â€” same as in local `nodens-frontend/.env`)* |
    | `NODE_VERSION` | `20` |
 
-5. Deploy, then **Retry deployment** after saving env vars so Vite bakes the key into the build.
+5. Deploy, then **Retry deployment** after saving env vars so Vite bakes the key into the build (see **CRITICAL** section above — this step is mandatory).
 6. **Custom domains** â†’ add `nodenscare.com` and `www.nodenscare.com`.
 7. Submit a test message on the live contact page.
 

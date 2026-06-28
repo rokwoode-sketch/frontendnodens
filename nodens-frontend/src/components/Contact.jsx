@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Send, CheckCircle, MapPin, Mail, Phone, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
+
 const procedures = {
   en: ['Hair Transplant', 'Hollywood Smile', 'Dental Implants', 'Rhinoplasty', '360 Liposuction + BBL', 'Facelift', 'Breast Augmentation', 'Abdominoplasty', 'Organ Transplant', 'Cancer Treatment', 'IVF Treatment', 'Other / Multiple'],
   fr: ['Greffe de Cheveux', 'Hollywood Smile', 'Implants Dentaires', 'Rhinoplastie', 'Liposuccion 360 + BBL', 'Lifting', 'Augmentation Mammaire', 'Abdominoplastie', 'Transplantation d\'Organes', 'Traitement du Cancer', 'FIV', 'Autre / Multiple'],
@@ -18,13 +20,21 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!WEB3FORMS_KEY) {
+      console.error(
+        '[Contact] VITE_WEB3FORMS_KEY is missing. Locally: copy nodens-frontend/.env.example to .env and set the key. ' +
+        'Production: Cloudflare Pages → Settings → Environment variables → Production → add VITE_WEB3FORMS_KEY, then Retry deployment.'
+      );
+      setStatus('config');
+      return;
+    }
     setStatus('loading');
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          access_key: import.meta.env.VITE_WEB3FORMS_KEY,
+          access_key: WEB3FORMS_KEY,
           subject: `NodensCare Inquiry — ${form.procedure || 'General'} [${lang.toUpperCase()}]`,
           from_name: `${form.firstName} ${form.lastName}`,
           ...form,
@@ -34,8 +44,14 @@ export default function Contact() {
       if (data.success) {
         setStatus('success');
         setForm({ firstName: '', lastName: '', email: '', phone: '', procedure: '', message: '' });
-      } else setStatus('error');
-    } catch { setStatus('error'); }
+      } else {
+        console.error('[Contact] Web3Forms rejected submission:', data.message || data);
+        setStatus('error');
+      }
+    } catch (err) {
+      console.error('[Contact] Web3Forms request failed:', err);
+      setStatus('error');
+    }
   };
 
   return (
@@ -162,9 +178,9 @@ export default function Contact() {
                   )}
                 </button>
 
-                {status === 'error' && (
+                {(status === 'error' || status === 'config') && (
                   <p className="text-red-500 text-sm text-center">
-                    {t.contact.errorText}
+                    {status === 'config' ? t.contact.configErrorText : t.contact.errorText}
                   </p>
                 )}
                 <p className="text-gray-400 text-xs text-center">{t.contact.privacy}</p>
