@@ -178,9 +178,9 @@ export default function Navbar() {
 
       {/* Main navigation */}
       <nav className={`transition-all duration-500 overflow-visible ${solidNav ? 'nav-glass-solid py-3' : 'nav-glass-hero py-4'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center gap-2 xl:gap-3 overflow-visible">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-2 xl:gap-x-3 overflow-visible">
           {/* Logo */}
-          <Link to="/" className={`flex items-center gap-3 z-10 flex-shrink-0 group ${isRTL ? 'flex-row-reverse' : ''}`}>
+          <Link to="/" className={`flex items-center gap-3 z-10 flex-shrink-0 group col-start-1 ${isRTL ? 'flex-row-reverse' : ''}`}>
             <div className="relative">
               <img
                 src={siteImages.logo}
@@ -197,20 +197,12 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Core nav links — xl to 2xl: core only + More; 2xl+: all inline */}
-          <div className={`hidden xl:flex flex-1 items-center justify-end min-w-0 overflow-visible flex-nowrap gap-0 ${isRTL ? 'flex-row-reverse' : ''}`}>
+          {/* Core nav links + More (secondary always in dropdown on desktop) */}
+          <div className={`hidden xl:flex col-start-2 items-center justify-end min-w-0 overflow-visible flex-nowrap gap-0 ${isRTL ? 'flex-row-reverse' : ''}`}>
             {coreLinks.map(renderNavLink)}
 
-            {/* Secondary links inline at 2xl+ */}
-            {secondaryLinks.map((link) => (
-              <div key={link.label} className="hidden 2xl:block">
-                {renderNavLink(link)}
-              </div>
-            ))}
-
-            {/* More dropdown for secondary links at xl–2xl */}
             <div
-              className="relative flex-shrink-0 2xl:hidden"
+              className="relative flex-shrink-0"
               onMouseEnter={() => setOpenDropdown('__more__')}
               onMouseLeave={() => setOpenDropdown(null)}
             >
@@ -243,7 +235,7 @@ export default function Navbar() {
           </div>
 
           {/* Actions: lang + CTA + mobile — never shrink */}
-          <div className={`flex items-center gap-2 flex-shrink-0 min-w-fit ${isRTL ? 'flex-row-reverse' : ''}`}>
+          <div className={`flex items-center gap-2 flex-shrink-0 min-w-fit col-start-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
             <div className="relative" onMouseEnter={openLangMenu} onMouseLeave={closeLangMenu}>
               <button
                 type="button"
