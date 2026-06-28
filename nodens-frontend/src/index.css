@@ -159,6 +159,7 @@
     @apply relative;
     perspective: 1400px;
     padding: 0.75rem 0.5rem 1.5rem;
+    isolation: isolate;
   }
 
   .hero-visual-glow {
@@ -171,14 +172,41 @@
     z-index: 0;
   }
 
-  .hero-visual-card {
+  .hero-visual-media {
     @apply relative z-[1];
-    transform: rotateY(-5deg) rotateX(2deg) translateZ(0);
+  }
+
+  .hero-visual-card {
+    @apply relative;
+    transform: rotateY(-2deg) rotateX(1deg) translateZ(0);
     transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .hero-visual:hover .hero-visual-card {
-    transform: rotateY(-2deg) rotateX(1deg) translateY(-4px);
+    transform: rotateY(-1deg) rotateX(0.5deg) translateY(-2px);
+  }
+
+  .hero-visual-floats {
+    @apply absolute inset-0 pointer-events-none z-20;
+  }
+
+  .hero-visual-stats {
+    @apply absolute flex gap-3 pointer-events-auto;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .hero-visual-badge {
+    @apply absolute bg-white rounded-2xl shadow-2xl p-4 flex items-center gap-3 border border-gray-100 pointer-events-auto;
+    top: -1.25rem;
+    right: -1.25rem;
+  }
+
+  .hero-visual-review {
+    @apply absolute bg-white rounded-2xl shadow-2xl p-4 border border-gray-100 max-w-[200px] pointer-events-auto;
+    bottom: -1.25rem;
+    left: -1.25rem;
   }
 
   .hero-visual-frame {
@@ -209,11 +237,9 @@
 
   .hero-visual-image {
     @apply block w-full;
-    height: 540px;
+    height: 520px;
     object-fit: cover;
-    object-position: center 32%;
-    transform: scale(1.03);
-    transform-origin: center center;
+    object-position: center center;
   }
 
   .hero-visual-overlay {

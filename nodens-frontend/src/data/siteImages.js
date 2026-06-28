@@ -42,14 +42,6 @@ function wixRaw(id) {
 
 
 
-function wixHero(id, w, h) {
-
-  return `https://static.wixstatic.com/media/${id}/v1/fill/w_${w},h_${h},al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/${encodeURIComponent(id)}`;
-
-}
-
-
-
 const HERO_IMAGE_ID = 'aac3c1_ee988dab13854acc9d8b55c7bab546e2~mv2.jpg';
 
 
@@ -60,9 +52,10 @@ export const siteImages = {
 
   logo: wixLogo('aac3c1_800303847ad3444fbec76b98ed1485b5~mv2.png', 160, 48),
 
-  hero: wixHero(HERO_IMAGE_ID, 1200, 1400),
+  // fit (not fill) — fill center-crops into logo/branding on this asset
+  hero: wixFit(HERO_IMAGE_ID, 900, 1050),
 
-  heroSrcSet: `${wixHero(HERO_IMAGE_ID, 800, 933)} 800w, ${wixHero(HERO_IMAGE_ID, 1200, 1400)} 1200w`,
+  heroSrcSet: `${wixFit(HERO_IMAGE_ID, 600, 700)} 600w, ${wixFit(HERO_IMAGE_ID, 900, 1050)} 900w, ${wixFit(HERO_IMAGE_ID, 1200, 1400)} 1200w`,
 
   // About page — nodenscare.com/about-us hero (2000×1334 clinical facility image)
   aboutHero: wixFit('aac3c1_a96b83adedab4888bd0bd7d14be75573~mv2.webp', 800, 560),

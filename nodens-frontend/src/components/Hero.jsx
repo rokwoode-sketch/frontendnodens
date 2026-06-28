@@ -63,52 +63,58 @@ export default function Hero() {
           {/* Right column — desktop only */}
           <div className="hero-visual hidden lg:block">
             <div className="hero-visual-glow" aria-hidden="true" />
-            <div className="hero-visual-card">
-              <div className="hero-visual-frame">
-                <img
-                  src={siteImages.hero}
-                  srcSet={siteImages.heroSrcSet}
-                  sizes="(min-width: 1280px) 560px, 50vw"
-                  alt="Istanbul JCI-accredited surgical center"
-                  width={1200}
-                  height={1400}
-                  fetchPriority="high"
-                  decoding="async"
-                  className="hero-visual-image"
-                />
-                <div className="hero-visual-overlay" aria-hidden="true" />
-                <div className="hero-visual-ring" aria-hidden="true" />
-                <div className="absolute bottom-6 left-6 right-6 z-[4] flex gap-3">
-                  {[
-                    { num: '15+', label: t.hero.stat1 },
-                    { num: '50+', label: t.hero.stat2 },
-                    { num: '100%', label: t.hero.stat3 },
-                  ].map(({ num, label }) => (
-                    <div key={label} className="flex-1 bg-white/15 backdrop-blur-md rounded-xl p-3 border border-white/20 text-center shadow-lg">
-                      <div className="text-gold-400 font-bold text-xl font-serif">{num}</div>
-                      <div className="text-white/80 text-xs mt-0.5">{label}</div>
-                    </div>
-                  ))}
+
+            <div className="hero-visual-media">
+              <div className="hero-visual-card">
+                <div className="hero-visual-frame">
+                  <img
+                    src={siteImages.hero}
+                    srcSet={siteImages.heroSrcSet}
+                    sizes="(min-width: 1280px) 560px, 50vw"
+                    alt="Istanbul JCI-accredited surgical center"
+                    width={900}
+                    height={1050}
+                    fetchPriority="high"
+                    decoding="async"
+                    className="hero-visual-image"
+                  />
+                  <div className="hero-visual-overlay" aria-hidden="true" />
+                  <div className="hero-visual-ring" aria-hidden="true" />
                 </div>
               </div>
             </div>
 
-            <div className="absolute -top-5 -right-5 bg-white rounded-2xl shadow-2xl p-4 flex items-center gap-3 border border-gray-100 animate-float">
-              <div className="w-10 h-10 bg-gold-100 rounded-xl flex items-center justify-center">
-                <Shield size={20} className="text-gold-600" />
+            <div className="hero-visual-floats">
+              <div className="hero-visual-stats">
+                {[
+                  { num: '15+', label: t.hero.stat1 },
+                  { num: '50+', label: t.hero.stat2 },
+                  { num: '100%', label: t.hero.stat3 },
+                ].map(({ num, label }) => (
+                  <div key={label} className="flex-1 bg-white/15 backdrop-blur-md rounded-xl p-3 border border-white/20 text-center shadow-lg">
+                    <div className="text-gold-400 font-bold text-xl font-serif">{num}</div>
+                    <div className="text-white/80 text-xs mt-0.5">{label}</div>
+                  </div>
+                ))}
               </div>
-              <div>
-                <div className="text-navy-950 font-bold text-sm">JCI Accredited</div>
-                <div className="text-gray-500 text-xs">International Standard</div>
-              </div>
-            </div>
 
-            <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-2xl p-4 border border-gray-100 max-w-[200px] animate-float" style={{ animationDelay: '2s' }}>
-              <div className="flex gap-0.5 mb-1">
-                {[...Array(5)].map((_, i) => <Star key={i} size={12} className="text-gold-500 fill-gold-500" />)}
+              <div className="hero-visual-badge animate-float">
+                <div className="w-10 h-10 bg-gold-100 rounded-xl flex items-center justify-center">
+                  <Shield size={20} className="text-gold-600" />
+                </div>
+                <div>
+                  <div className="text-navy-950 font-bold text-sm">JCI Accredited</div>
+                  <div className="text-gray-500 text-xs">International Standard</div>
+                </div>
               </div>
-              <p className="text-navy-800 text-xs font-medium leading-snug">{t.hero.review}</p>
-              <p className="text-gray-400 text-xs mt-1">{t.hero.reviewAuthor}</p>
+
+              <div className="hero-visual-review animate-float" style={{ animationDelay: '2s' }}>
+                <div className="flex gap-0.5 mb-1">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={12} className="text-gold-500 fill-gold-500" />)}
+                </div>
+                <p className="text-navy-800 text-xs font-medium leading-snug">{t.hero.review}</p>
+                <p className="text-gray-400 text-xs mt-1">{t.hero.reviewAuthor}</p>
+              </div>
             </div>
           </div>
         </div>
