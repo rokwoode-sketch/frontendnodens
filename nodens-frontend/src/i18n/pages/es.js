@@ -12,7 +12,7 @@ export default {
     metaDescription: 'Contacte a NodensCare para una consulta médica gratuita. WhatsApp: +90 554 674 5516. Coordinadores multilingües disponibles 7 días.',
     title: 'Póngase en',
     titleAccent: 'Contacto',
-    subtitle: 'Nuestros coordinadores hablan inglés, francés, árabe y español. Respondemos en 30 minutos por WhatsApp, 2 horas por email — 7 días a la semana.',
+    subtitle: 'Escríbenos por WhatsApp para la respuesta más rápida. Nuestros coordinadores hablan inglés, francés, árabe y español — disponibles 7 días a la semana.',
     breadcrumb: 'Contacto',
   },
   faq: {
