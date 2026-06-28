@@ -65,12 +65,12 @@
   }
 
   .nav-link-premium {
-    @apply relative flex items-center gap-1 text-[13px] font-medium tracking-wide text-white/75 hover:text-white px-2.5 py-2 rounded-lg transition-all duration-200;
+    @apply relative flex items-center gap-0.5 flex-shrink-0 whitespace-nowrap text-[11px] xl:text-[11px] 2xl:text-[13px] font-medium tracking-wide text-white/75 hover:text-white px-1 xl:px-1.5 2xl:px-2.5 py-1.5 2xl:py-2 rounded-lg transition-all duration-200;
   }
 
   .nav-link-premium::after {
     content: '';
-    @apply absolute bottom-0.5 left-2.5 right-2.5 h-[2px] rounded-full bg-gradient-to-r from-gold-400 to-gold-600 scale-x-0 origin-center transition-transform duration-300;
+    @apply absolute bottom-0.5 left-1.5 right-1.5 2xl:left-2.5 2xl:right-2.5 h-[2px] rounded-full bg-gradient-to-r from-gold-400 to-gold-600 scale-x-0 origin-center transition-transform duration-300;
   }
 
   .nav-link-premium:hover::after,
@@ -87,7 +87,7 @@
   }
 
   .nav-cta-premium {
-    @apply inline-flex items-center gap-2 text-sm font-semibold text-white px-5 py-2.5 rounded-full transition-all duration-300 whitespace-nowrap shadow-[0_4px_20px_rgba(184,152,106,0.35)] hover:shadow-[0_6px_28px_rgba(184,152,106,0.5)] hover:-translate-y-0.5;
+    @apply inline-flex items-center gap-1.5 xl:gap-2 text-xs 2xl:text-sm font-semibold text-white px-3 py-2 xl:px-3.5 2xl:px-5 2xl:py-2.5 rounded-full transition-all duration-300 whitespace-nowrap flex-shrink-0 shadow-[0_4px_20px_rgba(184,152,106,0.35)] hover:shadow-[0_6px_28px_rgba(184,152,106,0.5)] hover:-translate-y-0.5;
     background: linear-gradient(135deg, #c9984e 0%, #B8986A 50%, #a07d4f 100%);
   }
 

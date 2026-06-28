@@ -96,13 +96,62 @@ export default function Navbar() {
         { label: p.exosome, href: '/hair-transplant#exosome' },
       ],
     },
-    { label: t.nav.complex, href: '/complex-treatments' },
-    { label: t.nav.packages, href: '/packages' },
-    { label: t.nav.ourDoctors, href: '/doctors' },
-    { label: t.nav.beforeAfter, href: '/results' },
-    { label: t.nav.guides, href: '/blog' },
-    { label: t.nav.faq, href: '/faq' },
+    { label: t.nav.complex, href: '/complex-treatments', secondary: true },
+    { label: t.nav.packages, href: '/packages', secondary: true },
+    { label: t.nav.ourDoctors, href: '/doctors', secondary: true },
+    { label: t.nav.beforeAfter, href: '/results', secondary: true },
+    { label: t.nav.guides, href: '/blog', secondary: true },
+    { label: t.nav.faq, href: '/faq', secondary: true },
   ];
+
+  const coreLinks = navLinks.filter((link) => !link.secondary);
+  const secondaryLinks = navLinks.filter((link) => link.secondary);
+
+  const renderNavLink = (link) => (
+    <div
+      key={link.label}
+      className="relative flex-shrink-0"
+      onMouseEnter={() => link.children && setOpenDropdown(link.label)}
+      onMouseLeave={() => setOpenDropdown(null)}
+    >
+      <Link
+        to={link.href}
+        className={`nav-link-premium ${isActive(link.href) ? 'active' : ''}`}
+      >
+        {link.label}
+        {link.children && (
+          <ChevronDown size={12} className={`opacity-60 transition-transform duration-200 ${openDropdown === link.label ? 'rotate-180' : ''}`} />
+        )}
+      </Link>
+
+      {link.children && openDropdown === link.label && (
+        <div className={`absolute top-full ${isRTL ? 'right-0' : 'left-0'} pt-2 z-50`}>
+          <div className={`nav-dropdown ${link.children.length > 6 ? 'min-w-[420px]' : 'min-w-[240px]'}`}>
+            <div className="bg-gradient-to-r from-navy-950 to-navy-900 px-4 py-3 flex items-center justify-between">
+              <Link
+                to={link.href}
+                className="text-xs font-bold text-gold-400 uppercase tracking-wider hover:text-gold-300 transition-colors"
+              >
+                {p.viewAll} {link.label} →
+              </Link>
+            </div>
+            <div className={`p-2 ${link.children.length > 6 ? 'grid grid-cols-2 gap-0.5' : ''}`}>
+              {link.children.map((child) => (
+                <Link
+                  key={child.href}
+                  to={child.href}
+                  className="flex items-center gap-2 px-3 py-2.5 text-sm text-navy-800 hover:bg-gold-50 hover:text-gold-700 rounded-xl transition-colors duration-150 group/item"
+                >
+                  <span className="w-1 h-1 rounded-full bg-gold-400 opacity-0 group-hover/item:opacity-100 transition-opacity flex-shrink-0" />
+                  {child.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 
   const isRTL = t.dir === 'rtl';
   const solidNav = scrolled || !isHomePage;
@@ -128,82 +177,78 @@ export default function Navbar() {
       </div>
 
       {/* Main navigation */}
-      <nav className={`transition-all duration-500 ${solidNav ? 'nav-glass-solid py-3' : 'nav-glass-hero py-4'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
+      <nav className={`transition-all duration-500 overflow-visible ${solidNav ? 'nav-glass-solid py-3' : 'nav-glass-hero py-4'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center gap-2 xl:gap-3 overflow-visible">
           {/* Logo */}
           <Link to="/" className={`flex items-center gap-3 z-10 flex-shrink-0 group ${isRTL ? 'flex-row-reverse' : ''}`}>
             <div className="relative">
               <img
                 src={siteImages.logo}
                 alt="NodensCare"
-                className="h-10 w-auto max-w-[130px] object-contain object-left brightness-0 invert transition-transform duration-300 group-hover:scale-[1.02]"
+                className="h-10 w-auto max-w-[100px] 2xl:max-w-[130px] object-contain object-left brightness-0 invert transition-transform duration-300 group-hover:scale-[1.02]"
                 onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
               />
               <span className="hidden font-serif text-xl font-bold text-white">NodensCare</span>
             </div>
-            <div className={`hidden md:block border-white/15 ${isRTL ? 'border-r pr-3' : 'border-l pl-3'}`}>
+            <div className={`hidden 2xl:block border-white/15 ${isRTL ? 'border-r pr-3' : 'border-l pl-3'}`}>
               <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-gold-400/90 leading-tight whitespace-nowrap">
                 {t.nav.tagline}
               </p>
             </div>
           </Link>
 
-          {/* Desktop links */}
-          <div className={`hidden xl:flex items-center gap-0.5 ${isRTL ? 'flex-row-reverse' : ''}`}>
-            {navLinks.map((link) => (
-              <div
-                key={link.label}
-                className="relative"
-                onMouseEnter={() => link.children && setOpenDropdown(link.label)}
-                onMouseLeave={() => setOpenDropdown(null)}
-              >
-                <Link
-                  to={link.href}
-                  className={`nav-link-premium ${isActive(link.href) ? 'active' : ''}`}
-                >
-                  {link.label}
-                  {link.children && (
-                    <ChevronDown size={12} className={`opacity-60 transition-transform duration-200 ${openDropdown === link.label ? 'rotate-180' : ''}`} />
-                  )}
-                </Link>
+          {/* Core nav links — xl to 2xl: core only + More; 2xl+: all inline */}
+          <div className={`hidden xl:flex flex-1 items-center justify-end min-w-0 overflow-visible flex-nowrap gap-0 ${isRTL ? 'flex-row-reverse' : ''}`}>
+            {coreLinks.map(renderNavLink)}
 
-                {link.children && openDropdown === link.label && (
-                  <div className={`absolute top-full ${isRTL ? 'right-0' : 'left-0'} pt-2 z-50`}>
-                    <div className={`nav-dropdown ${link.children.length > 6 ? 'min-w-[420px]' : 'min-w-[240px]'}`}>
-                      <div className="bg-gradient-to-r from-navy-950 to-navy-900 px-4 py-3 flex items-center justify-between">
-                        <Link
-                          to={link.href}
-                          className="text-xs font-bold text-gold-400 uppercase tracking-wider hover:text-gold-300 transition-colors"
-                        >
-                          {p.viewAll} {link.label} →
-                        </Link>
-                      </div>
-                      <div className={`p-2 ${link.children.length > 6 ? 'grid grid-cols-2 gap-0.5' : ''}`}>
-                        {link.children.map((child) => (
-                          <Link
-                            key={child.href}
-                            to={child.href}
-                            className="flex items-center gap-2 px-3 py-2.5 text-sm text-navy-800 hover:bg-gold-50 hover:text-gold-700 rounded-xl transition-colors duration-150 group/item"
-                          >
-                            <span className="w-1 h-1 rounded-full bg-gold-400 opacity-0 group-hover/item:opacity-100 transition-opacity flex-shrink-0" />
-                            {child.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
+            {/* Secondary links inline at 2xl+ */}
+            {secondaryLinks.map((link) => (
+              <div key={link.label} className="hidden 2xl:block">
+                {renderNavLink(link)}
               </div>
             ))}
+
+            {/* More dropdown for secondary links at xl–2xl */}
+            <div
+              className="relative flex-shrink-0 2xl:hidden"
+              onMouseEnter={() => setOpenDropdown('__more__')}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <button
+                type="button"
+                className={`nav-link-premium ${secondaryLinks.some((l) => isActive(l.href)) ? 'active' : ''}`}
+                aria-expanded={openDropdown === '__more__'}
+              >
+                {t.nav.more}
+                <ChevronDown size={12} className={`opacity-60 transition-transform duration-200 ${openDropdown === '__more__' ? 'rotate-180' : ''}`} />
+              </button>
+              {openDropdown === '__more__' && (
+                <div className={`absolute top-full ${isRTL ? 'right-0' : 'left-0'} pt-2 z-50`}>
+                  <div className="nav-dropdown py-1.5 min-w-[200px]">
+                    {secondaryLinks.map((link) => (
+                      <Link
+                        key={link.href}
+                        to={link.href}
+                        className={`block px-4 py-2.5 text-sm transition-colors ${
+                          isActive(link.href) ? 'bg-gold-50 text-gold-700 font-bold' : 'text-navy-800 hover:bg-navy-50'
+                        }`}
+                      >
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
 
-          {/* Actions */}
-          <div className={`flex items-center gap-2.5 flex-shrink-0 ${isRTL ? 'flex-row-reverse' : ''}`}>
+          {/* Actions: lang + CTA + mobile — never shrink */}
+          <div className={`flex items-center gap-2 flex-shrink-0 min-w-fit ${isRTL ? 'flex-row-reverse' : ''}`}>
             <div className="relative" onMouseEnter={openLangMenu} onMouseLeave={closeLangMenu}>
               <button
                 type="button"
                 onClick={() => setLangOpen((v) => !v)}
-                className="flex items-center gap-2 bg-white/[0.08] hover:bg-white/[0.14] border border-white/20 hover:border-gold-500/30 text-white text-xs font-semibold px-3.5 py-2 rounded-full transition-all backdrop-blur-sm"
+                className="flex items-center gap-1.5 bg-white/[0.08] hover:bg-white/[0.14] border border-white/20 hover:border-gold-500/30 text-white text-[11px] 2xl:text-xs font-semibold px-2.5 py-1.5 2xl:px-3.5 2xl:py-2 rounded-full transition-all backdrop-blur-sm flex-shrink-0 whitespace-nowrap"
               >
                 <span className="text-base leading-none" aria-hidden="true">{langOptions[lang].flag}</span>
                 <span className="tracking-wide">{langOptions[lang].label}</span>
@@ -230,15 +275,21 @@ export default function Navbar() {
               )}
             </div>
 
-            <Link to="/contact" className="hidden sm:flex nav-cta-premium">
-              <Phone size={14} />
-              {t.nav.cta}
+            <Link
+              to="/contact"
+              className="hidden sm:flex nav-cta-premium"
+              title={t.nav.cta}
+              aria-label={t.nav.cta}
+            >
+              <Phone size={14} className="flex-shrink-0" />
+              <span className="hidden 2xl:inline">{t.nav.cta}</span>
+              <span className="2xl:hidden">{t.nav.ctaShort ?? t.nav.cta}</span>
             </Link>
 
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="xl:hidden text-white p-2.5 rounded-xl bg-white/[0.08] border border-white/15 hover:bg-white/[0.14] transition-colors"
+              className="xl:hidden text-white p-2.5 rounded-xl bg-white/[0.08] border border-white/15 hover:bg-white/[0.14] transition-colors flex-shrink-0"
               aria-label="Menu"
             >
               {mobileOpen ? <X size={20} /> : <Menu size={20} />}

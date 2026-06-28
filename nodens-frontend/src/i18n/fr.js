@@ -25,6 +25,8 @@ const fr = {
     faq: 'FAQ',
     contact: 'Contact',
     cta: 'Consultation Gratuite',
+    ctaShort: 'Consultation',
+    more: 'Plus',
     tagline: 'Professeurs · Hôpitaux JCI',
     trustBar: {
       jci: 'Accrédité JCI',

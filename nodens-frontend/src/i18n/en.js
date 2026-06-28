@@ -25,6 +25,8 @@ const en = {
     faq: 'FAQ',
     contact: 'Contact',
     cta: 'Free Consultation',
+    ctaShort: 'Consult',
+    more: 'More',
     tagline: 'Professor-Led · JCI Hospitals',
     trustBar: {
       jci: 'JCI Accredited',

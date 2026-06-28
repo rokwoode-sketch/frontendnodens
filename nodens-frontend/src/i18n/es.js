@@ -14,7 +14,7 @@ const es = {
   nav: {
     home: 'Inicio', about: 'Nosotros', packages: 'Paquetes', guides: 'Guías', complex: 'Tratamientos Complejos',
     plasticSurgery: 'Cirugía Plástica', dental: 'Dental', hairTransplant: 'Trasplante Capilar',
-    ourDoctors: 'Nuestros Médicos', beforeAfter: 'Antes y Después', faq: 'Preguntas Frecuentes', contact: 'Contacto', cta: 'Consulta Gratuita',
+    ourDoctors: 'Nuestros Médicos', beforeAfter: 'Antes y Después', faq: 'Preguntas Frecuentes', contact: 'Contacto', cta: 'Consulta Gratuita', ctaShort: 'Consulta', more: 'Más',
     tagline: 'Profesores · Hospitales JCI',
     trustBar: { jci: 'Acreditado JCI', professors: 'Atención de Profesores', location: 'Estambul, Turquía' },
     procedures: {

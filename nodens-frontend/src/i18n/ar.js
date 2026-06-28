@@ -14,7 +14,7 @@ const ar = {
   nav: {
     home: 'الرئيسية', about: 'من نحن', packages: 'الباقات', guides: 'الأدلة', complex: 'علاجات معقدة',
     plasticSurgery: 'جراحة التجميل', dental: 'طب الأسنان', hairTransplant: 'زراعة الشعر',
-    ourDoctors: 'أطباؤنا', beforeAfter: 'قبل وبعد', faq: 'الأسئلة الشائعة', contact: 'اتصل بنا', cta: 'استشارة مجانية',
+    ourDoctors: 'أطباؤنا', beforeAfter: 'قبل وبعد', faq: 'الأسئلة الشائعة', contact: 'اتصل بنا', cta: 'استشارة مجانية', ctaShort: 'استشارة', more: 'المزيد',
     tagline: 'بإشراف أساتذة · مستشفيات JCI',
     trustBar: { jci: 'معتمد JCI', professors: 'رعاية بقيادة أساتذة', location: 'إسطنبول، تركيا' },
     procedures: {
