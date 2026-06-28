@@ -1,0 +1,48 @@
+import hair from './hair-ar';
+import plastic from './plastic-ar';
+import complex from './complex-ar';
+
+export default {
+  dental: {
+    sectionLabel: 'علاجاتنا السنية',
+    sectionH2: 'رعاية أسنان',
+    sectionH2Accent: 'شاملة',
+    priceLabel: 'السعر الشامل',
+    packageIncludes: 'الباقة تشمل:',
+    requestQuote: 'طلب عرض سعر',
+    ctaBottomDesc: 'أرسل صور أسنانك أو أشعة X للحصول على تقييم مجاني عن بُعد خلال 24 ساعة.',
+    sendPhotos: 'إرسال صور الأسنان',
+    contactUs: 'اتصل بنا',
+    procedures: [
+      { id: 'hollywood-smile', tag: 'الأكثر طلباً', title: 'ابتسامة هوليوود', subtitle: 'فينير E-max · زركونيا · تصميم كامل', price: '3,200 يورو / 3,800 دولار', description: 'تحويل جمالي كامل للابتسامة — عادة 16–20 فينير رقيق مصمم لشكل وجهك ولون بشرتك.', includes: ['معاينة Digital Smile Design', '16–20 فينير E-max أو زركونيا', 'تشكيل اللثة عند الحاجة', 'إقامة 5 أيام في إسطنبول', 'جميع النقل والإقامة', 'ضمان مدى الحياة على المواد'], faqs: [{ q: 'هل الفينير دائم؟', a: 'عادة يدوم 10–20 سنة مع العناية المناسبة.' }, { q: 'هل سيبدو طبيعياً؟', a: 'أطباؤنا يخصصون كل التفاصيل عبر التصميم الرقمي للابتسامة.' }] },
+      { id: 'implants', tag: 'حل دائم', title: 'زراعة الأسنان', subtitle: 'سن واحد · متعددة · فك كامل', price: 'من 800 يورو / 950 دولار للزرعة', description: 'زراعة الأسنان هي المعيار الذهبي لاستبدال الأسنان المفقودة — براغي تيتانيوم تندمج مع العظم.', includes: ['نظام Nobel Biocare / Straumann', 'تخطيط 3D بأشعة مقطعية', 'الزرع الجراحي وتاج الشفاء', 'تاج زركونيا أو E-max', 'النقل ودعم المنسق'], faqs: [{ q: 'كم تستغرق العملية؟', a: 'زيارتان: الزرع ثم التاج النهائي بعد 3–6 أشهر.' }, { q: 'ما نسبة النجاح؟', a: 'أكثر من 95٪ خلال 10 سنوات مع عظم سليم.' }] },
+      { id: 'zirconium', tag: 'قوة وجمال', title: 'تيجان الزركونيوم', subtitle: 'بدون معدن · مظهر طبيعي · متينة', price: '200–350 يورو / 240–420 دولار للتاج', description: 'تيجان الزركونيوم توفر القوة والجمال بدون معدن — بدون خط رمادي عند اللثة.', includes: ['أشعة بانورامية', 'مطابقة لون رقمية', 'تاج زركونيا أحادي أو طبقات', '3–5 أيام', 'تيجان مؤقتة'], faqs: [{ q: 'كم تدوم تيجان الزركونيا؟', a: '15–25 سنة مع العناية المناسبة.' }] },
+      { id: 'all-on-6', tag: 'إعادة تأهيل كاملة', title: 'All-on-6 زراعة أسنان', subtitle: 'فك كامل · جسر ثابت · أسنان دائمة', price: '6,200 يورو / 7,400 دولار للفك', description: 'All-on-6 يستخدم 6 زرعات تدعم جسراً ثابتاً من البورسلين — استبدال دائم للفك بالكامل.', includes: ['أشعة 3D وتخطيط كامل', '6 زرعات تيتانيوم', 'جسر مؤقت ثابت فوري', 'جسر نهائي زركونيا', 'إقامة 7 أيام', 'نقل وإقامة'], faqs: [{ q: 'All-on-4 مقابل All-on-6؟', a: 'All-on-6 يوفر توزيعاً أفضل للضغط واستقراراً أطول.' }, { q: 'أسنان في يوم العملية؟', a: 'نعم — جسر مؤقت ثابت عادة في نفس اليوم.' }] },
+    ],
+  },
+  hair,
+  plastic,
+  complex,
+  packages: [
+    { id: 1, categoryKey: 'hair', category: 'زراعة الشعر', name: 'زراعة الشعر', subtitle: 'FUE سافير · DHI', priceEur: '1,500', priceUsd: '1,800', highlights: ['نتائج دائمة', '3,000–5,000 بصيلة', 'خط شعر طبيعي', '3 ليالٍ مشمولة'], popular: true, imageKey: 'hair', link: '/hair-transplant' },
+    { id: 2, categoryKey: 'dental', category: 'طب الأسنان', name: 'ابتسامة هوليوود', subtitle: 'فينير E-max · زركونيا', priceEur: '3,200', priceUsd: '3,800', highlights: ['20 فينير', 'معاينة رقمية', 'بدون معدن', '5 ليالٍ مشمولة'], popular: false, imageKey: 'hollywoodSmile', link: '/dental' },
+    { id: 3, categoryKey: 'plastic', category: 'جراحة التجميل', name: 'شفط 360 + BBL', subtitle: 'نحت الجسم الكامل', priceEur: '5,300', priceUsd: '6,200', highlights: ['نحت 360°', 'نقل دهون للأرداف', 'قامة ساعة رملية', '10 ليالٍ'], popular: true, imageKey: 'bbl', link: '/plastic-surgery' },
+    { id: 4, categoryKey: 'plastic', category: 'جراحة التجميل', name: 'تجميل الأنف', subtitle: 'مفتوح · مغلق · عرقي', priceEur: '3,500', priceUsd: '4,000', highlights: ['تخطيط 3D', 'الحفاظ على العرق', 'تصحيح وظيفي', '7 ليالٍ'], popular: false, imageKey: 'rhinoplasty', link: '/plastic-surgery' },
+    { id: 5, categoryKey: 'dental', category: 'طب الأسنان', name: 'All-on-6', subtitle: 'فك · ثابت · دائم', priceEur: '6,200', priceUsd: '7,400', highlights: ['جسر ثابت', 'تحميل فوري', 'أنظمة ممتازة', '7 ليالٍ'], popular: true, imageKey: 'allOn6', link: '/dental' },
+    { id: 6, categoryKey: 'plastic', category: 'جراحة التجميل', name: 'شد الوجه', subtitle: 'تقنية Deep Plane', priceEur: '4,200', priceUsd: '5,000', highlights: ['تقنية deep plane', 'مظهر طبيعي', 'نحت الفك والرقبة', '10 ليالٍ'], popular: false, imageKey: 'facelift', link: '/plastic-surgery' },
+    { id: 7, categoryKey: 'plastic', category: 'جراحة التجميل', name: 'تكبير الثدي', subtitle: 'Motiva · Mentor', priceEur: '3,800', priceUsd: '4,500', highlights: ['Motiva / Mentor', 'وضع dual-plane', 'حجم مخصص', '7 ليالٍ'], popular: false, imageKey: 'breastAug', link: '/plastic-surgery' },
+    { id: 8, categoryKey: 'hair', category: 'زراعة الشعر', name: 'PRP والإكسوسوم', subtitle: 'تنشيط غير جراحي', priceEur: '800', priceUsd: '950', highlights: ['ينشط البصيلات', 'بدون توقف', 'بروتوكول فروة الرأس', 'نفس اليوم'], popular: false, imageKey: 'prp', link: '/hair-transplant' },
+    { id: 9, categoryKey: 'complex', category: 'معقد', name: 'أطفال الأنابيب والفحص الجيني', subtitle: 'PGD / PGS', priceEur: 'Custom', priceUsd: 'Custom', highlights: ['EmbryoScope', 'PGD/PGS', 'تبرع بالبويضات', 'تنسيق كامل'], popular: false, imageKey: 'complex', link: '/complex-treatments' },
+  ],
+  popular: 'الأكثر طلباً',
+  learnMore: 'اعرف المزيد',
+  doctors: {
+    viewProfile: 'عرض الملف الكامل',
+    meetAll: 'جميع أطبائنا',
+    list: [
+      { slug: 'halil-erbis', name: 'أ.د. خليل إربيش', specialty: 'زراعة الأعضاء والجراحة الكبدية', affiliation: 'جامعة إسطنبول', expertise: ['زراعة الكلى', 'زراعة الكبد', 'جراحة الكبد'], stats: [{ num: '+20', label: 'سنة خبرة' }, { num: '+2,400', label: 'زراعة' }, { num: '+1,200', label: 'استشهاد' }], imageKey: 'doctorHalil' },
+      { slug: 'senem-karabulut', name: 'أ.د. سنيم كارابولوت', specialty: 'أخصائية الأورام', affiliation: 'جامعة إسطنبول — جراح باشا', expertise: ['العلاج المناعي', 'الأدوية الذكية', 'متابعة السرطان'], stats: [{ num: '+15', label: 'سنة في الأورام' }, { num: 'ESMO', label: 'عضو' }, { num: 'MDT', label: 'رئيسة الفريق' }], imageKey: 'doctorSenem' },
+      { slug: 'esra-kaytan-saglam', name: 'أ.د. إسراء كايتان صاغلام', specialty: 'الأورام الإشعاعية — عميدة سابقة', affiliation: 'جامعة إسطنبول', expertise: ['CyberKnife', 'TrueBeam', 'علاج إشعاعي دقيق'], stats: [{ num: 'CyberKnife', label: 'خبيرة' }, { num: 'TrueBeam', label: 'STx' }, { num: 'سابقة', label: 'عميدة' }], imageKey: 'doctorEsra' },
+    ],
+  },
+};

@@ -1,32 +1,19 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-
-# Dependencies
+# Dependencies & build output
 node_modules/
-.pnp
-.pnp.js
-
-# Build output
 dist/
 dist-ssr/
-*.local
 
-# Environment
+# Environment & secrets
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
+!.env.example
 
-# Editor
-.vscode/*
-!.vscode/extensions.json
-.idea
+# Logs & OS
+*.log
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+Thumbs.db
+
+# Python scrape scripts (local dev only)
+__pycache__/
+*.pyc
+.venv/

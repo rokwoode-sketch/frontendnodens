@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.nodenscare.com/sitemap.xml
+Sitemap: https://www.nodenscare.com/sitemap-images.xml
+
+# Crawl-delay (optional)
+Crawl-delay: 1
+
+# Block dev paths (static site — no /api or /admin routes)
+Disallow: /*.json$
