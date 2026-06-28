@@ -41,7 +41,7 @@ export default function Stats() {
                 <CountUp target={numbers[i]} suffix={suffixes[i]} active={active} />
               </div>
               <div className="text-white font-semibold text-sm mb-1">{label}</div>
-              <div className="text-white/40 text-xs">{desc}</div>
+              <div className="text-white/60 text-xs">{desc}</div>
             </div>
           ))}
         </div>

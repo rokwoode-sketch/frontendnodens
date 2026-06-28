@@ -239,19 +239,19 @@ export default function Footer() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
 
-          <p className="text-white/30 text-xs">{t.footer.copyright}</p>
+          <p className="text-white/50 text-xs">{t.footer.copyright}</p>
 
           <div className="flex gap-6">
 
-            <a href="#" className="text-white/30 hover:text-white/60 text-xs transition-colors">{t.footer.terms}</a>
+            <a href="#" className="text-white/50 hover:text-white/70 text-xs transition-colors">{t.footer.terms}</a>
 
-            <a href="#" className="text-white/30 hover:text-white/60 text-xs transition-colors">{t.footer.privacy}</a>
+            <a href="#" className="text-white/50 hover:text-white/70 text-xs transition-colors">{t.footer.privacy}</a>
 
-            <a href="#" className="text-white/30 hover:text-white/60 text-xs transition-colors">{t.footer.cookies}</a>
+            <a href="#" className="text-white/50 hover:text-white/70 text-xs transition-colors">{t.footer.cookies}</a>
 
           </div>
 
-          <p className="text-white/20 text-xs">{t.footer.medical}</p>
+          <p className="text-white/50 text-xs">{t.footer.medical}</p>
 
         </div>
 
