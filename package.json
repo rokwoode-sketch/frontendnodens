@@ -1,0 +1,8 @@
+{
+  "name": "nodens",
+  "private": true,
+  "description": "Monorepo root - Cloudflare Pages builds nodens-frontend via npm run build",
+  "scripts": {
+    "build": "npm ci --prefix nodens-frontend && npm run build --prefix nodens-frontend"
+  }
+}

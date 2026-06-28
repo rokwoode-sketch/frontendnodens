@@ -1,4 +1,4 @@
-﻿# Owner-only manual steps
+# Owner-only manual steps
 
 Everything else (local `.env`, build, contact form wiring) is done in the repo. **You must complete these steps yourself** â€” they require your Cloudflare, Wix, EasyPanel, and GitHub accounts.
 
@@ -10,14 +10,30 @@ The Web3Forms access key is stored **only** in `nodens-frontend/.env` on your ma
 
 1. Sign in at [dash.cloudflare.com](https://dash.cloudflare.com) (free plan).
 2. **Workers & Pages â†’ Create â†’ Pages â†’ Connect to Git** â€” connect GitHub and select the frontend repo (create/push the repo first if it is not on GitHub yet).
-3. Build settings:
+3. Build settings (pick **one** layout — both work):
+
+   **Option A — app subdirectory as root** (simplest)
 
    | Setting | Value |
    |--------|--------|
-   | Production branch | `main` |
-   | Root directory | `nodens-frontend` (if monorepo) or `/` (if repo is frontend only) |
-   | Build command | `npm run build` |
-   | Build output | `dist` |
+   | Production branch | main |
+   | Root directory | 
+odens-frontend |
+   | Build command | 
+pm run build |
+   | Build output directory | dist |
+
+   **Option B — repository root** (if Root directory is empty or /; root package.json installs and builds 
+odens-frontend)
+
+   | Setting | Value |
+   |--------|--------|
+   | Production branch | main |
+   | Root directory | / (empty) |
+   | Build command | 
+pm run build |
+   | Build output directory | 
+odens-frontend/dist |
 
 4. **Settings â†’ Environment variables â†’ Production** â€” add:
 
