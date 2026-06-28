@@ -30,18 +30,23 @@ export default function Contact() {
     }
     setStatus('loading');
     try {
+      const payload = {
+        access_key: WEB3FORMS_KEY,
+        subject: `NodensCare Inquiry — ${form.procedure || 'General'} [${lang.toUpperCase()}]`,
+        name: `${form.firstName} ${form.lastName}`.trim(),
+        email: form.email,
+        message: form.message,
+        phone: form.phone,
+        procedure: form.procedure,
+      };
+
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          subject: `NodensCare Inquiry — ${form.procedure || 'General'} [${lang.toUpperCase()}]`,
-          from_name: `${form.firstName} ${form.lastName}`,
-          ...form,
-        }),
+        body: JSON.stringify(payload),
       });
       const data = await res.json();
-      if (data.success) {
+      if (res.ok && data.success) {
         setStatus('success');
         setForm({ firstName: '', lastName: '', email: '', phone: '', procedure: '', message: '' });
       } else {
