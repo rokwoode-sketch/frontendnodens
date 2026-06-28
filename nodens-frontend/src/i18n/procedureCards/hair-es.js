@@ -12,7 +12,7 @@ export default {
   packageIncludes: 'El paquete incluye:',
   requestQuote: 'Obtener un presupuesto personalizado',
   getQuote: 'Obtener análisis capilar gratuito',
-  sendMessage: 'Envíenos un mensaje',
+  sendMessage: 'Chatear por WhatsApp',
   ctaBottomDesc:
     'Obtenga su análisis capilar virtual gratuito — sin compromiso, solo orientación experta de nuestro equipo médico.',
   techniques: [

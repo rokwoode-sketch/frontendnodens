@@ -78,5 +78,5 @@ export default {
   ctaBottomDesc:
     'Envíe sus fotos para una valoración remota. Nuestro cirujano revisará su caso y le ofrecerá una recomendación personalizada — antes de que se comprometa con nada.',
   sendPhotos: 'Enviar fotos por WhatsApp',
-  contactForm: 'Usar formulario de contacto',
+  contactForm: 'Contáctenos por WhatsApp',
 };

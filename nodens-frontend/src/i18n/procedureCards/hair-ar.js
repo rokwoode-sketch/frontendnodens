@@ -12,7 +12,7 @@ export default {
   packageIncludes: 'الباقة تشمل:',
   requestQuote: 'احصل على عرض سعر مخصص',
   getQuote: 'احصل على تحليل شعر مجاني',
-  sendMessage: 'أرسل لنا رسالة',
+  sendMessage: 'تحدث عبر واتساب',
   ctaBottomDesc:
     'احصل على تحليل شعر افتراضي مجاني — بدون أي التزام، فقط إرشاد خبير من فريقنا الطبي.',
   techniques: [

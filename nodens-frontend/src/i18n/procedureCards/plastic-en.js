@@ -78,5 +78,5 @@ export default {
   ctaBottomDesc:
     'Send your photos for a remote assessment. Our surgeon will review your case and provide a personalized recommendation — before you commit to anything.',
   sendPhotos: 'Send Photos on WhatsApp',
-  contactForm: 'Use Contact Form',
+  contactForm: 'Contact Us on WhatsApp',
 };

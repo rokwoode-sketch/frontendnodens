@@ -12,7 +12,7 @@ export default {
   packageIncludes: 'Package Includes:',
   requestQuote: 'Get a Personalized Quote',
   getQuote: 'Get Free Hair Analysis',
-  sendMessage: 'Send Us a Message',
+  sendMessage: 'Chat on WhatsApp',
   ctaBottomDesc:
     'Get your free virtual hair analysis — no commitment, just expert guidance from our medical team.',
   techniques: [

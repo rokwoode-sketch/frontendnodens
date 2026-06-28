@@ -272,7 +272,6 @@ export default function SEO() {
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
       <link rel="dns-prefetch" href="https://wa.me" />
-      <link rel="dns-prefetch" href="https://api.web3forms.com" />
 
       {/* Schema.org JSON-LD — all schemas */}
       {schemas.map((schema, i) => (

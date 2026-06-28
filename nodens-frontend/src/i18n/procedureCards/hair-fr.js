@@ -12,7 +12,7 @@ export default {
   packageIncludes: 'Le forfait comprend :',
   requestQuote: 'Obtenir un devis personnalisé',
   getQuote: 'Obtenir une analyse capillaire gratuite',
-  sendMessage: 'Envoyez-nous un message',
+  sendMessage: 'Discuter sur WhatsApp',
   ctaBottomDesc:
     'Obtenez votre analyse capillaire virtuelle gratuite — sans engagement, avec les conseils d’experts de notre équipe médicale.',
   techniques: [

@@ -78,5 +78,5 @@ export default {
   ctaBottomDesc:
     'Envoyez vos photos pour une évaluation à distance. Notre chirurgien examinera votre dossier et vous fournira une recommandation personnalisée — avant tout engagement.',
   sendPhotos: 'Envoyer des photos sur WhatsApp',
-  contactForm: 'Utiliser le formulaire de contact',
+  contactForm: 'Nous contacter sur WhatsApp',
 };
