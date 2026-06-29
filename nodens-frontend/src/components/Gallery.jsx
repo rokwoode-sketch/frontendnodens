@@ -154,16 +154,6 @@ export default function Gallery({ mode = 'home' }) {
             {t.gallery.requestBtn}
           </a>
           <a
-            href={SOCIAL_URLS.tiktok}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Watch patient stories on TikTok"
-            className="inline-flex items-center gap-2 border-2 border-navy-950 text-navy-950 hover:bg-navy-950 hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 text-sm tracking-wide"
-          >
-            <SocialIcon name="tiktok" size={18} />
-            {t.gallery.tiktokBtn}
-          </a>
-          <a
             href={SOCIAL_URLS.facebook}
             target="_blank"
             rel="noopener noreferrer"

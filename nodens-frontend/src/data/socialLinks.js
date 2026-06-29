@@ -9,7 +9,6 @@ export const SOCIAL_URLS = {
 
 export const FEATURED_SOCIALS = [
   { id: 'instagram', href: SOCIAL_URLS.instagram, handle: '@nodenscare', color: 'hover:border-pink-400/50 hover:bg-pink-500/10' },
-  { id: 'tiktok', href: SOCIAL_URLS.tiktok, handle: '@nodenscare', color: 'hover:border-white/40 hover:bg-white/10' },
   { id: 'facebook', href: SOCIAL_URLS.facebook, handle: 'NodensCare', color: 'hover:border-blue-400/50 hover:bg-blue-500/10' },
 ];
 

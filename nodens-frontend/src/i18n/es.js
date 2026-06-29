@@ -220,7 +220,7 @@ const es = {
     sectionLabel: 'Sigue Nuestro Recorrido',
     h2a: 'Pacientes Reales.',
     h2b: 'Resultados Reales.',
-    subtitle: 'Ve transformaciones diarias antes y después, historias de pacientes y novedades de la clínica en Instagram, TikTok y Facebook — confiado por pacientes de más de 40 países.',
+    subtitle: 'Ve transformaciones diarias antes y después, historias de pacientes y novedades de la clínica en Instagram y Facebook — confiado por pacientes de más de 40 países.',
     platforms: {
       instagram: {
         title: 'Instagram',
@@ -247,7 +247,7 @@ const es = {
       sectionLabel: 'Prueba Social',
       title: 'Ve Resultados Reales',
       titleAccent: 'Antes de Reservar',
-      subtitle: 'Síguenos en Instagram, TikTok y Facebook para transformaciones verificadas, reseñas y recorridos de recuperación de nuestra clínica en Estambul.',
+      subtitle: 'Síguenos en Instagram y Facebook para transformaciones verificadas, reseñas y recorridos de recuperación de nuestra clínica en Estambul.',
     },
   },
   pages,

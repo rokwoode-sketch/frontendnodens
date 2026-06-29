@@ -252,7 +252,7 @@ const en = {
     sectionLabel: 'Follow Our Journey',
     h2a: 'Real Patients.',
     h2b: 'Real Results.',
-    subtitle: 'See daily before-and-after transformations, patient stories, and clinic updates on Instagram, TikTok, and Facebook — trusted by patients from 40+ countries.',
+    subtitle: 'See daily before-and-after transformations, patient stories, and clinic updates on Instagram and Facebook — trusted by patients from 40+ countries.',
     platforms: {
       instagram: {
         title: 'Instagram',
@@ -279,7 +279,7 @@ const en = {
       sectionLabel: 'Social Proof',
       title: 'See Real Results',
       titleAccent: 'Before You Book',
-      subtitle: 'Follow us on Instagram, TikTok, and Facebook for verified patient transformations, reviews, and recovery journeys from our Istanbul clinic.',
+      subtitle: 'Follow us on Instagram and Facebook for verified patient transformations, reviews, and recovery journeys from our Istanbul clinic.',
     },
   },
   pages,
