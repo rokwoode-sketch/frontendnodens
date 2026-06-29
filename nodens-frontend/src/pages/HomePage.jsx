@@ -6,6 +6,8 @@ import Services from '../components/Services';
 
 import Gallery from '../components/Gallery';
 
+import { SocialFollowHome } from '../components/SocialFollow';
+
 import HomeExplore from '../components/HomeExplore';
 
 import SEO from '../components/SEO';
@@ -27,6 +29,8 @@ export default function HomePage() {
       <Services />
 
       <Gallery mode="home" />
+
+      <SocialFollowHome />
 
       <HomeExplore />
 

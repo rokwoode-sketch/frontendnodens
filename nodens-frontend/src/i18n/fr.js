@@ -144,6 +144,7 @@ const fr = {
     noticeTitle: 'Avis sur les Images Médicales',
     agreeBtn: 'Je Comprends — Voir la Galerie',
     requestBtn: 'Voir Plus sur Instagram',
+    tiktokBtn: 'Voir sur TikTok',
     before: 'AVANT',
     after: 'APRÈS',
     cases: {
@@ -231,6 +232,35 @@ const fr = {
       { label: 'Disponible', value: '7 jours / 7' },
     ],
   },
+  social: {
+    sectionLabel: 'Suivez Notre Parcours',
+    h2a: 'De Vrais Patients.',
+    h2b: 'De Vrais Résultats.',
+    subtitle: 'Découvrez chaque jour des transformations avant/après, des témoignages et des actualités de la clinique sur Instagram et TikTok — patients de plus de 40 pays.',
+    platforms: {
+      instagram: {
+        title: 'Instagram',
+        desc: 'Galeries avant/après, témoignages patients et points forts des traitements de notre clinique d\'Istanbul.',
+        cta: 'Suivre @nodenscare',
+      },
+      tiktok: {
+        title: 'TikTok',
+        desc: 'Parcours patients en format court, conseils de récupération et coulisses de notre équipe médicale.',
+        cta: 'Suivre @nodenscare',
+      },
+    },
+    proofPoints: [
+      { value: '1 200+', label: 'Avis Patients' },
+      { value: '40+', label: 'Pays' },
+      { value: '4,9/5', label: 'Note Moyenne' },
+    ],
+    contact: {
+      sectionLabel: 'Preuve Sociale',
+      title: 'Voyez de Vrais Résultats',
+      titleAccent: 'Avant de Réserver',
+      subtitle: 'Suivez-nous sur Instagram et TikTok pour des transformations vérifiées, des avis et des parcours de récupération de notre clinique d\'Istanbul.',
+    },
+  },
   pages,
   procedureCards,
   homeExplore: {
@@ -251,6 +281,7 @@ const fr = {
   },
   footer: {
     tagline: "Première consultance médicale d'Istanbul mettant en relation les patients internationaux avec les professeurs les plus distingués de Turquie.",
+    followUs: 'Suivez-Nous',
     copyright: '© NodensCare. Tous droits réservés.',
     terms: 'Conditions d\'Utilisation',
     privacy: 'Confidentialité & Protection des Données',

@@ -5,8 +5,8 @@ import { X, ZoomIn } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 
 import { galleryCases, galleryFeatured } from '../data/galleryCases';
-
-const INSTAGRAM_URL = 'https://www.instagram.com/nodenscare';
+import { SOCIAL_URLS } from '../data/socialLinks';
+import SocialIcon from './SocialIcon';
 
 
 
@@ -142,14 +142,27 @@ export default function Gallery({ mode = 'home' }) {
 
 
 
-        <div className="text-center mt-12" data-aos="fade-up">
-
-          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="btn-dark">
-
+        <div className="flex flex-wrap justify-center gap-4 mt-12" data-aos="fade-up">
+          <a
+            href={SOCIAL_URLS.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View more patient results on Instagram"
+            className="btn-dark inline-flex items-center gap-2"
+          >
+            <SocialIcon name="instagram" size={18} />
             {t.gallery.requestBtn}
-
           </a>
-
+          <a
+            href={SOCIAL_URLS.tiktok}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch patient stories on TikTok"
+            className="inline-flex items-center gap-2 border-2 border-navy-950 text-navy-950 hover:bg-navy-950 hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 text-sm tracking-wide"
+          >
+            <SocialIcon name="tiktok" size={18} />
+            {t.gallery.tiktokBtn}
+          </a>
         </div>
 
       </div>

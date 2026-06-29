@@ -128,6 +128,7 @@ const es = {
     noticeTitle: 'Aviso de Imágenes Médicas',
     agreeBtn: 'Entiendo — Ver Galería',
     requestBtn: 'Ver Más en Instagram',
+    tiktokBtn: 'Ver en TikTok',
     before: 'ANTES', after: 'DESPUÉS',
     cases: {
       facelift: { procedure: 'Lifting Facial', description: 'Rejuvenecimiento facial deep plane — paciente NodensCare' },
@@ -214,6 +215,35 @@ const es = {
       { label: 'Disponible', value: '7 días a la semana' },
     ],
   },
+  social: {
+    sectionLabel: 'Sigue Nuestro Recorrido',
+    h2a: 'Pacientes Reales.',
+    h2b: 'Resultados Reales.',
+    subtitle: 'Ve transformaciones diarias antes y después, historias de pacientes y novedades de la clínica en Instagram y TikTok — confiado por pacientes de más de 40 países.',
+    platforms: {
+      instagram: {
+        title: 'Instagram',
+        desc: 'Galerías antes y después, testimonios de pacientes y tratamientos destacados de nuestra clínica en Estambul.',
+        cta: 'Seguir @nodenscare',
+      },
+      tiktok: {
+        title: 'TikTok',
+        desc: 'Recorridos de pacientes en formato corto, consejos de recuperación y detrás de cámaras de nuestro equipo médico.',
+        cta: 'Seguir @nodenscare',
+      },
+    },
+    proofPoints: [
+      { value: '1.200+', label: 'Reseñas de Pacientes' },
+      { value: '40+', label: 'Países' },
+      { value: '4,9/5', label: 'Calificación Promedio' },
+    ],
+    contact: {
+      sectionLabel: 'Prueba Social',
+      title: 'Ve Resultados Reales',
+      titleAccent: 'Antes de Reservar',
+      subtitle: 'Síguenos en Instagram y TikTok para transformaciones verificadas, reseñas y recorridos de recuperación de nuestra clínica en Estambul.',
+    },
+  },
   pages,
   procedureCards,
   homeExplore: {
@@ -234,6 +264,7 @@ const es = {
   },
   footer: {
     tagline: 'Consultoría médica premier de Estambul que conecta pacientes internacionales con los profesores más distinguidos de Turquía.',
+    followUs: 'Síguenos',
     copyright: '© NodensCare. Todos los derechos reservados.',
     terms: 'Términos de Servicio',
     privacy: 'Privacidad y Protección de Datos',

@@ -1,5 +1,6 @@
 import { MapPin, Mail, Phone, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { SocialFollowContact } from './SocialFollow';
 
 const WHATSAPP_URL = 'https://wa.me/905546745516?text=Hello%2C%20I%27m%20interested%20in%20learning%20more%20about%20NodensCare%20treatments.';
 
@@ -72,6 +73,8 @@ export default function Contact() {
             ))}
           </div>
         </div>
+
+        <SocialFollowContact />
       </div>
     </section>
   );

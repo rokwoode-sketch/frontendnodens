@@ -159,6 +159,7 @@ const en = {
     noticeTitle: 'Medical Imagery Notice',
     agreeBtn: 'I Understand — View Gallery',
     requestBtn: 'View More on Instagram',
+    tiktokBtn: 'Watch on TikTok',
     before: 'BEFORE',
     after: 'AFTER',
     cases: {
@@ -246,6 +247,35 @@ const en = {
       { label: 'Available', value: '7 days a week' },
     ],
   },
+  social: {
+    sectionLabel: 'Follow Our Journey',
+    h2a: 'Real Patients.',
+    h2b: 'Real Results.',
+    subtitle: 'See daily before-and-after transformations, patient stories, and clinic updates on Instagram and TikTok — trusted by patients from 40+ countries.',
+    platforms: {
+      instagram: {
+        title: 'Instagram',
+        desc: 'Before & after galleries, patient testimonials, and treatment highlights from our Istanbul clinic.',
+        cta: 'Follow @nodenscare',
+      },
+      tiktok: {
+        title: 'TikTok',
+        desc: 'Short-form patient journeys, recovery tips, and behind-the-scenes from our medical team.',
+        cta: 'Follow @nodenscare',
+      },
+    },
+    proofPoints: [
+      { value: '1,200+', label: 'Patient Reviews' },
+      { value: '40+', label: 'Countries' },
+      { value: '4.9/5', label: 'Average Rating' },
+    ],
+    contact: {
+      sectionLabel: 'Social Proof',
+      title: 'See Real Results',
+      titleAccent: 'Before You Book',
+      subtitle: 'Follow us on Instagram and TikTok for verified patient transformations, reviews, and recovery journeys from our Istanbul clinic.',
+    },
+  },
   pages,
   procedureCards,
   homeExplore: {
@@ -266,6 +296,7 @@ const en = {
   },
   footer: {
     tagline: "Istanbul's premier medical consultancy connecting international patients with Turkey's most distinguished professors and JCI-accredited facilities.",
+    followUs: 'Follow Us',
     copyright: '© NodensCare. All rights reserved.',
     terms: 'Terms of Service',
     privacy: 'Privacy & Data Protection',
