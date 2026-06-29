@@ -163,6 +163,16 @@ export default function Gallery({ mode = 'home' }) {
             <SocialIcon name="tiktok" size={18} />
             {t.gallery.tiktokBtn}
           </a>
+          <a
+            href={SOCIAL_URLS.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Follow patient stories on Facebook"
+            className="inline-flex items-center gap-2 border-2 border-gold-500 text-gold-600 hover:bg-gold-500 hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all duration-300 text-sm tracking-wide"
+          >
+            <SocialIcon name="facebook" size={18} />
+            {t.gallery.facebookBtn}
+          </a>
         </div>
 
       </div>

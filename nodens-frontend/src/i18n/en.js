@@ -160,6 +160,7 @@ const en = {
     agreeBtn: 'I Understand — View Gallery',
     requestBtn: 'View More on Instagram',
     tiktokBtn: 'Watch on TikTok',
+    facebookBtn: 'Follow on Facebook',
     before: 'BEFORE',
     after: 'AFTER',
     cases: {
@@ -251,7 +252,7 @@ const en = {
     sectionLabel: 'Follow Our Journey',
     h2a: 'Real Patients.',
     h2b: 'Real Results.',
-    subtitle: 'See daily before-and-after transformations, patient stories, and clinic updates on Instagram and TikTok — trusted by patients from 40+ countries.',
+    subtitle: 'See daily before-and-after transformations, patient stories, and clinic updates on Instagram, TikTok, and Facebook — trusted by patients from 40+ countries.',
     platforms: {
       instagram: {
         title: 'Instagram',
@@ -263,6 +264,11 @@ const en = {
         desc: 'Short-form patient journeys, recovery tips, and behind-the-scenes from our medical team.',
         cta: 'Follow @nodenscare',
       },
+      facebook: {
+        title: 'Facebook',
+        desc: 'Patient reviews, community updates, and verified before-and-after results from NodensCare Istanbul.',
+        cta: 'Follow NodensCare',
+      },
     },
     proofPoints: [
       { value: '1,200+', label: 'Patient Reviews' },
@@ -273,7 +279,7 @@ const en = {
       sectionLabel: 'Social Proof',
       title: 'See Real Results',
       titleAccent: 'Before You Book',
-      subtitle: 'Follow us on Instagram and TikTok for verified patient transformations, reviews, and recovery journeys from our Istanbul clinic.',
+      subtitle: 'Follow us on Instagram, TikTok, and Facebook for verified patient transformations, reviews, and recovery journeys from our Istanbul clinic.',
     },
   },
   pages,

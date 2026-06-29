@@ -46,7 +46,7 @@ export function SocialFollowHome() {
           <p className="text-white/65 max-w-2xl mx-auto">{s.subtitle}</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto mb-12" data-aos="fade-up">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12" data-aos="fade-up">
           {FEATURED_SOCIALS.map(({ id, href, handle, color }) => (
             <FeaturedCard
               key={id}
@@ -88,7 +88,7 @@ export function SocialFollowContact() {
         </h3>
         <p className="text-white/65 text-sm leading-relaxed mb-8 max-w-md mx-auto">{s.subtitle}</p>
 
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {FEATURED_SOCIALS.map(({ id, href, handle, color }) => (
             <a
               key={id}

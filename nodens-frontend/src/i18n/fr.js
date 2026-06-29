@@ -145,6 +145,7 @@ const fr = {
     agreeBtn: 'Je Comprends — Voir la Galerie',
     requestBtn: 'Voir Plus sur Instagram',
     tiktokBtn: 'Voir sur TikTok',
+    facebookBtn: 'Suivre sur Facebook',
     before: 'AVANT',
     after: 'APRÈS',
     cases: {
@@ -236,7 +237,7 @@ const fr = {
     sectionLabel: 'Suivez Notre Parcours',
     h2a: 'De Vrais Patients.',
     h2b: 'De Vrais Résultats.',
-    subtitle: 'Découvrez chaque jour des transformations avant/après, des témoignages et des actualités de la clinique sur Instagram et TikTok — patients de plus de 40 pays.',
+    subtitle: 'Découvrez chaque jour des transformations avant/après, des témoignages et des actualités de la clinique sur Instagram, TikTok et Facebook — patients de plus de 40 pays.',
     platforms: {
       instagram: {
         title: 'Instagram',
@@ -248,6 +249,11 @@ const fr = {
         desc: 'Parcours patients en format court, conseils de récupération et coulisses de notre équipe médicale.',
         cta: 'Suivre @nodenscare',
       },
+      facebook: {
+        title: 'Facebook',
+        desc: 'Avis patients, actualités de la communauté et résultats avant/après vérifiés de NodensCare Istanbul.',
+        cta: 'Suivre NodensCare',
+      },
     },
     proofPoints: [
       { value: '1 200+', label: 'Avis Patients' },
@@ -258,7 +264,7 @@ const fr = {
       sectionLabel: 'Preuve Sociale',
       title: 'Voyez de Vrais Résultats',
       titleAccent: 'Avant de Réserver',
-      subtitle: 'Suivez-nous sur Instagram et TikTok pour des transformations vérifiées, des avis et des parcours de récupération de notre clinique d\'Istanbul.',
+      subtitle: 'Suivez-nous sur Instagram, TikTok et Facebook pour des transformations vérifiées, des avis et des parcours de récupération de notre clinique d\'Istanbul.',
     },
   },
   pages,

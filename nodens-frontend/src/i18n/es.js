@@ -129,6 +129,7 @@ const es = {
     agreeBtn: 'Entiendo — Ver Galería',
     requestBtn: 'Ver Más en Instagram',
     tiktokBtn: 'Ver en TikTok',
+    facebookBtn: 'Seguir en Facebook',
     before: 'ANTES', after: 'DESPUÉS',
     cases: {
       facelift: { procedure: 'Lifting Facial', description: 'Rejuvenecimiento facial deep plane — paciente NodensCare' },
@@ -219,7 +220,7 @@ const es = {
     sectionLabel: 'Sigue Nuestro Recorrido',
     h2a: 'Pacientes Reales.',
     h2b: 'Resultados Reales.',
-    subtitle: 'Ve transformaciones diarias antes y después, historias de pacientes y novedades de la clínica en Instagram y TikTok — confiado por pacientes de más de 40 países.',
+    subtitle: 'Ve transformaciones diarias antes y después, historias de pacientes y novedades de la clínica en Instagram, TikTok y Facebook — confiado por pacientes de más de 40 países.',
     platforms: {
       instagram: {
         title: 'Instagram',
@@ -231,6 +232,11 @@ const es = {
         desc: 'Recorridos de pacientes en formato corto, consejos de recuperación y detrás de cámaras de nuestro equipo médico.',
         cta: 'Seguir @nodenscare',
       },
+      facebook: {
+        title: 'Facebook',
+        desc: 'Reseñas de pacientes, actualizaciones de la comunidad y resultados verificados de NodensCare Estambul.',
+        cta: 'Seguir NodensCare',
+      },
     },
     proofPoints: [
       { value: '1.200+', label: 'Reseñas de Pacientes' },
@@ -241,7 +247,7 @@ const es = {
       sectionLabel: 'Prueba Social',
       title: 'Ve Resultados Reales',
       titleAccent: 'Antes de Reservar',
-      subtitle: 'Síguenos en Instagram y TikTok para transformaciones verificadas, reseñas y recorridos de recuperación de nuestra clínica en Estambul.',
+      subtitle: 'Síguenos en Instagram, TikTok y Facebook para transformaciones verificadas, reseñas y recorridos de recuperación de nuestra clínica en Estambul.',
     },
   },
   pages,
