@@ -24,11 +24,20 @@ const hreflangMap = {
 
 // ── Schema generators ────────────────────────────────────────────────────────
 
+const ORGANIZATION_ID = `${BASE_URL}/#organization`;
+
+const AGGREGATE_RATING = {
+  '@type': 'AggregateRating',
+  ratingValue: 4.9,
+  reviewCount: 1247,
+  bestRating: 5,
+  worstRating: 1,
+};
+
 function medicalOrganizationSchema(t) {
   return {
-    '@context': 'https://schema.org',
-    '@type': ['MedicalOrganization', 'LocalBusiness'],
-    '@id': `${BASE_URL}/#organization`,
+    '@type': 'MedicalOrganization',
+    '@id': ORGANIZATION_ID,
     name: 'NodensCare',
     alternateName: ['Nodens Care', 'NodénsCare'],
     url: BASE_URL,
@@ -43,8 +52,8 @@ function medicalOrganizationSchema(t) {
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: '41.0082',
-      longitude: '28.9784',
+      latitude: 41.0082,
+      longitude: 28.9784,
     },
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
@@ -62,18 +71,7 @@ function medicalOrganizationSchema(t) {
       'Oncology',
       'Transplantation',
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '1247',
-      bestRating: '5',
-      worstRating: '1',
-    },
-    review: [
-      { '@type': 'Review', author: { '@type': 'Person', name: 'Sarah Mitchell' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'NodensCare made the entire process seamless. My coordinator was available 24/7, and the Hollywood Smile results were absolutely life-changing.' },
-      { '@type': 'Review', author: { '@type': 'Person', name: 'James Okonkwo' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'NodensCare matched me with an incredible hair transplant surgeon. The 12-month FUE results have completely restored my confidence.' },
-      { '@type': 'Review', author: { '@type': 'Person', name: 'Amira Al-Hassan' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'The professor who performed my rhinoplasty truly understood ethnic preservation. I am beyond happy with the natural outcome.' },
-    ],
+    aggregateRating: AGGREGATE_RATING,
     sameAs: [
       'https://www.instagram.com/nodenscare',
       'https://www.facebook.com/nodenscare',
@@ -86,13 +84,12 @@ function medicalOrganizationSchema(t) {
 
 function websiteSchema() {
   return {
-    '@context': 'https://schema.org',
     '@type': 'WebSite',
     '@id': `${BASE_URL}/#website`,
     url: BASE_URL,
     name: 'NodensCare',
     description: 'Elite medical consultancy in Istanbul, Turkey. Hair transplant, dental, plastic surgery & complex treatments.',
-    publisher: { '@id': `${BASE_URL}/#organization` },
+    publisher: { '@id': ORGANIZATION_ID },
     potentialAction: {
       '@type': 'SearchAction',
       target: { '@type': 'EntryPoint', urlTemplate: `${BASE_URL}/?s={search_term_string}` },
@@ -104,7 +101,6 @@ function websiteSchema() {
 
 function faqSchema(items) {
   return {
-    '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: items.map(({ q, a }) => ({
       '@type': 'Question',
@@ -128,10 +124,9 @@ function medicalProcedures() {
   ];
 
   return procedures.map((p) => ({
-    '@context': 'https://schema.org',
     '@type': p.type,
     name: p.name,
-    provider: { '@id': `${BASE_URL}/#organization` },
+    provider: { '@id': ORGANIZATION_ID },
     location: {
       '@type': 'Place',
       name: 'Istanbul, Turkey',
@@ -152,29 +147,26 @@ function medicalProcedures() {
 function physiciansSchema() {
   return [
     {
-      '@context': 'https://schema.org',
       '@type': 'Physician',
       name: 'Prof. Dr. Halil ERBIS',
       jobTitle: 'Professor of Organ Transplant & General Surgery',
-      worksFor: { '@id': `${BASE_URL}/#organization` },
+      worksFor: { '@id': ORGANIZATION_ID },
       medicalSpecialty: 'Transplantation',
       alumniOf: { '@type': 'CollegeOrUniversity', name: 'Istanbul University Faculty of Medicine' },
     },
     {
-      '@context': 'https://schema.org',
       '@type': 'Physician',
       name: 'Prof. Dr. Senem Karabulut',
       jobTitle: 'Professor of Medical Oncology',
-      worksFor: { '@id': `${BASE_URL}/#organization` },
+      worksFor: { '@id': ORGANIZATION_ID },
       medicalSpecialty: 'Oncology',
       alumniOf: { '@type': 'CollegeOrUniversity', name: 'Istanbul University — Cerrahpaşa' },
     },
     {
-      '@context': 'https://schema.org',
       '@type': 'Physician',
       name: 'Prof. Dr. Esra Kaytan Saglam',
       jobTitle: 'Professor of Radiation Oncology',
-      worksFor: { '@id': `${BASE_URL}/#organization` },
+      worksFor: { '@id': ORGANIZATION_ID },
       medicalSpecialty: 'RadiationTherapy',
       alumniOf: { '@type': 'CollegeOrUniversity', name: 'Istanbul University — İstanbul Faculty of Medicine' },
     },
@@ -184,7 +176,6 @@ function physiciansSchema() {
 function breadcrumbSchema(lang) {
   const base = lang === 'en' ? BASE_URL : `${BASE_URL}/${lang}`;
   return {
-    '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'NodensCare', item: base },
@@ -200,14 +191,17 @@ function breadcrumbSchema(lang) {
 export default function SEO() {
   const { lang, t } = useLanguage();
 
-  const schemas = [
-    medicalOrganizationSchema(t),
-    websiteSchema(),
-    faqSchema(t.faq.items),
-    breadcrumbSchema(lang),
-    ...medicalProcedures(),
-    ...physiciansSchema(),
-  ];
+  const graphSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      medicalOrganizationSchema(t),
+      websiteSchema(),
+      faqSchema(t.faq.items),
+      breadcrumbSchema(lang),
+      ...medicalProcedures(),
+      ...physiciansSchema(),
+    ],
+  };
 
   const canonicalUrl = lang === 'en' ? BASE_URL : `${BASE_URL}/${lang}/`;
 
@@ -261,14 +255,11 @@ export default function SEO() {
 
       {/* Performance hints — fonts & CDN preconnect live in index.html */}
 
-      {/* Schema.org JSON-LD — all schemas */}
-      {schemas.map((schema, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      ))}
+      {/* Schema.org JSON-LD — single @graph (no orphan Review entities) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graphSchema) }}
+      />
     </Helmet>
   );
 }
