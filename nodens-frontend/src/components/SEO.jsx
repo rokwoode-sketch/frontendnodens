@@ -69,6 +69,11 @@ function medicalOrganizationSchema(t) {
       bestRating: '5',
       worstRating: '1',
     },
+    review: [
+      { '@type': 'Review', author: { '@type': 'Person', name: 'Sarah Mitchell' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'NodensCare made the entire process seamless. My coordinator was available 24/7, and the Hollywood Smile results were absolutely life-changing.' },
+      { '@type': 'Review', author: { '@type': 'Person', name: 'James Okonkwo' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'NodensCare matched me with an incredible hair transplant surgeon. The 12-month FUE results have completely restored my confidence.' },
+      { '@type': 'Review', author: { '@type': 'Person', name: 'Amira Al-Hassan' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'The professor who performed my rhinoplasty truly understood ethnic preservation. I am beyond happy with the natural outcome.' },
+    ],
     sameAs: [
       'https://www.instagram.com/nodenscare',
       'https://www.facebook.com/nodenscare',
@@ -190,19 +195,6 @@ function breadcrumbSchema(lang) {
   };
 }
 
-function reviewsSchema() {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'MedicalOrganization',
-    name: 'NodensCare',
-    review: [
-      { '@type': 'Review', author: { '@type': 'Person', name: 'Sarah Mitchell' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'NodensCare made the entire process seamless. My coordinator was available 24/7, and the Hollywood Smile results were absolutely life-changing.' },
-      { '@type': 'Review', author: { '@type': 'Person', name: 'James Okonkwo' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'NodensCare matched me with an incredible hair transplant surgeon. The 12-month FUE results have completely restored my confidence.' },
-      { '@type': 'Review', author: { '@type': 'Person', name: 'Amira Al-Hassan' }, reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5' }, reviewBody: 'The professor who performed my rhinoplasty truly understood ethnic preservation. I am beyond happy with the natural outcome.' },
-    ],
-  };
-}
-
 // ── Component ────────────────────────────────────────────────────────────────
 
 export default function SEO() {
@@ -213,7 +205,6 @@ export default function SEO() {
     websiteSchema(),
     faqSchema(t.faq.items),
     breadcrumbSchema(lang),
-    reviewsSchema(),
     ...medicalProcedures(),
     ...physiciansSchema(),
   ];
