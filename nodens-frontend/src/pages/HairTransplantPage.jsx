@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import PageMeta from '../components/PageMeta';
 import { Link } from 'react-router-dom';
 import { CheckCircle, ArrowRight, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -20,10 +20,7 @@ export default function HairTransplantPage() {
 
   return (
     <>
-      <Helmet>
-        <title>{p.metaTitle}</title>
-        <meta name="description" content={p.metaDescription} />
-      </Helmet>
+      <PageMeta title={p.metaTitle} description={p.metaDescription} />
 
       <ProcedurePageHero pageKey="hair" image={siteImages.hairHero}>
         <div className="flex flex-wrap gap-4 mb-10">

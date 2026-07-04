@@ -1,8 +1,9 @@
 import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../i18n/LanguageContext';
+import { siteImages } from '../data/siteImages';
+import { canonicalFor } from './PageMeta';
 
 const BASE_URL = 'https://www.nodenscare.com';
-import { siteImages } from '../data/siteImages';
 const LOGO = siteImages.logo;
 const PHONE = '+905546745516';
 const EMAIL = 'info@nodenscare.com';
@@ -12,14 +13,6 @@ const ADDRESS = {
   addressRegion: 'İstanbul',
   postalCode: '34100',
   addressCountry: 'TR',
-};
-
-// Hreflang map
-const hreflangMap = {
-  en: `${BASE_URL}/`,
-  fr: `${BASE_URL}/fr/`,
-  ar: `${BASE_URL}/ar/`,
-  es: `${BASE_URL}/es/`,
 };
 
 // ── Schema generators ────────────────────────────────────────────────────────
@@ -173,15 +166,14 @@ function physiciansSchema() {
   ];
 }
 
-function breadcrumbSchema(lang) {
-  const base = lang === 'en' ? BASE_URL : `${BASE_URL}/${lang}`;
+function breadcrumbSchema() {
   return {
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'NodensCare', item: base },
-      { '@type': 'ListItem', position: 2, name: 'Hair Transplant Istanbul', item: `${base}/hair-transplant` },
-      { '@type': 'ListItem', position: 3, name: 'Dental Treatments Turkey', item: `${base}/dental` },
-      { '@type': 'ListItem', position: 4, name: 'Plastic Surgery Istanbul', item: `${base}/plastic-surgery` },
+      { '@type': 'ListItem', position: 1, name: 'NodensCare', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Hair Transplant Istanbul', item: `${BASE_URL}/hair-transplant` },
+      { '@type': 'ListItem', position: 3, name: 'Dental Treatments Turkey', item: `${BASE_URL}/dental` },
+      { '@type': 'ListItem', position: 4, name: 'Plastic Surgery Istanbul', item: `${BASE_URL}/plastic-surgery` },
     ],
   };
 }
@@ -197,13 +189,14 @@ export default function SEO() {
       medicalOrganizationSchema(t),
       websiteSchema(),
       faqSchema(t.faq.items),
-      breadcrumbSchema(lang),
+      breadcrumbSchema(),
       ...medicalProcedures(),
       ...physiciansSchema(),
     ],
   };
 
-  const canonicalUrl = lang === 'en' ? BASE_URL : `${BASE_URL}/${lang}/`;
+  // Language is client-side only — one URL per page (no /fr/ or ?lang= paths).
+  const canonicalUrl = canonicalFor('/');
 
   return (
     <Helmet>
@@ -215,12 +208,7 @@ export default function SEO() {
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       <meta name="author" content="NodensCare" />
       <link rel="canonical" href={canonicalUrl} />
-
-      {/* Hreflang for multilingual SEO */}
-      {Object.entries(hreflangMap).map(([code, url]) => (
-        <link key={code} rel="alternate" hrefLang={code} href={url} />
-      ))}
-      <link rel="alternate" hrefLang="x-default" href={BASE_URL} />
+      <link rel="alternate" hrefLang="x-default" href={canonicalUrl} />
 
       {/* Open Graph */}
       <meta property="og:type" content="website" />

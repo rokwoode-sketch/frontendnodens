@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import PageMeta from '../components/PageMeta';
 
 import PageHeader from '../components/PageHeader';
 
@@ -20,13 +20,7 @@ export default function FAQPage() {
 
     <>
 
-      <Helmet>
-
-        <title>{p.metaTitle}</title>
-
-        <meta name="description" content={p.metaDescription} />
-
-      </Helmet>
+      <PageMeta title={p.metaTitle} description={p.metaDescription} />
 
 
 

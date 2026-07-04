@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import PageMeta from '../components/PageMeta';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowRight, GraduationCap, CheckCircle } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
@@ -14,6 +14,7 @@ export default function DoctorProfilePage() {
   if (!doctor) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center pt-32 gap-4">
+        <PageMeta title="Doctor Not Found | NodensCare" description="This doctor profile does not exist." noindex />
         <p className="text-gray-500">Doctor not found.</p>
         <Link to="/doctors" className="text-gold-600 hover:underline text-sm">Back to Our Doctors</Link>
       </div>
@@ -25,10 +26,7 @@ export default function DoctorProfilePage() {
 
   return (
     <>
-      <Helmet>
-        <title>{d.name} | {d.title} — NodensCare Istanbul</title>
-        <meta name="description" content={d.intro} />
-      </Helmet>
+      <PageMeta title={`${d.name} | ${d.title} — NodensCare Istanbul`} description={d.intro} />
 
       <PageHeader
         title={d.name}

@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import PageMeta from '../components/PageMeta';
 
 import { Link } from 'react-router-dom';
 
@@ -42,13 +42,7 @@ export default function DentalPage() {
 
     <>
 
-      <Helmet>
-
-        <title>{p.metaTitle}</title>
-
-        <meta name="description" content={p.metaDescription} />
-
-      </Helmet>
+      <PageMeta title={p.metaTitle} description={p.metaDescription} />
 
 
 

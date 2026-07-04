@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import PageMeta from '../components/PageMeta';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { getStaticPost } from '../data/blogPosts';
@@ -41,6 +42,7 @@ export default function BlogPostPage() {
   if (!post) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center pt-32 gap-4">
+        <PageMeta title="Article Not Found | NodensCare" description="This guide does not exist." noindex />
         <p className="text-gray-500">Article not found.</p>
         <Link to="/blog" className="text-gold-600 hover:underline text-sm">Back to Guides</Link>
       </div>
@@ -71,9 +73,8 @@ export default function BlogPostPage() {
 
   return (
     <>
+      <PageMeta title={post.meta_title || post.title} description={post.meta_description} />
       <Helmet>
-        <title>{post.meta_title || post.title}</title>
-        <meta name="description" content={post.meta_description} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
         {post.faq?.length > 0 && (
           <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
