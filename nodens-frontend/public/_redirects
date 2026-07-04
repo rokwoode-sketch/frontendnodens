@@ -1,4 +1,133 @@
-# SPA routes (explicit) — unknown paths return a real 404 so Google drops old Wix URLs.
+# ── Legacy Wix → current pages (301) ─────────────────────────────────────────
+# Real medical/content URLs from Search Console. Spam (?c=, /ctg/, /f/, .shtml) stays 404.
+
+# Doctors (old /dr- slug)
+/dr-esra-kaytan-saglam              /doctors/esra-kaytan-saglam  301
+/dr-esra-kaytan-saglam/             /doctors/esra-kaytan-saglam  301
+/dr-halil-erbis                     /doctors/halil-erbis  301
+/dr-halil-erbis/                    /doctors/halil-erbis  301
+/dr-senem-karabulut                 /doctors/senem-karabulut  301
+/dr-senem-karabulut/                /doctors/senem-karabulut  301
+
+# Hair
+/follicular-unit-extraction-fue     /hair-transplant  301
+/follicular-unit-extraction-fue/    /hair-transplant  301
+/platelet-rich-plasma-prp-therapy   /hair-transplant  301
+/platelet-rich-plasma-prp-therapy/  /hair-transplant  301
+/mesotherapy-for-hair-loss          /hair-transplant  301
+/mesotherapy-for-hair-loss/         /hair-transplant  301
+/beard-and-mustache-transplant      /hair-transplant  301
+/beard-and-mustache-transplant/     /hair-transplant  301
+/stem-cell-therapy                  /hair-transplant  301
+/stem-cell-therapy/                 /hair-transplant  301
+/copie-de-fue-sapphire              /hair-transplant  301
+/copie-de-fue-sapphire/             /hair-transplant  301
+/prp-mesotherapy                    /hair-transplant  301
+/prp-mesotherapy/                   /hair-transplant  301
+
+# Dental
+/veneers-porcelain-and-composite    /dental  301
+/veneers-porcelain-and-composite/   /dental  301
+/smile-makeover                     /dental  301
+/smile-makeover/                    /dental  301
+/dental-fillings                    /dental  301
+/dental-fillings/                   /dental  301
+/root-canal-treatment               /dental  301
+/root-canal-treatment/              /dental  301
+/orthodontics-braces-and-invisalign /dental  301
+/orthodontics-braces-and-invisalign/ /dental  301
+/dental-implants                    /dental  301
+/dental-implants/                   /dental  301
+/full-mouth-restoration             /dental  301
+/full-mouth-restoration/            /dental  301
+/full-mouth-restoration/feed        /dental  301
+/full-mouth-restoration/feed/       /dental  301
+/zirconium-crowns                   /dental  301
+/zirconium-crowns/                  /dental  301
+
+# Plastic surgery
+/arm-lift-brachioplasty             /plastic-surgery  301
+/arm-lift-brachioplasty/            /plastic-surgery  301
+/blepharoplasty-eyelid-surgery      /plastic-surgery  301
+/blepharoplasty-eyelid-surgery/     /plastic-surgery  301
+/blepharoplasty                     /plastic-surgery  301
+/blepharoplasty/                    /plastic-surgery  301
+/buttock-implants                   /plastic-surgery  301
+/buttock-implants/                  /plastic-surgery  301
+/brazilian-butt-lift-bbl            /plastic-surgery  301
+/brazilian-butt-lift-bbl/           /plastic-surgery  301
+/facelift-and-neck-lift             /plastic-surgery  301
+/facelift-and-neck-lift/            /plastic-surgery  301
+/facelift                           /plastic-surgery  301
+/facelift/                          /plastic-surgery  301
+/liposuction-traditional-laser-vaser /plastic-surgery  301
+/liposuction-traditional-laser-vaser/ /plastic-surgery  301
+/facial-implants                    /plastic-surgery  301
+/facial-implants/                   /plastic-surgery  301
+/otoplasty-ear-surgery              /plastic-surgery  301
+/otoplasty-ear-surgery/             /plastic-surgery  301
+/genital-aesthetics                 /plastic-surgery  301
+/genital-aesthetics/                /plastic-surgery  301
+/penile-implants                    /plastic-surgery  301
+/penile-implants/                   /plastic-surgery  301
+/penile-girth-enhancement           /plastic-surgery  301
+/penile-girth-enhancement/          /plastic-surgery  301
+/penuma                             /plastic-surgery  301
+/penuma/                            /plastic-surgery  301
+/penuma/feed                        /plastic-surgery  301
+/penuma/feed/                       /plastic-surgery  301
+/breast-reduction                   /plastic-surgery  301
+/breast-reduction/                  /plastic-surgery  301
+/non-surgical-procedures            /plastic-surgery  301
+/non-surgical-procedures/           /plastic-surgery  301
+/the-mommy-makeover-process-at-nodens-care-in-istanbul-turkey /blog/mommy-makeover  301
+/the-mommy-makeover-process-at-nodens-care-in-istanbul-turkey/ /blog/mommy-makeover  301
+
+# Complex / bariatric / oncology
+/gastric-bypass-surgery             /complex-treatments  301
+/gastric-bypass-surgery/            /complex-treatments  301
+/gastric-bypass-surgery/feed        /complex-treatments  301
+/gastric-bypass-surgery/feed/       /complex-treatments  301
+/gastric-sleeve-surgery             /complex-treatments  301
+/gastric-sleeve-surgery/            /complex-treatments  301
+/gastric-balloon                    /complex-treatments  301
+/gastric-balloon/                   /complex-treatments  301
+/cancer-treatment                   /blog/cancer-treatment  301
+/cancer-treatment/                  /blog/cancer-treatment  301
+/category/bariatric-and-weight-loss-surgery /complex-treatments  301
+/category/bariatric-and-weight-loss-surgery/ /complex-treatments  301
+/category/mens-health               /  301
+/category/mens-health/              /  301
+
+# About / misc Wix pages
+/medical-facility-accreditations    /about  301
+/medical-facility-accreditations/   /about  301
+/about-us                           /about  301
+/about-us/                          /about  301
+/copie-de-home                      /  301
+/copie-de-home/                     /  301
+
+# Old Wix blog (/post/...) → guides
+/post/dental-implants-in-turkey-why-international-patients-choose-istanbul /blog/dental  301
+/post/hollywood-smile-in-turkey-the-complete-guide-for-uk-patients /blog/dental  301
+/post/hair-transplant-in-turkey-a-complete-guide-for-scandinavian-patients /blog/hair-transplant  301
+/post/cancer-treatment-in-turkey-why-international-patients-are-choosing-istanbul /blog/cancer-treatment  301
+/post/why-istanbul-has-become-the-global-capital-of-health-tourism /blog  301
+/post/*                             /blog  301
+
+# Old language-prefixed paths (Wix /ar/...) — no path-based i18n on new site
+/ar/about-us                        /about  301
+/ar/facelift                        /plastic-surgery  301
+/ar/blepharoplasty                  /plastic-surgery  301
+/ar/breast-reduction                /plastic-surgery  301
+/ar/zirconium-crowns                /dental  301
+/ar/prp-mesotherapy                 /hair-transplant  301
+/ar/post/*                          /blog  301
+/ar/*                               /  301
+/fr/*                               /  301
+/es/*                               /  301
+
+# ── Current SPA routes ───────────────────────────────────────────────────────
 /                         /index.html   200
 /about                    /index.html   200
 /hair-transplant          /index.html   200
@@ -27,5 +156,5 @@
 /contact/                 /contact      301
 /blog/                    /blog         301
 
-# Everything else: real 404 (stops soft-404 indexing of legacy Wix paths)
+# Spam, junk, and unknown legacy paths → real 404
 /*                        /404.html     404
