@@ -13,11 +13,53 @@ const categoryLinks = {
   Complex: '/complex-treatments',
   Oncology: '/complex-treatments',
   Fertility: '/complex-treatments',
+  Travel: '/contact',
 };
 
 function ContentBlock({ block }) {
   if (block.type === 'h2') {
     return <h2 className="font-serif text-2xl font-bold text-navy-950 mt-10 mb-4">{block.text}</h2>;
+  }
+  if (block.type === 'h3') {
+    return <h3 className="font-serif text-xl font-semibold text-navy-900 mt-8 mb-3">{block.text}</h3>;
+  }
+  if (block.type === 'img') {
+    return (
+      <figure className="my-8">
+        <img
+          src={block.src}
+          alt={block.alt || ''}
+          width={800}
+          height={450}
+          loading="lazy"
+          decoding="async"
+          className="w-full h-52 md:h-72 object-cover border border-clinical-line"
+        />
+        {block.caption && (
+          <figcaption className="mt-2 text-[13px] text-navy-500 leading-relaxed">{block.caption}</figcaption>
+        )}
+      </figure>
+    );
+  }
+  if (block.type === 'sources') {
+    return (
+      <aside className="mt-12 mb-6 border border-clinical-line bg-navy-50/60 p-5 md:p-6">
+        <h2 className="font-serif text-lg font-semibold text-navy-950 mb-3">{block.title || 'Sources & References'}</h2>
+        <ol className="space-y-2 list-decimal list-inside">
+          {block.items.map((item) => (
+            <li key={item.url || item.label} className="text-sm text-navy-600 leading-relaxed">
+              {item.url ? (
+                <a href={item.url} target="_blank" rel="noopener noreferrer" className="text-teal-medical hover:underline">
+                  {item.label}
+                </a>
+              ) : (
+                item.label
+              )}
+            </li>
+          ))}
+        </ol>
+      </aside>
+    );
   }
   if (block.type === 'ul') {
     return (

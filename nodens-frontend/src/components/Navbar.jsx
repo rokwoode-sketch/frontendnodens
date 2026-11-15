@@ -178,17 +178,6 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      <div className={`hidden lg:block transition-colors duration-300 ${onLight ? 'nav-inst-trust-solid' : 'nav-inst-trust'}`}>
-        <div className={`max-w-7xl mx-auto px-5 sm:px-8 py-1.5 flex items-center justify-center gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
-          {trustItems.map(({ icon: Icon, text }) => (
-            <div key={text} className={`flex items-center gap-1.5 text-[10px] font-medium tracking-[0.16em] uppercase ${onLight ? 'text-navy-500' : 'text-white/55'} ${isRTL ? 'flex-row-reverse' : ''}`}>
-              <Icon size={11} className={`flex-shrink-0 ${onLight ? 'text-teal-medical' : 'text-gold-500/70'}`} />
-              <span>{text}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
       <nav className={`transition-all duration-300 overflow-visible ${onLight ? 'nav-inst-solid nav-on-light py-3' : 'nav-inst-hero nav-on-dark py-4'}`}>
         <div className="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-2 xl:gap-x-3 overflow-visible">
           <Link to="/" className={`flex items-center gap-2.5 z-10 flex-shrink-0 group col-start-1 ${isRTL ? 'flex-row-reverse' : ''}`}>

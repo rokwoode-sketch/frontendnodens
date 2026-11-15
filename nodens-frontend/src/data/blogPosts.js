@@ -1,4 +1,7 @@
-import { posts } from './posts-data.js';
+import { posts as corePosts } from './posts-data.js';
+import { extraPosts } from './posts-seo-extra.js';
+
+const posts = [...corePosts, ...extraPosts];
 
 export function getStaticPost(slug, lang = 'en') {
   const post = posts.find((p) => p.slug === slug);
@@ -8,7 +11,7 @@ export function getStaticPost(slug, lang = 'en') {
     slug: post.slug,
     category: post.category,
     image_url: post.image_url,
-    published_at: new Date().toISOString(),
+    published_at: post.published_at || '2026-01-15T09:00:00.000Z',
     title: t.title,
     meta_title: t.meta_title,
     meta_description: t.meta_description,

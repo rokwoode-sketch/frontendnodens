@@ -13,15 +13,11 @@ import { getAllStaticPosts } from '../data/blogPosts';
 
 
 const categoryLinks = {
-
   'Hair Transplant': '/hair-transplant',
-
   Dental: '/dental',
-
   'Plastic Surgery': '/plastic-surgery',
-
   Complex: '/complex-treatments',
-
+  Travel: '/contact',
 };
 
 
