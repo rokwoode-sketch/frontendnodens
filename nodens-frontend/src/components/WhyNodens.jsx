@@ -7,55 +7,61 @@ export default function WhyNodens() {
   const { t } = useLanguage();
 
   return (
-    <section id="why" className="py-24 bg-navy-950 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gold-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-medical/10 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-end mb-16">
-          <div data-aos="fade-right">
-            <p className="text-gold-400 font-semibold text-sm tracking-[0.2em] uppercase mb-4">{t.why.sectionLabel}</p>
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-white leading-tight">
-              {t.why.h2a}
-              <br />
-              <span className="text-gold-400">{t.why.h2b}</span> {t.why.h2c}
+    <section id="why" className="py-20 md:py-28 bg-navy-950">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-end mb-14 md:mb-16">
+          <div data-aos="fade-up">
+            <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-gold-400 mb-4">
+              {t.why.sectionLabel}
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] font-medium text-white leading-[1.15] tracking-tight">
+              {t.why.h2a}{' '}
+              <span className="text-gold-300">{t.why.h2b}</span> {t.why.h2c}
             </h2>
           </div>
-          <div data-aos="fade-left">
-            <p className="text-white/70 text-lg leading-relaxed">
+          <div data-aos="fade-up" data-aos-delay="60">
+            <p className="text-white/70 text-base md:text-lg leading-[1.7]">
               {t.why.intro}{' '}
-              <strong className="text-white">{t.why.introHighlight}</strong>
+              <strong className="text-white font-semibold">{t.why.introHighlight}</strong>
               {t.why.introRest}
             </p>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-white/10 border border-white/10">
           {t.why.items.map((item, i) => {
             const Icon = icons[i];
             return (
               <div
                 key={item.title}
-                className="group bg-white/5 hover:bg-white/10 border border-white/10 hover:border-gold-500/30 rounded-2xl p-7 transition-all duration-300"
+                className="bg-navy-950 p-7 md:p-8"
                 data-aos="fade-up"
-                data-aos-delay={i * 80}
+                data-aos-delay={i * 50}
               >
-                <div className="w-12 h-12 bg-gold-500/20 group-hover:bg-gold-500/30 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300">
-                  <Icon size={22} className="text-gold-400" />
-                </div>
-                <h3 className="font-serif text-lg font-bold text-white mb-3 leading-snug">{item.title}</h3>
+                <Icon size={20} className="text-gold-400 mb-5" aria-hidden="true" />
+                <h3 className="font-serif text-lg font-medium text-white mb-3 tracking-tight">{item.title}</h3>
                 <p className="text-white/65 text-sm leading-relaxed">{item.desc}</p>
               </div>
             );
           })}
         </div>
 
-        <div className="mt-16 rounded-2xl gradient-gold p-8 flex flex-col md:flex-row items-center justify-between gap-6" data-aos="fade-up">
+        <div
+          className="mt-12 md:mt-14 border border-white/15 px-7 py-8 md:px-10 md:py-9 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+          data-aos="fade-up"
+        >
           <div>
-            <h3 className="font-serif text-2xl font-bold text-white mb-1">{t.why.ctaText}</h3>
-            <p className="text-white/80 text-sm">{t.why.ctaSub}</p>
+            <h3 className="font-serif text-xl md:text-2xl font-medium text-white mb-2 tracking-tight">
+              {t.why.ctaText}
+            </h3>
+            <p className="text-white/65 text-sm">{t.why.ctaSub}</p>
           </div>
-          <a href="https://wa.me/905546745516" target="_blank" rel="noopener noreferrer" className="flex-shrink-0 btn-dark">
+          <a
+            href="https://wa.me/905546745516"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary flex-shrink-0"
+          >
             {t.why.ctaBtn}
           </a>
         </div>

@@ -1,76 +1,79 @@
 import { MapPin, Mail, Phone, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { SocialFollowContact } from './SocialFollow';
+import { SOCIAL_URLS } from '../data/socialLinks';
 
-const WHATSAPP_URL = 'https://wa.me/905546745516?text=Hello%2C%20I%27m%20interested%20in%20learning%20more%20about%20NodensCare%20treatments.';
+const WHATSAPP_URL = `${SOCIAL_URLS.whatsapp}?text=${encodeURIComponent("Hello, I'm interested in learning more about NodensCare treatments.")}`;
 
 export default function Contact() {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12" data-aos="fade-up">
+    <section id="contact" className="py-20 md:py-28 bg-white">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="max-w-2xl mb-12 md:mb-14" data-aos="fade-up">
           <p className="section-subtitle mb-4">{t.contact.sectionLabel}</p>
-          <h2 className="section-title mb-6">
-            {t.contact.h2a}
-            <br />
-            <span className="text-gold-600">{t.contact.h2b}</span>
+          <h2 className="section-title mb-5">
+            {t.contact.h2a}{' '}
+            <span className="text-teal-medical">{t.contact.h2b}</span>
           </h2>
-          <p className="text-gray-500 max-w-xl mx-auto">{t.contact.subtitle}</p>
+          <p className="text-navy-500 text-base md:text-lg leading-[1.7]">{t.contact.subtitle}</p>
         </div>
 
-        <div className="max-w-xl mx-auto mb-14" data-aos="fade-up">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-10 mb-12" data-aos="fade-up">
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex flex-col items-center gap-4 bg-[#25D366] text-white rounded-3xl px-8 py-10 hover:bg-[#1ebe5b] transition-colors shadow-lg hover:shadow-xl"
+            className="group border border-clinical-line bg-navy-950 text-white px-8 py-10 md:px-10 md:py-12 hover:border-gold-400/40 transition-colors"
           >
-            <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center">
-              <MessageCircle size={32} />
-            </div>
-            <div className="text-center">
-              <div className="font-serif text-2xl font-bold mb-1">{t.contact.whatsapp}</div>
-              <div className="text-white/90 text-base">{t.contact.whatsappHint}</div>
-              <div className="text-white/70 text-sm mt-2">{t.contact.whatsappSub}</div>
+            <div className="w-10 h-px bg-gold-400 mb-6" aria-hidden="true" />
+            <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-gold-400 mb-4">
+              {t.nav?.ctaShort || 'Consult'}
+            </p>
+            <div className="flex items-start gap-4 mb-4">
+              <MessageCircle size={22} className="text-gold-300 flex-shrink-0 mt-1" aria-hidden="true" />
+              <div>
+                <h3 className="font-serif text-2xl font-medium tracking-tight mb-2">{t.contact.whatsapp}</h3>
+                <p className="text-white/70 text-[15px] leading-relaxed">{t.contact.whatsappHint}</p>
+                <p className="text-white/50 text-sm mt-3">{t.contact.whatsappSub}</p>
+              </div>
             </div>
           </a>
-        </div>
 
-        <div className="grid sm:grid-cols-3 gap-5 max-w-4xl mx-auto mb-10" data-aos="fade-up">
-          {[
-            { icon: Mail, title: t.contact.email, value: 'info@nodenscare.com', href: 'mailto:info@nodenscare.com' },
-            { icon: Phone, title: t.contact.phone, value: '+90 554 674 5516', href: 'tel:+905546745516' },
-            { icon: MapPin, title: t.contact.address, value: 'Karat 34, Yenibosna Merkez, Kat 11, 34100 Bahçelievler/İstanbul', href: 'https://maps.google.com/?q=Karat+34+Yenibosna+Istanbul' },
-          ].map(({ icon: Icon, title, value, href }) => (
-            <a
-              key={title}
-              href={href}
-              target={href.startsWith('http') ? '_blank' : undefined}
-              rel="noopener noreferrer"
-              className="flex flex-col items-center text-center gap-3 bg-navy-50 rounded-2xl p-5 hover:bg-navy-100 transition-colors"
-            >
-              <div className="w-10 h-10 bg-navy-950 rounded-xl flex items-center justify-center">
-                <Icon size={18} className="text-gold-400" />
-              </div>
-              <div>
-                <div className="text-navy-700 text-xs font-semibold uppercase tracking-wider mb-1">{title}</div>
-                <div className="text-navy-950 text-sm font-medium leading-snug">{value}</div>
-              </div>
-            </a>
-          ))}
-        </div>
-
-        <div className="max-w-md mx-auto bg-gold-50 border border-gold-200 rounded-2xl p-5" data-aos="fade-up">
-          <h4 className="text-gold-700 font-semibold text-sm mb-3 text-center">{t.contact.responseTitle}</h4>
-          <div className="space-y-2 text-sm">
-            {t.contact.responseTimes.map(({ label, value }) => (
-              <div key={label} className="flex justify-between">
-                <span className="text-gray-500">{label}</span>
-                <span className="text-navy-950 font-medium">{value}</span>
-              </div>
-            ))}
+          <div className="border border-clinical-line bg-navy-50 px-6 py-8 md:px-8">
+            <h4 className="text-[11px] font-semibold tracking-[0.18em] uppercase text-teal-medical mb-5">
+              {t.contact.responseTitle}
+            </h4>
+            <div className="space-y-3 text-sm mb-8">
+              {t.contact.responseTimes.map(({ label, value }) => (
+                <div key={label} className="flex justify-between gap-4 border-b border-clinical-line pb-3 last:border-0 last:pb-0">
+                  <span className="text-navy-500">{label}</span>
+                  <span className="text-navy-950 font-semibold">{value}</span>
+                </div>
+              ))}
+            </div>
+            <div className="space-y-4">
+              {[
+                { icon: Mail, title: t.contact.email, value: 'info@nodenscare.com', href: 'mailto:info@nodenscare.com' },
+                { icon: Phone, title: t.contact.phone, value: '+90 554 674 5516', href: 'tel:+905546745516' },
+                { icon: MapPin, title: t.contact.address, value: 'Karat 34, Yenibosna Merkez, Kat 11, Bahçelievler/İstanbul', href: 'https://maps.google.com/?q=Karat+34+Yenibosna+Istanbul' },
+              ].map(({ icon: Icon, title, value, href }) => (
+                <a
+                  key={title}
+                  href={href}
+                  target={href.startsWith('http') ? '_blank' : undefined}
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 group"
+                >
+                  <Icon size={16} className="text-teal-medical flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <div>
+                    <div className="text-[11px] font-semibold tracking-wider uppercase text-navy-400 mb-0.5">{title}</div>
+                    <div className="text-navy-900 text-sm group-hover:text-teal-medical transition-colors leading-snug">{value}</div>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 

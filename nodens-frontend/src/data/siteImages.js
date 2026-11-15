@@ -52,13 +52,17 @@ export const siteImages = {
 
   logo: wixLogo('aac3c1_800303847ad3444fbec76b98ed1485b5~mv2.png', 160, 48),
 
-  // fit (not fill) — fill center-crops into logo/branding on this asset
+  // Brand graphic (logo texture) — keep for legacy pages; homepage uses facilityHero
   hero: wixFit(HERO_IMAGE_ID, 900, 1050),
 
   heroSrcSet: `${wixFit(HERO_IMAGE_ID, 600, 700)} 600w, ${wixFit(HERO_IMAGE_ID, 900, 1050)} 900w, ${wixFit(HERO_IMAGE_ID, 1200, 1400)} 1200w`,
 
   // About page — nodenscare.com/about-us hero (2000×1334 clinical facility image)
   aboutHero: wixFit('aac3c1_a96b83adedab4888bd0bd7d14be75573~mv2.webp', 800, 560),
+
+  // Homepage full-bleed: real JCI facility photography (cover crop)
+  facilityHero: wix('aac3c1_a96b83adedab4888bd0bd7d14be75573~mv2.webp', 'aac3c1_a96b83adedab4888bd0bd7d14be75573~mv2.webp', 1600, 1000),
+  facilityHeroSrcSet: `${wix('aac3c1_a96b83adedab4888bd0bd7d14be75573~mv2.webp', 'aac3c1_a96b83adedab4888bd0bd7d14be75573~mv2.webp', 900, 600)} 900w, ${wix('aac3c1_a96b83adedab4888bd0bd7d14be75573~mv2.webp', 'aac3c1_a96b83adedab4888bd0bd7d14be75573~mv2.webp', 1400, 900)} 1400w, ${wix('aac3c1_a96b83adedab4888bd0bd7d14be75573~mv2.webp', 'aac3c1_a96b83adedab4888bd0bd7d14be75573~mv2.webp', 1920, 1200)} 1920w`,
 
 
 

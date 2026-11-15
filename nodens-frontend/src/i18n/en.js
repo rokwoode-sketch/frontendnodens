@@ -82,6 +82,11 @@ const en = {
     { label: 'Satisfaction Rate', desc: 'Verified patient reviews' },
     { label: 'Specialist Doctors', desc: 'Board-certified professors' },
   ],
+  statsStory: {
+    sectionLabel: 'Clinical Scale',
+    h2: 'Measured by outcomes, not marketing.',
+    subtitle: 'Professor-led care across JCI-accredited partners in Istanbul.',
+  },
   services: {
     sectionLabel: 'What We Offer',
     h2a: 'Comprehensive Medical',
@@ -299,6 +304,24 @@ const en = {
     aboutTitle: 'About Our Consultancy',
     aboutDesc: 'Academic-led excellence, 10-day safety protocol, and VIP logistics for international patients.',
     aboutLabel: 'Learn more',
+  },
+  patientJourney: {
+    sectionLabel: 'Your Care Pathway',
+    h2a: 'From Assessment to',
+    h2b: 'Recovery',
+    subtitle: 'One coordinated pathway — clinical assessment, specialist match, travel logistics, and post-care follow-up — managed by your NodensCare coordinator.',
+    steps: [
+      { title: 'Clinical Assessment', desc: 'Share your history and goals. A coordinator reviews candidacy with our medical team before you travel.' },
+      { title: 'Specialist Match', desc: 'We match you with a university-affiliated professor or board-certified specialist for your procedure.' },
+      { title: 'Travel & Arrival', desc: 'Airport transfer, accommodation guidance, and a clear itinerary for your clinical stay in Istanbul.' },
+      { title: 'Care & Follow-Up', desc: 'Procedure in a JCI-accredited facility, then structured recovery support and home-team documentation.' },
+    ],
+    ctaLabel: 'Begin Today',
+    ctaTitle: 'Request a Free Clinical Assessment',
+    ctaDesc: 'Message us on WhatsApp for the fastest response. Multilingual coordinators are available 7 days a week.',
+    ctaWhatsapp: 'Chat on WhatsApp',
+    ctaContact: 'Contact Form',
+    note: 'No obligation. Your case is reviewed privately before any travel commitment.',
   },
   footer: {
     tagline: "Istanbul's premier medical consultancy connecting international patients with Turkey's most distinguished professors and JCI-accredited facilities.",

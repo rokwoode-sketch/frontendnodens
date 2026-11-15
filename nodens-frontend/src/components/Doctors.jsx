@@ -89,7 +89,7 @@ export default function Doctors() {
 
           {dc.list.map((doc, i) => (
 
-            <div key={doc.name} className="group bg-white rounded-2xl overflow-hidden border border-gray-100 card-hover shadow-sm flex flex-col" data-aos="fade-up" data-aos-delay={i * 120}>
+            <div key={doc.name} className="group bg-white border border-clinical-line flex flex-col" data-aos="fade-up" data-aos-delay={i * 80}>
 
               <div className={`relative h-72 overflow-hidden bg-gradient-to-br ${colors[i]}`}>
 
@@ -99,7 +99,7 @@ export default function Doctors() {
 
                 <div className="absolute bottom-4 left-4 right-4">
 
-                  <h3 className="font-serif text-lg font-bold text-white leading-snug mb-1">{doc.name}</h3>
+                  <h3 className="font-serif text-lg font-medium text-white leading-snug mb-1 tracking-tight">{doc.name}</h3>
 
                   <p className="text-white/70 text-xs">{doc.affiliation}</p>
 
@@ -109,15 +109,15 @@ export default function Doctors() {
 
 
 
-              <div className="grid grid-cols-3 divide-x divide-gray-100 border-b border-gray-100">
+              <div className="grid grid-cols-3 divide-x divide-clinical-line border-b border-clinical-line">
 
                 {doc.stats.map(({ num, label }) => (
 
                   <div key={label} className="py-4 text-center">
 
-                    <div className="font-bold text-navy-950 text-sm">{num}</div>
+                    <div className="font-semibold text-navy-950 text-sm tabular-nums">{num}</div>
 
-                    <div className="text-gray-400 text-xs mt-0.5">{label}</div>
+                    <div className="text-navy-400 text-xs mt-0.5">{label}</div>
 
                   </div>
 
@@ -129,13 +129,13 @@ export default function Doctors() {
 
               <div className="p-6 flex-1 flex flex-col">
 
-                <p className="text-gold-600 text-sm font-semibold mb-3">{doc.specialty}</p>
+                <p className="text-teal-medical text-sm font-semibold mb-3">{doc.specialty}</p>
 
                 <div className="flex flex-wrap gap-1.5 mb-4">
 
                   {doc.expertise.map((e) => (
 
-                    <span key={e} className="bg-navy-50 text-navy-700 text-xs px-2.5 py-0.5 rounded-full font-medium border border-gray-100">{e}</span>
+                    <span key={e} className="text-navy-700 text-xs px-2.5 py-0.5 font-medium border border-clinical-line">{e}</span>
 
                   ))}
 
@@ -143,11 +143,11 @@ export default function Doctors() {
 
                 <Link
                   to={`/doctors/${doc.slug}`}
-                  className="mt-auto inline-flex items-center justify-center gap-2 w-full py-3 px-4 rounded-xl border-2 border-navy-200 text-navy-800 hover:border-gold-500 hover:text-gold-700 font-semibold text-sm transition-colors group/btn"
+                  className="mt-auto inline-flex items-center justify-center gap-2 w-full py-3 px-4 border border-navy-200 text-navy-800 hover:border-teal-medical hover:text-teal-medical font-semibold text-sm transition-colors group/btn"
                 >
-                  <GraduationCap size={15} className="text-gold-500" />
+                  <GraduationCap size={15} className="text-teal-medical" />
                   {dc.viewProfile}
-                  <ArrowRight size={14} className="transition-transform group-hover/btn:translate-x-1" />
+                  <ArrowRight size={14} className="transition-transform group-hover/btn:translate-x-0.5" />
                 </Link>
 
               </div>
@@ -160,25 +160,25 @@ export default function Doctors() {
 
 
 
-        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-8 md:p-10 flex flex-col lg:flex-row gap-8 items-start" data-aos="fade-up">
+        <div className="bg-white border border-clinical-line p-8 md:p-10 flex flex-col lg:flex-row gap-8 items-start" data-aos="fade-up">
 
           <div className="flex-1">
 
             <div className="flex items-center gap-3 mb-4">
 
-              <div className="w-10 h-10 bg-gold-100 rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 border border-clinical-line bg-navy-50 flex items-center justify-center">
 
-                <Award size={20} className="text-gold-600" />
+                <Award size={20} className="text-teal-medical" />
 
               </div>
 
-              <h3 className="font-serif text-2xl font-bold text-navy-950">{t.doctors.networkTitle}</h3>
+              <h3 className="font-serif text-2xl font-medium text-navy-950 tracking-tight">{t.doctors.networkTitle}</h3>
 
             </div>
 
-            <p className="text-gray-500 leading-relaxed mb-6">{t.doctors.networkDesc}</p>
+            <p className="text-navy-500 leading-relaxed mb-6">{t.doctors.networkDesc}</p>
 
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
 
               <a href="https://wa.me/905546745516?text=I%27d%20like%20to%20be%20matched%20with%20a%20specialist" target="_blank" rel="noopener noreferrer" className="btn-primary">
 
@@ -186,7 +186,7 @@ export default function Doctors() {
 
               </a>
 
-              <Link to="/doctors" className="btn-dark">{dc.meetAll}</Link>
+              <Link to="/doctors" className="btn-secondary">{dc.meetAll}</Link>
 
             </div>
 
@@ -196,7 +196,7 @@ export default function Doctors() {
 
             {areas.map((area) => (
 
-              <span key={area} className="bg-navy-950 text-white text-sm px-4 py-2 rounded-full font-medium">{area}</span>
+              <span key={area} className="bg-navy-950 text-white text-sm px-3.5 py-2 font-medium">{area}</span>
 
             ))}
 

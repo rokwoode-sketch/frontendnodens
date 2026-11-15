@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone, ShieldCheck, GraduationCap, MapPin } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, ShieldCheck, GraduationCap, MapPin, Globe } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { siteImages } from '../data/siteImages';
 
 const langOptions = {
-  en: { label: 'EN', flag: '🇬🇧' },
-  fr: { label: 'FR', flag: '🇫🇷' },
-  ar: { label: 'AR', flag: '🇸🇦' },
-  es: { label: 'ES', flag: '🇪🇸' },
+  en: { code: 'EN', name: 'English' },
+  fr: { code: 'FR', name: 'Français' },
+  ar: { code: 'AR', name: 'العربية' },
+  es: { code: 'ES', name: 'Español' },
 };
 
 export default function Navbar() {
@@ -17,21 +17,14 @@ export default function Navbar() {
   const isHomePage = location.pathname === '/';
   const p = t.nav.procedures;
   const trust = t.nav.trustBar;
+  const isRTL = t.dir === 'rtl';
 
   const [scrolled, setScrolled] = useState(!isHomePage);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [langOpen, setLangOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState(null);
-  const langCloseTimer = useRef(null);
-
-  const openLangMenu = () => {
-    if (langCloseTimer.current) clearTimeout(langCloseTimer.current);
-    setLangOpen(true);
-  };
-  const closeLangMenu = () => {
-    langCloseTimer.current = setTimeout(() => setLangOpen(false), 300);
-  };
+  const langRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +38,29 @@ export default function Navbar() {
   useEffect(() => {
     setMobileOpen(false);
     setMobileExpanded(null);
+    setLangOpen(false);
   }, [location]);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    if (!langOpen) return undefined;
+    const onPointer = (e) => {
+      if (langRef.current && !langRef.current.contains(e.target)) setLangOpen(false);
+    };
+    const onKey = (e) => {
+      if (e.key === 'Escape') setLangOpen(false);
+    };
+    document.addEventListener('pointerdown', onPointer);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('pointerdown', onPointer);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [langOpen]);
 
   const isActive = (href) => {
     if (href === '/') return location.pathname === '/';
@@ -106,6 +121,8 @@ export default function Navbar() {
 
   const coreLinks = navLinks.filter((link) => !link.secondary);
   const secondaryLinks = navLinks.filter((link) => link.secondary);
+  const solidNav = scrolled || !isHomePage || mobileOpen;
+  const onLight = solidNav;
 
   const renderNavLink = (link) => (
     <div
@@ -127,10 +144,10 @@ export default function Navbar() {
       {link.children && openDropdown === link.label && (
         <div className={`absolute top-full ${isRTL ? 'right-0' : 'left-0'} pt-2 z-50`}>
           <div className={`nav-dropdown ${link.children.length > 6 ? 'min-w-[420px]' : 'min-w-[240px]'}`}>
-            <div className="bg-gradient-to-r from-navy-950 to-navy-900 px-4 py-3 flex items-center justify-between">
+            <div className="bg-navy-950 px-4 py-3">
               <Link
                 to={link.href}
-                className="text-xs font-bold text-gold-400 uppercase tracking-wider hover:text-gold-300 transition-colors"
+                className="text-[11px] font-semibold text-gold-400 uppercase tracking-[0.14em] hover:text-gold-300 transition-colors"
               >
                 {p.viewAll} {link.label} →
               </Link>
@@ -140,9 +157,9 @@ export default function Navbar() {
                 <Link
                   key={child.href}
                   to={child.href}
-                  className="flex items-center gap-2 px-3 py-2.5 text-sm text-navy-800 hover:bg-gold-50 hover:text-gold-700 rounded-xl transition-colors duration-150 group/item"
+                  className="flex items-center gap-2 px-3 py-2.5 text-sm text-navy-800 hover:bg-navy-50 hover:text-teal-medical transition-colors duration-150 group/item"
                 >
-                  <span className="w-1 h-1 rounded-full bg-gold-400 opacity-0 group-hover/item:opacity-100 transition-opacity flex-shrink-0" />
+                  <span className="w-1 h-1 bg-teal-medical opacity-0 group-hover/item:opacity-100 transition-opacity flex-shrink-0" />
                   {child.label}
                 </Link>
               ))}
@@ -153,9 +170,6 @@ export default function Navbar() {
     </div>
   );
 
-  const isRTL = t.dir === 'rtl';
-  const solidNav = scrolled || !isHomePage;
-
   const trustItems = [
     { icon: ShieldCheck, text: trust.jci },
     { icon: GraduationCap, text: trust.professors },
@@ -164,44 +178,41 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Authority trust strip */}
-      <div className={`hidden lg:block transition-all duration-500 ${solidNav ? 'nav-glass-top' : 'bg-navy-950/50 backdrop-blur-sm border-b border-white/[0.04]'}`}>
-        <div className={`max-w-7xl mx-auto px-4 sm:px-6 py-1.5 flex items-center justify-center gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
+      <div className={`hidden lg:block transition-colors duration-300 ${onLight ? 'nav-inst-trust-solid' : 'nav-inst-trust'}`}>
+        <div className={`max-w-7xl mx-auto px-5 sm:px-8 py-1.5 flex items-center justify-center gap-8 ${isRTL ? 'flex-row-reverse' : ''}`}>
           {trustItems.map(({ icon: Icon, text }) => (
-            <div key={text} className={`flex items-center gap-1.5 text-[11px] font-medium tracking-widest uppercase text-white/60 ${isRTL ? 'flex-row-reverse' : ''}`}>
-              <Icon size={12} className="text-gold-500/80 flex-shrink-0" />
+            <div key={text} className={`flex items-center gap-1.5 text-[10px] font-medium tracking-[0.16em] uppercase ${onLight ? 'text-navy-500' : 'text-white/55'} ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <Icon size={11} className={`flex-shrink-0 ${onLight ? 'text-teal-medical' : 'text-gold-500/70'}`} />
               <span>{text}</span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Main navigation */}
-      <nav className={`transition-all duration-500 overflow-visible ${solidNav ? 'nav-glass-solid py-3' : 'nav-glass-hero py-4'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-2 xl:gap-x-3 overflow-visible">
-          {/* Logo */}
-          <Link to="/" className={`flex items-center gap-3 z-10 flex-shrink-0 group col-start-1 ${isRTL ? 'flex-row-reverse' : ''}`}>
-            <div className="relative">
-              <img
-                src={siteImages.logo}
-                alt="NodensCare"
-                width={130}
-                height={40}
-                fetchPriority="high"
-                decoding="async"
-                className="h-10 w-auto max-w-[100px] 2xl:max-w-[130px] object-contain object-left brightness-0 invert transition-transform duration-300 group-hover:scale-[1.02]"
-                onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex'; }}
-              />
-              <span className="hidden font-serif text-xl font-bold text-white">NodensCare</span>
-            </div>
-            <div className={`hidden 2xl:block border-white/15 ${isRTL ? 'border-r pr-3' : 'border-l pl-3'}`}>
-              <p className="text-[10px] font-semibold tracking-[0.18em] uppercase text-gold-400/90 leading-tight whitespace-nowrap">
+      <nav className={`transition-all duration-300 overflow-visible ${onLight ? 'nav-inst-solid nav-on-light py-3' : 'nav-inst-hero nav-on-dark py-4'}`}>
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-x-2 xl:gap-x-3 overflow-visible">
+          <Link to="/" className={`flex items-center gap-2.5 z-10 flex-shrink-0 group col-start-1 ${isRTL ? 'flex-row-reverse' : ''}`}>
+            <img
+              src={siteImages.logo}
+              alt=""
+              width={44}
+              height={44}
+              fetchPriority="high"
+              decoding="async"
+              aria-hidden="true"
+              className={`h-9 w-9 object-contain flex-shrink-0 transition-all duration-300 ${onLight ? 'brightness-0' : 'brightness-0 invert'}`}
+              onError={(e) => { e.target.style.display = 'none'; }}
+            />
+            <div className={`${isRTL ? 'text-right' : 'text-left'}`}>
+              <span className={`block font-serif text-[1.15rem] md:text-xl font-semibold tracking-tight leading-none ${onLight ? 'text-navy-950' : 'text-white'}`}>
+                NodensCare
+              </span>
+              <span className={`hidden sm:block text-[9px] font-semibold tracking-[0.16em] uppercase mt-1 leading-none ${onLight ? 'text-teal-medical' : 'text-gold-400/90'}`}>
                 {t.nav.tagline}
-              </p>
+              </span>
             </div>
           </Link>
 
-          {/* Core nav links + More (secondary always in dropdown on desktop) */}
           <div className={`hidden xl:flex col-start-2 items-center justify-end min-w-0 overflow-visible flex-nowrap gap-0 ${isRTL ? 'flex-row-reverse' : ''}`}>
             {coreLinks.map(renderNavLink)}
 
@@ -228,7 +239,7 @@ export default function Navbar() {
                         key={link.href}
                         to={link.href}
                         className={`block px-4 py-2.5 text-sm transition-colors ${
-                          isActive(link.href) ? 'bg-gold-50 text-gold-700 font-bold' : 'text-navy-800 hover:bg-navy-50'
+                          isActive(link.href) ? 'bg-teal-50 text-teal-medical font-semibold' : 'text-navy-800 hover:bg-navy-50'
                         }`}
                       >
                         {link.label}
@@ -240,35 +251,39 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Actions: lang + CTA + mobile — never shrink */}
           <div className={`flex items-center gap-2 flex-shrink-0 min-w-fit col-start-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-            <div className="relative" onMouseEnter={openLangMenu} onMouseLeave={closeLangMenu}>
+            {/* Institutional language chooser — desktop / tablet bar */}
+            <div ref={langRef} className={`relative ${mobileOpen ? 'hidden' : ''}`}>
               <button
                 type="button"
                 onClick={() => setLangOpen((v) => !v)}
-                className="flex items-center gap-1.5 bg-white/[0.08] hover:bg-white/[0.14] border border-white/20 hover:border-gold-500/30 text-white text-[11px] 2xl:text-xs font-semibold px-2.5 py-1.5 2xl:px-3.5 2xl:py-2 rounded-full transition-all backdrop-blur-sm flex-shrink-0 whitespace-nowrap"
-                aria-label={`Language: ${langOptions[lang].label}`}
+                className={`lang-trigger ${onLight ? 'lang-trigger-light' : 'lang-trigger-dark'}`}
+                aria-label={`Language: ${langOptions[lang].name}`}
                 aria-expanded={langOpen}
                 aria-haspopup="listbox"
               >
-                <span className="text-base leading-none" aria-hidden="true">{langOptions[lang].flag}</span>
-                <span className="tracking-wide">{langOptions[lang].label}</span>
-                <ChevronDown size={11} className={`opacity-70 transition-transform ${langOpen ? 'rotate-180' : ''}`} />
+                <Globe size={14} strokeWidth={1.75} aria-hidden="true" />
+                <span>{langOptions[lang].code}</span>
+                <ChevronDown size={11} className={`opacity-60 transition-transform ${langOpen ? 'rotate-180' : ''}`} />
               </button>
               {langOpen && (
-                <div className={`absolute top-full ${isRTL ? 'left-0' : 'right-0'} pt-2 z-50`}>
-                  <div className="nav-dropdown py-1.5 min-w-[148px]">
+                <div className={`absolute top-full ${isRTL ? 'left-0' : 'right-0'} pt-2 z-[60]`}>
+                  <div className="nav-dropdown lang-menu" role="listbox" aria-label="Language">
+                    <div className="lang-menu-head">
+                      <Globe size={12} strokeWidth={1.75} aria-hidden="true" />
+                      <span>Language</span>
+                    </div>
                     {Object.entries(langOptions).map(([code, opt]) => (
                       <button
                         key={code}
                         type="button"
+                        role="option"
+                        aria-selected={code === lang}
                         onClick={() => { changeLanguage(code); setLangOpen(false); }}
-                        className={`flex items-center gap-2.5 w-full px-4 py-2.5 text-sm transition-colors ${
-                          code === lang ? 'bg-gold-50 text-gold-700 font-bold' : 'text-navy-800 hover:bg-navy-50'
-                        }`}
+                        className={`lang-option ${code === lang ? 'is-active' : ''}`}
                       >
-                        <span className="text-base leading-none" aria-hidden="true">{opt.flag}</span>
-                        <span>{opt.label}</span>
+                        <span className="lang-option-code">{opt.code}</span>
+                        <span className="lang-option-name">{opt.name}</span>
                       </button>
                     ))}
                   </div>
@@ -289,76 +304,70 @@ export default function Navbar() {
 
             <button
               type="button"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="xl:hidden text-white p-2.5 rounded-xl bg-white/[0.08] border border-white/15 hover:bg-white/[0.14] transition-colors flex-shrink-0"
+              onClick={() => { setLangOpen(false); setMobileOpen(!mobileOpen); }}
+              className={`xl:hidden lang-trigger ${onLight ? 'lang-trigger-light' : 'lang-trigger-dark'} !px-2.5`}
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileOpen}
             >
-              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+              {mobileOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Gold accent line */}
-      <div className="h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent pointer-events-none" />
+      <div className={`h-px pointer-events-none ${onLight ? 'bg-clinical-line' : 'bg-gradient-to-r from-transparent via-gold-500/35 to-transparent'}`} />
 
-      {/* Mobile menu */}
-      <div className={`xl:hidden overflow-hidden transition-all duration-400 ${mobileOpen ? 'max-h-[85vh] opacity-100' : 'max-h-0 opacity-0'}`}>
-        <div className="max-h-[80vh] overflow-y-auto nav-mobile-panel">
-          {/* Mobile trust badges */}
-          <div className="px-4 pt-4 pb-3 flex flex-wrap gap-2 justify-center border-b nav-mobile-divider">
+      {/* Institutional mobile menu — clinical white panel */}
+      <div className={`xl:hidden nav-mobile-shell ${mobileOpen ? 'is-open' : ''}`}>
+        <div className="nav-mobile-panel">
+          <div className="nav-mobile-trust">
             {trustItems.map(({ icon: Icon, text }) => (
-              <span
-                key={text}
-                className="nav-mobile-badge inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded-full border"
-              >
-                <Icon size={10} className="text-gold-400" />
+              <span key={text} className="nav-mobile-badge">
+                <Icon size={11} className="text-teal-medical" aria-hidden="true" />
                 {text}
               </span>
             ))}
           </div>
 
-          <div className="px-4 py-4 flex gap-2 flex-wrap">
+          <div className="nav-mobile-langs" role="listbox" aria-label="Language">
             {Object.entries(langOptions).map(([code, opt]) => (
               <button
                 key={code}
                 type="button"
+                role="option"
+                aria-selected={code === lang}
                 onClick={() => changeLanguage(code)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${
-                  code === lang ? 'nav-mobile-lang-active' : 'nav-mobile-lang'
-                }`}
+                className={`nav-mobile-lang ${code === lang ? 'is-active' : ''}`}
               >
-                <span className="text-sm leading-none" aria-hidden="true">{opt.flag}</span>
-                <span>{opt.label}</span>
+                <span className="font-semibold tracking-[0.08em]">{opt.code}</span>
+                <span className="text-navy-500 font-normal normal-case tracking-normal text-[12px]">{opt.name}</span>
               </button>
             ))}
           </div>
 
-          <div className="px-4 pb-6 space-y-0.5">
+          <nav className="nav-mobile-links" aria-label="Primary">
             {navLinks.map((link) => (
-              <div key={link.href}>
+              <div key={link.href} className="border-b border-clinical-line">
                 {link.children ? (
                   <>
                     <button
                       type="button"
                       onClick={() => setMobileExpanded(mobileExpanded === link.label ? null : link.label)}
-                      className={`flex items-center justify-between w-full py-3.5 text-sm border-b nav-mobile-divider transition-colors ${
-                        isActive(link.href) ? 'nav-mobile-link-active' : 'nav-mobile-link hover:text-gold-300'
-                      }`}
+                      className={`nav-mobile-row ${isActive(link.href) ? 'is-active' : ''}`}
                     >
                       {link.label}
-                      <ChevronDown size={16} className={`transition-transform ${mobileExpanded === link.label ? 'rotate-180' : ''}`} />
+                      <ChevronDown size={16} className={`text-navy-400 transition-transform ${mobileExpanded === link.label ? 'rotate-180' : ''}`} />
                     </button>
                     {mobileExpanded === link.label && (
-                      <div className="pl-3 py-2 space-y-0.5 border-b nav-mobile-divider">
-                        <Link to={link.href} className="nav-mobile-link-active block py-2 text-xs font-bold uppercase tracking-wider">
+                      <div className="bg-navy-50/80 px-5 py-2 space-y-0.5">
+                        <Link to={link.href} className="block py-2 text-[11px] font-semibold tracking-[0.14em] uppercase text-teal-medical">
                           {p.viewAll} →
                         </Link>
                         {link.children.map((child) => (
                           <Link
                             key={child.href}
                             to={child.href}
-                            className="nav-mobile-link-muted block py-2 text-sm transition-colors"
+                            className="block py-2 text-sm text-navy-600 hover:text-teal-medical transition-colors"
                           >
                             {child.label}
                           </Link>
@@ -369,16 +378,17 @@ export default function Navbar() {
                 ) : (
                   <Link
                     to={link.href}
-                    className={`block py-3.5 text-sm border-b nav-mobile-divider transition-colors ${
-                      isActive(link.href) ? 'nav-mobile-link-active' : 'nav-mobile-link hover:text-gold-300'
-                    }`}
+                    className={`nav-mobile-row ${isActive(link.href) ? 'is-active' : ''}`}
                   >
                     {link.label}
                   </Link>
                 )}
               </div>
             ))}
-            <Link to="/contact" className="nav-cta-premium w-full justify-center mt-5">
+          </nav>
+
+          <div className="p-5">
+            <Link to="/contact" className="nav-cta-premium w-full justify-center">
               <Phone size={14} />
               {t.nav.cta}
             </Link>

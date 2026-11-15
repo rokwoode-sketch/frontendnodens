@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Shield, Star, Users } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { siteImages } from '../data/siteImages';
 
@@ -7,121 +7,48 @@ export default function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 gradient-navy" />
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-teal-medical/20 rounded-full blur-3xl pointer-events-none" />
-      <div
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 pt-36 pb-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <div className="inline-flex items-center gap-2 bg-gold-500/20 border border-gold-500/30 rounded-full px-4 py-1.5 mb-8">
-              <span className="w-2 h-2 bg-gold-400 rounded-full animate-pulse" />
-              <span className="text-gold-300 text-xs font-semibold tracking-widest uppercase">{t.hero.badge}</span>
-            </div>
-
-            <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6">
-              {t.hero.h1a}
-              <br />
-              <span className="text-gold-400">{t.hero.h1b}</span>
-              <br />
-              {t.hero.h1c}
-            </h1>
-
-            <p className="text-white/80 text-lg leading-relaxed mb-10 max-w-lg">{t.hero.subtitle}</p>
-
-            <div className="flex flex-wrap gap-4 mb-14">
-              <Link to="/contact" className="btn-primary text-base px-8 py-4">
-                {t.hero.ctaPrimary}
-                <ArrowRight size={16} />
-              </Link>
-              <Link to="/results" className="btn-outline text-base px-8 py-4">
-                {t.hero.ctaSecondary}
-              </Link>
-            </div>
-
-            <div className="flex flex-wrap gap-4">
-              {[
-                { icon: Shield, text: t.hero.badge1 },
-                { icon: Star, text: t.hero.badge2 },
-                { icon: Users, text: t.hero.badge3 },
-              ].map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
-                  <Icon size={14} className="text-gold-400" />
-                  <span className="text-white/80 text-xs font-medium">{text}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Right column — desktop only */}
-          <div className="hero-visual hidden lg:block">
-            <div className="hero-visual-glow" aria-hidden="true" />
-
-            <div className="hero-visual-media">
-              <div className="hero-visual-card">
-                <div className="hero-visual-frame">
-                  <img
-                    src={siteImages.hero}
-                    srcSet={siteImages.heroSrcSet}
-                    sizes="(min-width: 1280px) 560px, 50vw"
-                    alt="Istanbul JCI-accredited surgical center"
-                    width={900}
-                    height={1050}
-                    fetchPriority="high"
-                    decoding="async"
-                    className="hero-visual-image"
-                  />
-                  <div className="hero-visual-overlay" aria-hidden="true" />
-                  <div className="hero-visual-ring" aria-hidden="true" />
-                </div>
-              </div>
-            </div>
-
-            <div className="hero-visual-floats">
-              <div className="hero-visual-stats">
-                {[
-                  { num: '15+', label: t.hero.stat1 },
-                  { num: '50+', label: t.hero.stat2 },
-                  { num: '100%', label: t.hero.stat3 },
-                ].map(({ num, label }) => (
-                  <div key={label} className="flex-1 bg-white/15 backdrop-blur-md rounded-xl p-3 border border-white/20 text-center shadow-lg">
-                    <div className="text-gold-400 font-bold text-xl font-serif">{num}</div>
-                    <div className="text-white/80 text-xs mt-0.5">{label}</div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="hero-visual-badge animate-float">
-                <div className="w-10 h-10 bg-gold-100 rounded-xl flex items-center justify-center">
-                  <Shield size={20} className="text-gold-600" />
-                </div>
-                <div>
-                  <div className="text-navy-950 font-bold text-sm">JCI Accredited</div>
-                  <div className="text-gray-500 text-xs">International Standard</div>
-                </div>
-              </div>
-
-              <div className="hero-visual-review animate-float" style={{ animationDelay: '2s' }}>
-                <div className="flex gap-0.5 mb-1">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={12} className="text-gold-500 fill-gold-500" />)}
-                </div>
-                <p className="text-navy-800 text-xs font-medium leading-snug">{t.hero.review}</p>
-                <p className="text-gray-400 text-xs mt-1">{t.hero.reviewAuthor}</p>
-              </div>
-            </div>
-          </div>
-        </div>
+    <section id="hero" className="hero-institutional">
+      <div className="hero-institutional-media">
+        <img
+          src={siteImages.facilityHero}
+          srcSet={siteImages.facilityHeroSrcSet}
+          sizes="100vw"
+          alt="NodensCare partner facility — JCI-accredited care in Istanbul"
+          width={1600}
+          height={1000}
+          fetchPriority="high"
+          decoding="async"
+        />
+        <div className="hero-institutional-veil" aria-hidden="true" />
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/40">
-        <div className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent" />
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 pt-36 pb-16 md:pt-44 md:pb-24">
+        <div className="max-w-xl md:max-w-2xl animate-slide-up">
+          <p className="font-serif text-[2.5rem] sm:text-5xl md:text-[3.5rem] text-white tracking-tight leading-none mb-5">
+            NodensCare
+          </p>
+          <div className="hero-brand-rule" aria-hidden="true" />
+          <p className="text-[11px] font-semibold tracking-[0.28em] uppercase text-gold-300/95 mb-6">
+            {t.hero.badge}
+          </p>
+          <h1 className="font-serif text-[2.35rem] sm:text-5xl md:text-[3.5rem] font-medium text-white leading-[1.08] tracking-[-0.02em] mb-6">
+            {t.hero.h1a}{' '}
+            <em className="not-italic text-gold-300 font-medium">{t.hero.h1b}</em>{' '}
+            {t.hero.h1c}
+          </h1>
+          <p className="text-white/80 text-[1.05rem] md:text-lg leading-[1.7] mb-10 max-w-lg font-normal">
+            {t.hero.subtitle}
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link to="/contact" className="btn-primary">
+              {t.hero.ctaPrimary}
+              <ArrowRight size={15} strokeWidth={2.25} />
+            </Link>
+            <Link to="/results" className="btn-outline">
+              {t.hero.ctaSecondary}
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );

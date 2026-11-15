@@ -84,7 +84,7 @@ export default function BlogIndexPage() {
 
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent" />
 
-                  <span className="absolute top-4 left-4 bg-gold-500 text-white text-xs font-bold px-3 py-1 rounded-full">{post.category}</span>
+                  <span className="absolute top-4 left-4 bg-navy-950 text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1">{post.category}</span>
 
                 </div>
 

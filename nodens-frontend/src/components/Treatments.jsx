@@ -69,10 +69,10 @@ export default function Treatments() {
               type="button"
               onClick={() => setActiveCategory(i)}
               aria-pressed={activeCategory === i}
-              className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${
-
-                activeCategory === i ? 'bg-navy-950 text-white shadow-lg' : 'bg-white text-gray-500 hover:bg-gray-100 border border-gray-200'
-
+              className={`px-5 py-2 text-sm font-semibold transition-colors duration-200 border ${
+                activeCategory === i
+                  ? 'bg-navy-950 text-white border-navy-950'
+                  : 'bg-white text-navy-500 border-clinical-line hover:border-navy-300'
               }`}
 
             >
@@ -91,7 +91,7 @@ export default function Treatments() {
 
           {filtered.map((item, i) => (
 
-            <div key={item.id} className="group bg-white rounded-2xl overflow-hidden border border-gray-100 card-hover shadow-sm" data-aos="fade-up" data-aos-delay={i * 60}>
+            <div key={item.id} className="group bg-white overflow-hidden border border-clinical-line" data-aos="fade-up" data-aos-delay={i * 60}>
 
               <div className="relative h-52 overflow-hidden">
 
@@ -101,11 +101,11 @@ export default function Treatments() {
 
                 {item.popular && (
 
-                  <div className="absolute top-4 right-4 bg-gold-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">{pc.popular}</div>
+                  <div className="absolute top-4 right-4 bg-navy-950 text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1">{pc.popular}</div>
 
                 )}
 
-                <div className="absolute top-4 left-4 bg-white/20 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full border border-white/30">
+                <div className="absolute top-4 left-4 bg-white/15 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 border border-white/25">
 
                   {item.category}
 
@@ -171,7 +171,7 @@ export default function Treatments() {
 
                     )}
 
-                    <a href={whatsappMessage(item.name)} target="_blank" rel="noopener noreferrer" aria-label={`Chat on WhatsApp about ${item.name}`} className="flex items-center gap-1.5 bg-navy-950 hover:bg-navy-800 text-white text-xs font-semibold px-4 py-2.5 rounded-full transition-all duration-200 hover:-translate-y-0.5">
+                    <a href={whatsappMessage(item.name)} target="_blank" rel="noopener noreferrer" aria-label={`Consult about ${item.name}`} className="flex items-center gap-1.5 bg-navy-950 hover:bg-navy-800 text-white text-xs font-semibold px-4 py-2.5 transition-colors duration-200">
 
                       <MessageCircle size={13} />{t.treatments.chatNow}
 

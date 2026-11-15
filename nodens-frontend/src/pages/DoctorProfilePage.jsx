@@ -70,7 +70,7 @@ export default function DoctorProfilePage() {
                   </div>
                   <div className="flex flex-wrap gap-1.5 mt-5">
                     {d.expertise.map((e) => (
-                      <span key={e} className="bg-white text-navy-700 text-xs px-2.5 py-1 rounded-full border border-gray-200 font-medium">{e}</span>
+                      <span key={e} className="bg-white text-navy-700 text-xs px-2.5 py-1 border border-clinical-line font-medium">{e}</span>
                     ))}
                   </div>
                 </div>

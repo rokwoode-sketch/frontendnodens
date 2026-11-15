@@ -66,7 +66,7 @@ export default function ComplexTreatmentsPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <div className="grid lg:grid-cols-2 gap-14 items-start" data-aos="fade-up">
               <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
-                <div className="inline-flex items-center gap-2 bg-gold-100 text-gold-700 rounded-full px-3 py-1 text-xs font-bold mb-4">{treatment.tag}</div>
+                <div className="chip mb-4">{treatment.tag}</div>
                 <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy-950 mb-3">{treatment.title}</h2>
 
                 <div className="flex items-center gap-3 bg-navy-50 rounded-xl p-4 mb-6 border border-navy-100">

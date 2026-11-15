@@ -108,7 +108,7 @@ export default function DentalPage() {
 
                   <div className={i % 2 === 1 ? 'lg:col-start-2' : ''}>
 
-                    <div className="inline-flex items-center gap-2 bg-gold-100 text-gold-700 rounded-full px-3 py-1 text-xs font-bold mb-4">{proc.tag}</div>
+                    <div className="chip mb-4">{proc.tag}</div>
 
                     <h3 className="font-serif text-3xl font-bold text-navy-950 mb-2">{proc.title}</h3>
 

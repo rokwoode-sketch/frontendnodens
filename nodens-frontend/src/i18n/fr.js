@@ -67,6 +67,11 @@ const fr = {
     { label: 'Taux de Satisfaction', desc: 'Avis patients vérifiés' },
     { label: 'Médecins Spécialistes', desc: 'Professeurs certifiés' },
   ],
+  statsStory: {
+    sectionLabel: 'Échelle Clinique',
+    h2: 'Mesuré par les résultats, pas par le marketing.',
+    subtitle: 'Soins dirigés par des professeurs dans des partenaires accrédités JCI à Istanbul.',
+  },
   services: {
     sectionLabel: 'Ce Que Nous Offrons',
     h2a: 'Soins Médicaux',
@@ -284,6 +289,24 @@ const fr = {
     aboutTitle: 'À Propos de Notre Consultance',
     aboutDesc: 'Excellence universitaire, protocole de sécurité 10 jours et logistique VIP pour patients internationaux.',
     aboutLabel: 'En savoir plus',
+  },
+  patientJourney: {
+    sectionLabel: 'Votre Parcours de Soins',
+    h2a: 'De l\'Évaluation à',
+    h2b: 'la Récupération',
+    subtitle: 'Un parcours coordonné — évaluation clinique, mise en relation avec un spécialiste, logistique de voyage et suivi post-opératoire — géré par votre coordinateur NodensCare.',
+    steps: [
+      { title: 'Évaluation Clinique', desc: 'Partagez votre historique et vos objectifs. Un coordinateur examine votre candidature avec notre équipe médicale avant votre voyage.' },
+      { title: 'Mise en Relation', desc: 'Nous vous mettons en relation avec un professeur universitaire ou un spécialiste certifié pour votre procédure.' },
+      { title: 'Voyage & Arrivée', desc: 'Transfert aéroport, orientation hébergement et itinéraire clair pour votre séjour clinique à Istanbul.' },
+      { title: 'Soins & Suivi', desc: 'Intervention dans un établissement accrédité JCI, puis soutien structuré à la récupération et documentation pour votre équipe locale.' },
+    ],
+    ctaLabel: 'Commencer Aujourd\'hui',
+    ctaTitle: 'Demander une Évaluation Clinique Gratuite',
+    ctaDesc: 'Écrivez-nous sur WhatsApp pour une réponse rapide. Coordinateurs multilingues disponibles 7 jours sur 7.',
+    ctaWhatsapp: 'Discuter sur WhatsApp',
+    ctaContact: 'Formulaire de Contact',
+    note: 'Sans engagement. Votre dossier est examiné en privé avant tout engagement de voyage.',
   },
   footer: {
     tagline: "Première consultance médicale d'Istanbul mettant en relation les patients internationaux avec les professeurs les plus distingués de Turquie.",

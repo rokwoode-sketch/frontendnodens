@@ -51,6 +51,11 @@ const es = {
     { label: 'Tasa de Satisfacción', desc: 'Reseñas de pacientes verificadas' },
     { label: 'Médicos Especialistas', desc: 'Profesores certificados' },
   ],
+  statsStory: {
+    sectionLabel: 'Escala Clínica',
+    h2: 'Medido por resultados, no por marketing.',
+    subtitle: 'Atención dirigida por profesores en socios acreditados JCI en Estambul.',
+  },
   services: {
     sectionLabel: 'Lo Que Ofrecemos',
     h2a: 'Atención Médica',
@@ -267,6 +272,24 @@ const es = {
     aboutTitle: 'Sobre Nuestra Consultoría',
     aboutDesc: 'Excelencia académica, protocolo de seguridad de 10 días y logística VIP para pacientes internacionales.',
     aboutLabel: 'Saber más',
+  },
+  patientJourney: {
+    sectionLabel: 'Tu Ruta de Atención',
+    h2a: 'Desde la Evaluación hasta',
+    h2b: 'la Recuperación',
+    subtitle: 'Una ruta coordinada — evaluación clínica, emparejamiento con especialista, logística de viaje y seguimiento postoperatorio — gestionada por tu coordinador NodensCare.',
+    steps: [
+      { title: 'Evaluación Clínica', desc: 'Comparte tu historial y objetivos. Un coordinador revisa la idoneidad con nuestro equipo médico antes de viajar.' },
+      { title: 'Emparejamiento', desc: 'Te emparejamos con un profesor universitario o especialista certificado para tu procedimiento.' },
+      { title: 'Viaje y Llegada', desc: 'Traslado al aeropuerto, orientación de alojamiento e itinerario claro para tu estancia clínica en Estambul.' },
+      { title: 'Cuidado y Seguimiento', desc: 'Procedimiento en un centro acreditado JCI, luego apoyo estructurado a la recuperación y documentación para tu equipo local.' },
+    ],
+    ctaLabel: 'Empieza Hoy',
+    ctaTitle: 'Solicita una Evaluación Clínica Gratuita',
+    ctaDesc: 'Escríbenos por WhatsApp para la respuesta más rápida. Coordinadores multilingües disponibles 7 días a la semana.',
+    ctaWhatsapp: 'Chatear por WhatsApp',
+    ctaContact: 'Formulario de Contacto',
+    note: 'Sin compromiso. Tu caso se revisa de forma privada antes de cualquier compromiso de viaje.',
   },
   footer: {
     tagline: 'Consultoría médica premier de Estambul que conecta pacientes internacionales con los profesores más distinguidos de Turquía.',

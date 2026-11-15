@@ -147,7 +147,7 @@ export default function AboutPage() {
 
             {p.links.map((label, i) => (
 
-              <Link key={exploreRoutes[i]} to={exploreRoutes[i]} className="px-5 py-2.5 bg-white border border-gray-200 rounded-full text-sm font-semibold text-navy-800 hover:border-gold-400 hover:text-gold-700 transition-colors">
+              <Link key={exploreRoutes[i]} to={exploreRoutes[i]} className="px-5 py-2.5 bg-white border border-clinical-line text-sm font-semibold text-navy-800 hover:border-teal-medical hover:text-teal-medical transition-colors">
 
                 {label}
 

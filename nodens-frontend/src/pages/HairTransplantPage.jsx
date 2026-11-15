@@ -54,7 +54,7 @@ export default function HairTransplantPage() {
               <div key={tech.id} id={tech.id} className="scroll-mt-28">
                 <div className={`grid lg:grid-cols-2 gap-12 items-start ${i % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`} data-aos="fade-up">
                   <div className={i % 2 === 1 ? 'lg:col-start-2' : ''}>
-                    <div className="inline-flex items-center gap-2 bg-gold-100 text-gold-700 rounded-full px-3 py-1 text-xs font-bold mb-4">{tech.tag}</div>
+                    <div className="chip mb-4">{tech.tag}</div>
                     <h3 className="font-serif text-3xl font-bold text-navy-950 mb-2">{tech.title}</h3>
                     <p className="text-gold-600 text-sm font-semibold mb-5">{tech.subtitle}</p>
                     <p className="text-gray-600 leading-relaxed mb-6">{tech.description}</p>
