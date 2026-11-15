@@ -16,6 +16,16 @@ const categoryLinks = {
   Travel: '/contact',
 };
 
+const categoryPages = {
+  'Hair Transplant': 'hair',
+  Dental: 'dental',
+  'Plastic Surgery': 'plastic',
+  Complex: 'complex',
+  Oncology: 'complex',
+  Fertility: 'complex',
+  Travel: 'contact',
+};
+
 function ContentBlock({ block }) {
   if (block.type === 'h2') {
     return <h2 className="font-serif text-2xl font-bold text-navy-950 mt-10 mb-4">{block.text}</h2>;
@@ -78,7 +88,7 @@ function ContentBlock({ block }) {
 
 export default function BlogPostPage() {
   const { slug } = useParams();
-  const { lang } = useLanguage();
+  const { lang, t } = useLanguage();
   const post = useMemo(() => getStaticPost(slug, lang), [slug, lang]);
 
   if (!post) {
@@ -92,6 +102,7 @@ export default function BlogPostPage() {
   }
 
   const categoryLink = categoryLinks[post.category] || '/';
+  const categoryLabel = t.pages[categoryPages[post.category]]?.breadcrumb || post.category;
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -126,15 +137,15 @@ export default function BlogPostPage() {
       <section className="relative pt-32 pb-16 gradient-navy overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="flex items-center gap-2 text-gold-400 text-sm mb-6 flex-wrap">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
+            <Link to="/" className="hover:text-white transition-colors">{t.nav.home}</Link>
             <ChevronRight size={14} />
-            <Link to="/blog" className="hover:text-white transition-colors">Guides</Link>
+            <Link to="/blog" className="hover:text-white transition-colors">{t.pages.blog.breadcrumb}</Link>
             <ChevronRight size={14} />
-            <Link to={categoryLink} className="hover:text-white transition-colors">{post.category}</Link>
+            <Link to={categoryLink} className="hover:text-white transition-colors">{categoryLabel}</Link>
             <ChevronRight size={14} />
-            <span className="text-white/70">Guide</span>
+            <span className="text-white/70">{t.pages.blog.guideCrumb}</span>
           </div>
-          <p className="text-gold-400 text-xs font-bold uppercase tracking-widest mb-3">{post.category}</p>
+          <p className="text-gold-400 text-xs font-bold uppercase tracking-widest mb-3">{categoryLabel}</p>
           <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
             {post.title}
           </h1>

@@ -5,6 +5,7 @@ export const posts = [
     slug: 'hair-transplant',
     category: 'Hair Transplant',
     image_url: siteImages.hairFue,
+    published_at: '2026-01-15T09:00:00.000Z',
     translations: {
       en: {
         title: 'Hair Transplant in Istanbul, Turkey: Complete Patient Guide 2026',
@@ -132,6 +133,7 @@ export const posts = [
     slug: 'dental',
     category: 'Dental',
     image_url: siteImages.hollywoodSmile,
+    published_at: '2026-01-22T09:00:00.000Z',
     translations: {
       en: {
         title: 'Dental Tourism in Istanbul: Hollywood Smile, Implants & Full Guide',
@@ -251,6 +253,7 @@ export const posts = [
     slug: 'plastic-surgery',
     category: 'Plastic Surgery',
     image_url: siteImages.rhinoplastyProc,
+    published_at: '2026-01-29T09:00:00.000Z',
     translations: {
       en: {
         title: 'Plastic Surgery in Istanbul: Rhinoplasty, BBL & Aesthetic Guide 2026',
@@ -378,6 +381,7 @@ export const posts = [
     slug: 'complex-treatments',
     category: 'Complex',
     image_url: siteImages.cancerTreatment,
+    published_at: '2026-02-05T09:00:00.000Z',
     translations: {
       en: {
         title: 'Complex Medical Treatments in Istanbul: Cancer, Transplant & IVF Guide',
@@ -509,6 +513,7 @@ export const posts = [
     slug: 'ivf-treatment',
     category: 'Complex',
     image_url: siteImages.ivfTreatment,
+    published_at: '2026-02-12T09:00:00.000Z',
     translations: {
       en: {
         title: 'IVF Treatment in Istanbul: PGD/PGS, ICSI & Fertility Guide 2026',
@@ -604,6 +609,7 @@ export const posts = [
     slug: 'cancer-treatment',
     category: 'Complex',
     image_url: siteImages.cancerTreatment,
+    published_at: '2026-02-19T09:00:00.000Z',
     translations: {
       en: {
         title: 'Cancer Treatment in Istanbul: Oncology, Immunotherapy & Tumor Board Guide',
@@ -699,6 +705,7 @@ export const posts = [
     slug: 'mommy-makeover',
     category: 'Plastic Surgery',
     image_url: siteImages.mommyMakeover,
+    published_at: '2026-02-26T09:00:00.000Z',
     translations: {
       en: {
         title: 'Mommy Makeover in Istanbul: Complete Patient Guide 2026',
@@ -794,6 +801,7 @@ export const posts = [
     slug: 'all-on-6',
     category: 'Dental',
     image_url: siteImages.allOn6,
+    published_at: '2026-03-05T09:00:00.000Z',
     translations: {
       en: {
         title: 'All-on-6 Dental Implants in Istanbul: Full-Arch Restoration Guide',

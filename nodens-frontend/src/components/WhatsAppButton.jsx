@@ -41,7 +41,7 @@ export default function WhatsAppButton() {
   if (pathname === '/contact') return null;
 
   const label = t.nav?.ctaShort || 'Consult';
-  const whatsappHref = `${SOCIAL_URLS.whatsapp}?text=${encodeURIComponent("Hello, I'd like a clinical assessment with NodensCare.")}`;
+  const whatsappHref = `${SOCIAL_URLS.whatsapp}?text=${encodeURIComponent(t.contact?.whatsappPrefill || "Hello, I'd like a clinical assessment with NodensCare.")}`;
 
   return (
     <div
@@ -80,7 +80,7 @@ export default function WhatsAppButton() {
             onClick={() => setOpen(false)}
           >
             <Phone size={15} strokeWidth={1.75} aria-hidden="true" />
-            <span>{t.contact?.formCta || t.patientJourney?.ctaContact || 'Contact Form'}</span>
+            <span>{t.patientJourney?.ctaContact || 'Contact details'}</span>
           </Link>
         </div>
       )}

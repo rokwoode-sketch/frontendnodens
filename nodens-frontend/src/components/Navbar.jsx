@@ -304,8 +304,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <div className={`h-px pointer-events-none ${onLight ? 'bg-clinical-line' : 'bg-gradient-to-r from-transparent via-gold-500/35 to-transparent'}`} />
-
       {/* Institutional mobile menu — clinical white panel */}
       <div className={`xl:hidden nav-mobile-shell ${mobileOpen ? 'is-open' : ''}`}>
         <div className="nav-mobile-panel">

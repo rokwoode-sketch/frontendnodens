@@ -3,10 +3,9 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { SocialFollowContact } from './SocialFollow';
 import { SOCIAL_URLS } from '../data/socialLinks';
 
-const WHATSAPP_URL = `${SOCIAL_URLS.whatsapp}?text=${encodeURIComponent("Hello, I'm interested in learning more about NodensCare treatments.")}`;
-
 export default function Contact() {
   const { t } = useLanguage();
+  const whatsappUrl = `${SOCIAL_URLS.whatsapp}?text=${encodeURIComponent(t.contact.whatsappPrefill)}`;
 
   return (
     <section id="contact" className="py-20 md:py-28 bg-white">
@@ -22,7 +21,7 @@ export default function Contact() {
 
         <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-10 mb-12" data-aos="fade-up">
           <a
-            href={WHATSAPP_URL}
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="group border border-clinical-line bg-navy-950 text-white px-8 py-10 md:px-10 md:py-12 hover:border-gold-400/40 transition-colors"

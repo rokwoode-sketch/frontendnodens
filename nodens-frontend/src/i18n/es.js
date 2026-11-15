@@ -209,6 +209,7 @@ const es = {
     h2b: 'Evaluación Clínica Gratuita',
     subtitle: 'Escríbenos por WhatsApp para la respuesta más rápida. Nuestros coordinadores multilingües están disponibles 7 días a la semana.',
     whatsapp: 'Chatear en WhatsApp',
+    whatsappPrefill: 'Hola, me gustaría una evaluación clínica con NodensCare.',
     whatsappHint: 'Escríbenos por WhatsApp para la respuesta más rápida',
     whatsappSub: '+90 554 674 5516',
     email: 'Correo Electrónico',
@@ -288,7 +289,7 @@ const es = {
     ctaTitle: 'Solicita una Evaluación Clínica Gratuita',
     ctaDesc: 'Escríbenos por WhatsApp para la respuesta más rápida. Coordinadores multilingües disponibles 7 días a la semana.',
     ctaWhatsapp: 'Chatear por WhatsApp',
-    ctaContact: 'Formulario de Contacto',
+    ctaContact: 'Datos de contacto',
     note: 'Sin compromiso. Tu caso se revisa de forma privada antes de cualquier compromiso de viaje.',
   },
   footer: {

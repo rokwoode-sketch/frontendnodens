@@ -56,6 +56,7 @@ export default {
     titleAccent: 'المرضى',
     subtitle: 'أدلة مفصلة للمرضى الدوليين الذين يفكرون في العلاج في إسطنبول. التكاليف والإجراءات والتعافي والتوقعات.',
     breadcrumb: 'الأدلة',
+    guideCrumb: 'دليل',
     readGuide: 'اقرأ الدليل',
     procedures: 'إجراءات',
   },

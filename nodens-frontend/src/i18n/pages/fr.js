@@ -56,6 +56,7 @@ export default {
     titleAccent: 'Patients',
     subtitle: 'Guides détaillés pour les patients internationaux envisageant un traitement à Istanbul. Coûts, procédures, récupération et attentes.',
     breadcrumb: 'Guides',
+    guideCrumb: 'Guide',
     readGuide: 'Lire le guide',
     procedures: 'procédures',
   },

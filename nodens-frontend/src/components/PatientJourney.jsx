@@ -6,6 +6,7 @@ import { SOCIAL_URLS } from '../data/socialLinks';
 export default function PatientJourney() {
   const { t } = useLanguage();
   const j = t.patientJourney;
+  const whatsappHref = `${SOCIAL_URLS.whatsapp || 'https://wa.me/905546745516'}?text=${encodeURIComponent(t.contact.whatsappPrefill)}`;
 
   return (
     <section className="journey-band">
@@ -62,7 +63,7 @@ export default function PatientJourney() {
             </p>
             <div className="flex flex-col gap-3">
               <a
-                href={SOCIAL_URLS.whatsapp || 'https://wa.me/905546745516'}
+                href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary justify-center"

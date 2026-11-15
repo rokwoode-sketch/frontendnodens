@@ -241,6 +241,7 @@ const en = {
     h2b: 'Clinical Assessment',
     subtitle: 'Message us on WhatsApp for the fastest response. Our multilingual coordinators are available 7 days a week.',
     whatsapp: 'Chat on WhatsApp',
+    whatsappPrefill: "Hello, I'd like a clinical assessment with NodensCare.",
     whatsappHint: 'Message us on WhatsApp for the fastest response',
     whatsappSub: '+90 554 674 5516',
     email: 'Email',
@@ -320,7 +321,7 @@ const en = {
     ctaTitle: 'Request a Free Clinical Assessment',
     ctaDesc: 'Message us on WhatsApp for the fastest response. Multilingual coordinators are available 7 days a week.',
     ctaWhatsapp: 'Chat on WhatsApp',
-    ctaContact: 'Contact Form',
+    ctaContact: 'Contact details',
     note: 'No obligation. Your case is reviewed privately before any travel commitment.',
   },
   footer: {

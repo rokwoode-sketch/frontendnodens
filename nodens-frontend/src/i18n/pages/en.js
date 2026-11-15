@@ -56,6 +56,7 @@ export default {
     titleAccent: 'Guides',
     subtitle: 'In-depth guides for international patients considering treatment in Istanbul. Costs, procedures, recovery timelines, and what to expect.',
     breadcrumb: 'Guides',
+    guideCrumb: 'Guide',
     readGuide: 'Read guide',
     procedures: 'procedures',
   },

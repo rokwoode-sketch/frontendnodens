@@ -56,6 +56,7 @@ export default {
     titleAccent: 'Pacientes',
     subtitle: 'Guías detalladas para pacientes internacionales que consideran tratamiento en Estambul. Costos, procedimientos, recuperación y expectativas.',
     breadcrumb: 'Guías',
+    guideCrumb: 'Guía',
     readGuide: 'Leer guía',
     procedures: 'procedimientos',
   },
