@@ -149,45 +149,69 @@
     @apply inline-flex items-center gap-2 text-xs font-semibold text-white px-4 py-2.5 transition-colors duration-200 whitespace-nowrap flex-shrink-0 bg-teal-medical hover:bg-teal-700 tracking-[0.03em];
   }
 
-  /* Language chooser — institutional, no emoji flags */
+  /* Language chooser — quiet institutional (no WP-style boxed panel) */
   .lang-trigger {
-    @apply inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.08em] uppercase px-2.5 py-2 border transition-colors flex-shrink-0 whitespace-nowrap;
+    @apply inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.14em] uppercase px-1.5 py-2 bg-transparent border-0 transition-colors flex-shrink-0 whitespace-nowrap;
   }
 
   .lang-trigger-light {
-    @apply bg-white border-clinical-line text-navy-800 hover:border-teal-medical hover:text-teal-medical;
+    @apply text-navy-700 hover:text-teal-medical;
   }
 
   .lang-trigger-dark {
-    @apply bg-white/10 border-white/25 text-white hover:bg-white/15 hover:border-white/40;
+    @apply text-white/85 hover:text-white;
+  }
+
+  .lang-trigger-mark {
+    @apply block w-full h-px mt-1 transition-colors;
+  }
+
+  .lang-trigger-light .lang-trigger-mark {
+    @apply bg-navy-900/25;
+  }
+
+  .lang-trigger-dark .lang-trigger-mark {
+    @apply bg-gold-400/70;
   }
 
   .lang-menu {
-    @apply min-w-[200px] py-0;
-  }
-
-  .lang-menu-head {
-    @apply flex items-center gap-2 bg-navy-950 px-4 py-3 text-[10px] font-semibold tracking-[0.16em] uppercase text-gold-400;
+    @apply min-w-[11.5rem] py-2 bg-white/95 backdrop-blur-md border border-white/60 shadow-[0_20px_50px_rgba(12,28,36,0.16)];
   }
 
   .lang-option {
-    @apply flex items-center gap-3 w-full px-4 py-3 text-sm text-navy-800 hover:bg-navy-50 transition-colors text-left border-b border-clinical-line last:border-b-0;
+    @apply flex items-center justify-between gap-4 w-full px-4 py-2.5 text-left transition-colors border-0 bg-transparent;
+  }
+
+  .lang-option:hover {
+    @apply bg-navy-50;
   }
 
   .lang-option.is-active {
-    @apply bg-teal-50 text-teal-medical font-semibold;
+    @apply bg-transparent;
   }
 
   .lang-option-code {
-    @apply text-[11px] font-semibold tracking-[0.12em] w-7 text-navy-500;
+    @apply text-[10px] font-semibold tracking-[0.16em] uppercase text-navy-400;
   }
 
   .lang-option.is-active .lang-option-code {
-    @apply text-teal-medical;
+    @apply text-gold-600;
   }
 
   .lang-option-name {
-    @apply font-normal tracking-normal normal-case;
+    @apply text-[13px] font-medium tracking-normal normal-case text-navy-800;
+  }
+
+  .lang-option.is-active .lang-option-name {
+    @apply text-navy-950;
+  }
+
+  .lang-option-tick {
+    @apply w-1 h-1 rounded-full bg-transparent;
+  }
+
+  .lang-option.is-active .lang-option-tick {
+    @apply bg-gold-500;
   }
 
   /* Mobile menu — warm clinical white panel */
@@ -212,15 +236,16 @@
   }
 
   .nav-mobile-langs {
-    @apply px-5 py-4 grid grid-cols-2 gap-2 border-b border-clinical-line bg-white;
+    @apply px-5 py-4 flex flex-wrap gap-1 border-b border-clinical-line bg-white;
   }
 
   .nav-mobile-lang {
-    @apply flex flex-col items-start gap-0.5 px-3 py-2.5 text-[11px] font-semibold tracking-[0.08em] uppercase border border-clinical-line text-navy-700 bg-clinical-white hover:border-teal-medical transition-colors;
+    @apply inline-flex items-center gap-2 px-3 py-2 text-[11px] font-semibold tracking-[0.12em] uppercase text-navy-600 bg-transparent border-0 hover:text-teal-medical transition-colors;
   }
 
   .nav-mobile-lang.is-active {
-    @apply bg-teal-50 border-teal-medical text-teal-medical;
+    @apply text-navy-950;
+    box-shadow: inset 0 -1px 0 0 #c9a227;
   }
 
   .nav-mobile-links {
@@ -244,16 +269,36 @@
     @apply absolute inset-0;
   }
 
-  .hero-institutional-media img {
-    @apply w-full h-full object-cover object-[center_35%];
-    animation: heroKenBurns 28s ease-out forwards;
+  .hero-institutional-media img,
+  .hero-institutional-media video {
+    @apply w-full h-full object-cover object-[28%_45%];
   }
 
+  .hero-loop-layer {
+    @apply absolute inset-0 w-full h-full object-cover object-[28%_45%];
+    opacity: 0;
+    transition: opacity 900ms ease-in-out;
+    will-change: opacity;
+  }
+
+  .hero-loop-layer.is-live {
+    opacity: 1;
+  }
+
+  .hero-loop-fallback {
+    @apply absolute inset-0 w-full h-full object-cover object-[28%_45%] -z-[1];
+  }
+
+  /* Hallway hero veil — strong left readability, open right (no grey box) */
   .hero-institutional-veil {
     @apply absolute inset-0;
     background:
-      linear-gradient(98deg, rgba(12, 28, 36, 0.72) 0%, rgba(12, 28, 36, 0.42) 36%, rgba(26, 92, 107, 0.12) 62%, rgba(12, 28, 36, 0.04) 100%),
-      linear-gradient(to top, rgba(12, 28, 36, 0.38) 0%, transparent 38%);
+      linear-gradient(95deg, rgba(10, 22, 28, 0.78) 0%, rgba(12, 28, 34, 0.62) 26%, rgba(16, 36, 42, 0.28) 48%, rgba(16, 36, 42, 0.06) 68%, transparent 82%),
+      linear-gradient(to top, rgba(10, 22, 28, 0.45) 0%, transparent 40%);
+  }
+
+  .hero-copy {
+    text-shadow: 0 2px 18px rgba(6, 14, 18, 0.55);
   }
 
   .hero-brand-rule {
@@ -471,6 +516,70 @@
 @keyframes heroKenBurns {
   0% { transform: scale(1.06); }
   100% { transform: scale(1); }
+}
+
+@keyframes blogKenBurns {
+  0% { transform: scale(1.04) translate3d(0, 0, 0); }
+  100% { transform: scale(1.1) translate3d(-1.2%, -0.6%, 0); }
+}
+
+@keyframes blogBlockEnter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes blogSheen {
+  0% { transform: translateX(-30%); opacity: 0.18; }
+  50% { opacity: 0.28; }
+  100% { transform: translateX(30%); opacity: 0.18; }
+}
+
+.blog-kenburns {
+  animation: blogKenBurns 32s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.blog-block-enter {
+  animation: blogBlockEnter 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.blog-hero-sheen {
+  background: linear-gradient(105deg, transparent 20%, rgba(212, 175, 55, 0.08) 48%, transparent 72%);
+  animation: blogSheen 14s ease-in-out infinite alternate;
+}
+
+.blog-media-frame {
+  isolation: isolate;
+}
+
+.blog-media-veil {
+  background: linear-gradient(to top, rgba(12, 28, 36, 0.18) 0%, transparent 42%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-kenburns,
+  .blog-block-enter,
+  .blog-hero-sheen,
+  .hero-institutional-media img:not([aria-hidden]) {
+    animation: none !important;
+  }
+
+  .hero-institutional-media video,
+  .blog-media-frame video {
+    display: none;
+  }
+
+  .hero-institutional-media::after {
+    content: '';
+    @apply absolute inset-0 bg-cover bg-center;
+    background-image: url('/blog/seo-regional-medical-hub.jpg');
+  }
 }
 
 ::-webkit-scrollbar {

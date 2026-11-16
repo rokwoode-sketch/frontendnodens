@@ -619,7 +619,8 @@ export const extraPosts = [
   {
     slug: 'zirconium-crowns-turkey',
     category: 'Dental',
-    image_url: siteImages.zirconium,
+    image_url: siteImages.seoZirconiumClinic,
+    video_url: siteImages.seoZirconiumVideo,
     published_at: '2026-03-25T09:00:00.000Z',
     translations: {
       en: {

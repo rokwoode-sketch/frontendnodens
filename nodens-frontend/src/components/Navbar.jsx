@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone, ShieldCheck, GraduationCap, MapPin, Globe } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, ShieldCheck, GraduationCap, MapPin } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { siteImages } from '../data/siteImages';
 
@@ -241,7 +241,7 @@ export default function Navbar() {
           </div>
 
           <div className={`flex items-center gap-2 flex-shrink-0 min-w-fit col-start-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
-            {/* Institutional language chooser — desktop / tablet bar */}
+            {/* Quiet institutional language switcher */}
             <div ref={langRef} className={`relative ${mobileOpen ? 'hidden' : ''}`}>
               <button
                 type="button"
@@ -251,17 +251,17 @@ export default function Navbar() {
                 aria-expanded={langOpen}
                 aria-haspopup="listbox"
               >
-                <Globe size={14} strokeWidth={1.75} aria-hidden="true" />
-                <span>{langOptions[lang].code}</span>
-                <ChevronDown size={11} className={`opacity-60 transition-transform ${langOpen ? 'rotate-180' : ''}`} />
+                <span className="inline-flex flex-col items-start">
+                  <span className="inline-flex items-center gap-1">
+                    {langOptions[lang].code}
+                    <ChevronDown size={11} strokeWidth={1.75} className={`opacity-50 transition-transform ${langOpen ? 'rotate-180' : ''}`} />
+                  </span>
+                  <span className="lang-trigger-mark" aria-hidden="true" />
+                </span>
               </button>
               {langOpen && (
-                <div className={`absolute top-full ${isRTL ? 'left-0' : 'right-0'} pt-2 z-[60]`}>
-                  <div className="nav-dropdown lang-menu" role="listbox" aria-label="Language">
-                    <div className="lang-menu-head">
-                      <Globe size={12} strokeWidth={1.75} aria-hidden="true" />
-                      <span>Language</span>
-                    </div>
+                <div className={`absolute top-full ${isRTL ? 'left-0' : 'right-0'} pt-3 z-[60]`}>
+                  <div className="lang-menu" role="listbox" aria-label="Language">
                     {Object.entries(langOptions).map(([code, opt]) => (
                       <button
                         key={code}
@@ -271,8 +271,11 @@ export default function Navbar() {
                         onClick={() => { changeLanguage(code); setLangOpen(false); }}
                         className={`lang-option ${code === lang ? 'is-active' : ''}`}
                       >
-                        <span className="lang-option-code">{opt.code}</span>
-                        <span className="lang-option-name">{opt.name}</span>
+                        <span className="inline-flex items-baseline gap-2.5">
+                          <span className="lang-option-code">{opt.code}</span>
+                          <span className="lang-option-name">{opt.name}</span>
+                        </span>
+                        <span className="lang-option-tick" aria-hidden="true" />
                       </button>
                     ))}
                   </div>
@@ -326,8 +329,7 @@ export default function Navbar() {
                 onClick={() => changeLanguage(code)}
                 className={`nav-mobile-lang ${code === lang ? 'is-active' : ''}`}
               >
-                <span className="font-semibold tracking-[0.08em]">{opt.code}</span>
-                <span className="text-navy-500 font-normal normal-case tracking-normal text-[12px]">{opt.name}</span>
+                {opt.code}
               </button>
             ))}
           </div>

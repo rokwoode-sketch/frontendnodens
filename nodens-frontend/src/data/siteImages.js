@@ -162,6 +162,24 @@ export const siteImages = {
 
   doctorEsraRaw: wixRaw('aac3c1_06e090308a4543d9aa7c73fc8b027db1~mv2.webp'),
 
+  // Regional SEO guides — local institutional AI assets
+  seoRegionalHub: '/blog/seo-regional-medical-hub.jpg',
+  seoRegionalHubVideo: '/blog/seo-regional-hub-loop.mp4',
+  seoSafetyChecklist: '/blog/seo-safety-checklist.jpg',
+  seoSafetyVideo: '/blog/seo-safety-loop.mp4',
+  seoHairCost: '/blog/seo-hair-cost-istanbul.jpg',
+  seoHairVideo: '/blog/seo-hair-loop.mp4',
+  seoRhinoMed: '/blog/seo-rhinoplasty-mediterranean.jpg',
+  seoRhinoVideo: '/blog/seo-rhino-loop.mp4',
+  seoZirconiumClinic: '/blog/seo-zirconium-clinic.jpg',
+  seoZirconiumVideo: '/blog/seo-zirconium-loop.mp4',
+  seoTravelJourney: '/blog/seo-medical-travel-journey.jpg',
+  seoJciCorridor: '/blog/seo-jci-theatre-corridor.jpg',
+  seoIstanbulMosque: '/blog/seo-istanbul-skyline-mosque.jpg',
+
+  // Homepage ambient — hallway seamless loop (blog style)
+  homeHallwaySeamlessVideo: '/home-hallway-seamless-loop.mp4',
+
 };
 
 
