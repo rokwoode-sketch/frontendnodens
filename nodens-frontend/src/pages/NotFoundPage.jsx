@@ -1,31 +1,37 @@
 import { Link } from 'react-router-dom';
 import PageMeta from '../components/PageMeta';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export default function NotFoundPage() {
+  const { t } = useLanguage();
+
   return (
     <>
       <PageMeta
-        title="Page Not Found | NodensCare"
-        description="This page does not exist on NodensCare."
+        title={`${t.common.notFoundTitle} | NodensCare`}
+        description={t.common.notFoundBody}
         noindex
       />
-      <div className="min-h-[60vh] flex flex-col items-center justify-center pt-32 pb-20 px-4 text-center">
-        <p className="text-gold-600 font-semibold tracking-wide text-sm mb-3">404</p>
-        <h1 className="font-serif text-3xl sm:text-4xl font-bold text-navy-950 mb-4">
-          Page not found
-        </h1>
-        <p className="text-gray-600 max-w-md mb-8">
-          This URL is not part of the NodensCare site. It may be an old link from our previous website.
-        </p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <Link to="/" className="btn-primary">
-            Go to homepage
-          </Link>
-          <Link to="/contact" className="btn-outline">
-            Contact us
-          </Link>
+      <section className="min-h-[70vh] flex items-center justify-center pt-36 pb-20 px-5 bg-navy-50">
+        <div className="max-w-lg w-full border border-clinical-line bg-white px-8 py-12 md:px-12 md:py-14 text-center">
+          <p className="text-[11px] font-semibold tracking-[0.24em] uppercase text-gold-600 mb-4">{t.common.notFoundCode}</p>
+          <div className="w-10 h-px bg-gold-400 mx-auto mb-6" aria-hidden="true" />
+          <h1 className="font-serif text-3xl sm:text-4xl font-medium text-navy-950 mb-4 tracking-tight">
+            {t.common.notFoundTitle}
+          </h1>
+          <p className="text-navy-500 leading-[1.7] mb-8">
+            {t.common.notFoundBody}
+          </p>
+          <div className="flex flex-wrap gap-3 justify-center">
+            <Link to="/" className="btn-primary">
+              {t.common.notFoundHome}
+            </Link>
+            <Link to="/contact" className="btn-secondary">
+              {t.common.notFoundContact}
+            </Link>
+          </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

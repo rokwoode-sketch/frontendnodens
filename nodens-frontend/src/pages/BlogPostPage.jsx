@@ -2,9 +2,11 @@ import { useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import PageMeta from '../components/PageMeta';
-import { ChevronRight, ArrowRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import { getStaticPost } from '../data/blogPosts';
+import ClinicalFaq from '../components/ClinicalFaq';
+import InstitutionalCta from '../components/InstitutionalCta';
 
 const categoryLinks = {
   'Hair Transplant': '/hair-transplant',
@@ -28,23 +30,25 @@ const categoryPages = {
 
 function ContentBlock({ block }) {
   if (block.type === 'h2') {
-    return <h2 className="font-serif text-2xl font-bold text-navy-950 mt-10 mb-4">{block.text}</h2>;
+    return <h2 className="font-serif text-2xl font-medium text-navy-950 mt-10 mb-4 tracking-tight">{block.text}</h2>;
   }
   if (block.type === 'h3') {
-    return <h3 className="font-serif text-xl font-semibold text-navy-900 mt-8 mb-3">{block.text}</h3>;
+    return <h3 className="font-serif text-xl font-medium text-navy-900 mt-8 mb-3 tracking-tight">{block.text}</h3>;
   }
   if (block.type === 'img') {
     return (
       <figure className="my-8">
-        <img
-          src={block.src}
-          alt={block.alt || ''}
-          width={800}
-          height={450}
-          loading="lazy"
-          decoding="async"
-          className="w-full h-52 md:h-72 object-cover border border-clinical-line"
-        />
+        <div className="relative aspect-[16/9] overflow-hidden border border-clinical-line bg-navy-100">
+          <img
+            src={block.src}
+            alt={block.alt || ''}
+            width={800}
+            height={450}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
         {block.caption && (
           <figcaption className="mt-2 text-[13px] text-navy-500 leading-relaxed">{block.caption}</figcaption>
         )}
@@ -53,8 +57,8 @@ function ContentBlock({ block }) {
   }
   if (block.type === 'sources') {
     return (
-      <aside className="mt-12 mb-6 border border-clinical-line bg-navy-50/60 p-5 md:p-6">
-        <h2 className="font-serif text-lg font-semibold text-navy-950 mb-3">{block.title || 'Sources & References'}</h2>
+      <aside className="mt-12 mb-6 border border-clinical-line bg-navy-50 p-5 md:p-6">
+        <h2 className="font-serif text-lg font-medium text-navy-950 mb-3 tracking-tight">{block.title || 'Sources & References'}</h2>
         <ol className="space-y-2 list-decimal list-inside">
           {block.items.map((item) => (
             <li key={item.url || item.label} className="text-sm text-navy-600 leading-relaxed">
@@ -75,7 +79,7 @@ function ContentBlock({ block }) {
     return (
       <ul className="space-y-2 mb-6">
         {block.items.map((item) => (
-          <li key={item} className="flex items-start gap-2 text-gray-600 leading-relaxed">
+          <li key={item} className="flex items-start gap-2 text-navy-600 leading-relaxed">
             <ChevronRight size={14} className="text-gold-500 flex-shrink-0 mt-1" />
             {item}
           </li>
@@ -83,7 +87,7 @@ function ContentBlock({ block }) {
       </ul>
     );
   }
-  return <p className="text-gray-600 leading-relaxed mb-5">{block.text}</p>;
+  return <p className="text-navy-600 leading-relaxed mb-5">{block.text}</p>;
 }
 
 export default function BlogPostPage() {
@@ -93,10 +97,10 @@ export default function BlogPostPage() {
 
   if (!post) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center pt-32 gap-4">
+      <div className="min-h-[60vh] flex flex-col items-center justify-center pt-36 gap-4 px-5">
         <PageMeta title="Article Not Found | NodensCare" description="This guide does not exist." noindex />
-        <p className="text-gray-500">Article not found.</p>
-        <Link to="/blog" className="text-gold-600 hover:underline text-sm">Back to Guides</Link>
+        <p className="text-navy-500">{t.common.articleNotFound}</p>
+        <Link to="/blog" className="text-teal-medical hover:underline text-sm font-semibold">{t.common.articleBack}</Link>
       </div>
     );
   }
@@ -134,41 +138,44 @@ export default function BlogPostPage() {
         )}
       </Helmet>
 
-      <section className="relative pt-32 pb-16 gradient-navy overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="flex items-center gap-2 text-gold-400 text-sm mb-6 flex-wrap">
-            <Link to="/" className="hover:text-white transition-colors">{t.nav.home}</Link>
-            <ChevronRight size={14} />
-            <Link to="/blog" className="hover:text-white transition-colors">{t.pages.blog.breadcrumb}</Link>
-            <ChevronRight size={14} />
-            <Link to={categoryLink} className="hover:text-white transition-colors">{categoryLabel}</Link>
-            <ChevronRight size={14} />
-            <span className="text-white/70">{t.pages.blog.guideCrumb}</span>
-          </div>
-          <p className="text-gold-400 text-xs font-bold uppercase tracking-widest mb-3">{categoryLabel}</p>
-          <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+      <section className="pt-36 pb-12 md:pt-40 md:pb-14 bg-navy-950 border-b border-white/10">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8">
+          <nav className="flex items-center gap-2 text-[12px] mb-6 flex-wrap tracking-wide" aria-label="Breadcrumb">
+            <Link to="/" className="text-white/55 hover:text-white transition-colors">{t.nav.home}</Link>
+            <ChevronRight size={12} className="text-white/35" aria-hidden="true" />
+            <Link to="/blog" className="text-white/55 hover:text-white transition-colors">{t.pages.blog.breadcrumb}</Link>
+            <ChevronRight size={12} className="text-white/35" aria-hidden="true" />
+            <Link to={categoryLink} className="text-white/55 hover:text-white transition-colors">{categoryLabel}</Link>
+            <ChevronRight size={12} className="text-white/35" aria-hidden="true" />
+            <span className="text-gold-300">{t.pages.blog.guideCrumb}</span>
+          </nav>
+          <div className="w-10 h-px bg-gold-400 mb-6" aria-hidden="true" />
+          <p className="text-[11px] font-semibold tracking-[0.22em] uppercase text-gold-400 mb-4">{categoryLabel}</p>
+          <h1 className="font-serif text-3xl md:text-4xl lg:text-[2.75rem] font-medium text-white leading-[1.15] tracking-tight mb-5">
             {post.title}
           </h1>
-          <p className="text-white/70 text-lg leading-relaxed">{post.excerpt}</p>
+          <p className="text-white/70 text-base md:text-lg leading-[1.7] max-w-2xl">{post.excerpt}</p>
         </div>
       </section>
 
       {post.image_url && (
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 -mt-8 relative z-10">
-          <img
-            src={post.image_url}
-            alt={post.title}
-            width={800}
-            height={450}
-            loading="lazy"
-            decoding="async"
-            className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-xl"
-          />
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 -mt-6 relative z-10">
+          <div className="relative aspect-[16/9] overflow-hidden border border-clinical-line bg-navy-100 shadow-[0_18px_48px_rgba(12,28,36,0.18)]">
+            <img
+              src={post.image_url}
+              alt={post.title}
+              width={800}
+              height={450}
+              loading="lazy"
+              decoding="async"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
         </div>
       )}
 
-      <section className="py-16 bg-white">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6">
+      <section className="inst-section bg-white">
+        <div className="max-w-3xl mx-auto px-5 sm:px-8">
           {(post.content || []).map((block, i) => (
             <ContentBlock key={i} block={block} />
           ))}
@@ -176,36 +183,16 @@ export default function BlogPostPage() {
       </section>
 
       {post.faq?.length > 0 && (
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6">
-            <h2 className="font-serif text-2xl font-bold text-navy-950 mb-8">Frequently Asked Questions</h2>
-            <div className="space-y-3">
-              {post.faq.map(({ q, a }) => (
-                <details key={q} className="bg-white rounded-xl border border-gray-200 group">
-                  <summary className="flex items-center justify-between p-5 cursor-pointer font-semibold text-navy-950 text-sm list-none">
-                    {q}
-                    <ChevronRight size={15} className="text-gold-500 flex-shrink-0 transition-transform group-open:rotate-90" />
-                  </summary>
-                  <div className="px-5 pb-5 text-gray-500 text-sm leading-relaxed border-t border-gray-100 pt-4">{a}</div>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
+        <ClinicalFaq items={post.faq} title={t.common.faqTitle} id="guide-faq" />
       )}
 
-      <section className="py-20 gradient-navy">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="font-serif text-3xl font-bold text-white mb-4">Ready to Start Your Journey?</h2>
-          <p className="text-white/70 mb-8">Get a free remote consultation with our medical coordinators. Response within 24 hours.</p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a href="https://wa.me/905546745516" target="_blank" rel="noopener noreferrer" className="btn-primary">
-              Free Consultation <ArrowRight size={16} />
-            </a>
-            <Link to={categoryLink} className="btn-outline">View {post.category} Treatments</Link>
-          </div>
-        </div>
-      </section>
+      <InstitutionalCta
+        title={t.patientJourney.ctaTitle}
+        subtitle={t.patientJourney.ctaDesc}
+        primaryLabel={t.patientJourney.ctaWhatsapp}
+        secondaryLabel={categoryLabel}
+        secondaryTo={categoryLink}
+      />
     </>
   );
 }

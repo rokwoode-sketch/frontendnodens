@@ -5,6 +5,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import PageHeader from '../components/PageHeader';
 import { getDoctor } from '../data/doctors';
 import { siteImages } from '../data/siteImages';
+import { SOCIAL_URLS } from '../data/socialLinks';
 
 export default function DoctorProfilePage() {
   const { slug } = useParams();
@@ -13,16 +14,17 @@ export default function DoctorProfilePage() {
 
   if (!doctor) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center pt-32 gap-4">
+      <div className="min-h-[60vh] flex flex-col items-center justify-center pt-36 gap-4 px-5">
         <PageMeta title="Doctor Not Found | NodensCare" description="This doctor profile does not exist." noindex />
-        <p className="text-gray-500">Doctor not found.</p>
-        <Link to="/doctors" className="text-gold-600 hover:underline text-sm">Back to Our Doctors</Link>
+        <p className="text-navy-500">{t.common.doctorNotFound}</p>
+        <Link to="/doctors" className="text-teal-medical hover:underline text-sm font-semibold">{t.common.doctorBack}</Link>
       </div>
     );
   }
 
   const d = doctor.translations[lang] || doctor.translations.en;
   const p = t.pages.doctorProfile;
+  const wa = `${SOCIAL_URLS.whatsapp}?text=${encodeURIComponent(`${t.contact.whatsappPrefill} — ${d.name}`)}`;
 
   return (
     <>
@@ -38,33 +40,36 @@ export default function DoctorProfilePage() {
         ]}
       />
 
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-3 gap-12">
+      <section className="inst-section bg-white">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <div className="grid lg:grid-cols-3 gap-10 lg:gap-14">
             <div className="lg:col-span-1" data-aos="fade-up">
-              <div className="sticky top-28">
-                <img
-                  src={doctor.image}
-                  alt={d.name}
-                  width={480}
-                  height={640}
-                  loading="lazy"
-                  decoding="async"
-                  referrerPolicy="no-referrer"
-                  className="w-full rounded-2xl shadow-xl object-cover object-top aspect-[3/4]"
-                  onError={(e) => {
-                    const raw = siteImages[`${doctor.imageKey}Raw`];
-                    if (raw && e.currentTarget.src !== raw) e.currentTarget.src = raw;
-                  }}
-                />
-                <div className="mt-6 bg-navy-50 rounded-2xl p-6 border border-gray-100">
-                  <p className="text-gold-600 text-sm font-semibold mb-2">{p.affiliation}</p>
+              <div className="lg:sticky lg:top-28">
+                <div className="relative aspect-[3/4] overflow-hidden border border-clinical-line bg-navy-100">
+                  <img
+                    src={doctor.image}
+                    alt={d.name}
+                    width={480}
+                    height={640}
+                    loading="lazy"
+                    decoding="async"
+                    referrerPolicy="no-referrer"
+                    className="absolute inset-0 w-full h-full object-cover object-top"
+                    onError={(e) => {
+                      const raw = siteImages[`${doctor.imageKey}Raw`];
+                      if (raw && e.currentTarget.src !== raw) e.currentTarget.src = raw;
+                    }}
+                  />
+                </div>
+
+                <div className="mt-5 border border-clinical-line bg-navy-50 p-6">
+                  <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-teal-medical mb-2">{p.affiliation}</p>
                   <p className="text-navy-800 text-sm leading-relaxed">{d.affiliation}</p>
-                  <div className="grid grid-cols-3 gap-3 mt-6 pt-6 border-t border-gray-200">
+                  <div className="grid grid-cols-3 gap-px bg-clinical-line border border-clinical-line mt-6">
                     {d.stats.map(({ num, label }) => (
-                      <div key={label} className="text-center">
-                        <div className="font-bold text-navy-950 text-sm">{num}</div>
-                        <div className="text-gray-400 text-xs mt-0.5">{label}</div>
+                      <div key={label} className="bg-white py-3 text-center">
+                        <div className="font-semibold text-navy-950 text-sm tabular-nums">{num}</div>
+                        <div className="text-navy-400 text-xs mt-0.5">{label}</div>
                       </div>
                     ))}
                   </div>
@@ -77,23 +82,23 @@ export default function DoctorProfilePage() {
               </div>
             </div>
 
-            <div className="lg:col-span-2 space-y-10" data-aos="fade-up">
+            <div className="lg:col-span-2 space-y-8" data-aos="fade-up">
               <div>
                 <div className="flex items-center gap-3 mb-4">
-                  <GraduationCap size={22} className="text-gold-500" />
-                  <h2 className="font-serif text-2xl font-bold text-navy-950">{p.overview}</h2>
+                  <GraduationCap size={20} className="text-gold-500" />
+                  <h2 className="font-serif text-2xl font-medium text-navy-950 tracking-tight">{p.overview}</h2>
                 </div>
-                <p className="text-gray-600 leading-relaxed text-lg">{d.intro}</p>
+                <p className="text-navy-600 leading-[1.7] text-lg">{d.intro}</p>
               </div>
 
               {d.sections.map((section) => (
-                <div key={section.heading} className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-                  <h3 className="font-serif text-xl font-bold text-navy-950 mb-4">{section.heading}</h3>
-                  {section.body && <p className="text-gray-600 leading-relaxed mb-4">{section.body}</p>}
+                <div key={section.heading} className="border border-clinical-line bg-navy-50/60 p-6 md:p-8">
+                  <h3 className="font-serif text-xl font-medium text-navy-950 mb-4 tracking-tight">{section.heading}</h3>
+                  {section.body && <p className="text-navy-600 leading-[1.7] mb-4">{section.body}</p>}
                   {section.items && (
                     <ul className="space-y-3">
                       {section.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-gray-600 text-sm">
+                        <li key={item} className="flex items-start gap-3 text-navy-600 text-sm leading-relaxed">
                           <CheckCircle size={16} className="text-gold-500 flex-shrink-0 mt-0.5" />
                           {item}
                         </li>
@@ -103,16 +108,11 @@ export default function DoctorProfilePage() {
                 </div>
               ))}
 
-              <div className="flex flex-wrap gap-4 pt-4">
-                <a
-                  href={`https://wa.me/905546745516?text=${encodeURIComponent(`I'd like to consult with ${d.name} at NodensCare.`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
+              <div className="flex flex-wrap gap-4 pt-2">
+                <a href={wa} target="_blank" rel="noopener noreferrer" className="btn-primary">
                   {p.consultBtn} <ArrowRight size={15} />
                 </a>
-                <Link to="/doctors" className="btn-outline">{p.allDoctors}</Link>
+                <Link to="/doctors" className="btn-secondary">{p.allDoctors}</Link>
               </div>
             </div>
           </div>

@@ -1,8 +1,11 @@
 import PageMeta from '../components/PageMeta';
 import { Link } from 'react-router-dom';
-import { AlertCircle, CheckCircle, ArrowRight, Shield, GraduationCap, ChevronRight } from 'lucide-react';
+import { AlertCircle, CheckCircle, ArrowRight, Shield, GraduationCap } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import ProcedurePageHero from '../components/ProcedurePageHero';
+import ClinicalMedia from '../components/ClinicalMedia';
+import InstitutionalCta from '../components/InstitutionalCta';
+import { SOCIAL_URLS } from '../data/socialLinks';
 import { siteImages } from '../data/siteImages';
 
 const treatmentImages = {
@@ -17,6 +20,7 @@ export default function ComplexTreatmentsPage() {
   const { t } = useLanguage();
   const p = t.pages.complex;
   const c = t.procedureCards.complex;
+  const wa = `${SOCIAL_URLS.whatsapp}?text=${encodeURIComponent(t.contact.whatsappPrefill)}`;
 
   return (
     <>
@@ -24,36 +28,32 @@ export default function ComplexTreatmentsPage() {
 
       <ProcedurePageHero pageKey="complex" image={siteImages.complex}>
         <div className="flex flex-wrap gap-4">
-          <a href="https://wa.me/905546745516?text=Complex%20treatment%20inquiry" target="_blank" rel="noopener noreferrer" className="btn-primary">
+          <a href={wa} target="_blank" rel="noopener noreferrer" className="btn-primary">
             {p.cta1} <ArrowRight size={16} />
           </a>
           <Link to="/doctors" className="btn-outline">{p.cta2}</Link>
         </div>
       </ProcedurePageHero>
 
-      <div className="bg-amber-50 border-y border-amber-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-start gap-3">
-          <AlertCircle size={18} className="text-amber-600 flex-shrink-0 mt-0.5" />
-          <p className="text-amber-800 text-sm leading-relaxed">
-            <strong>{c.medicalNotice}</strong> {c.medicalDisclaimer}
+      <div className="bg-navy-50 border-y border-clinical-line">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-start gap-3">
+          <AlertCircle size={18} className="text-teal-medical flex-shrink-0 mt-0.5" />
+          <p className="text-navy-700 text-sm leading-relaxed">
+            <strong className="text-navy-950">{c.medicalNotice}</strong> {c.medicalDisclaimer}
           </p>
         </div>
       </div>
 
-      <section className="bg-navy-950 py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid sm:grid-cols-3 gap-6 text-center">
+      <section className="bg-navy-950 py-12">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <div className="grid sm:grid-cols-3 gap-px bg-white/10 border border-white/10">
             {c.credentials.map(({ title, desc }, i) => {
               const Icon = credentialIcons[i];
               return (
-                <div key={title} className="flex flex-col items-center gap-3">
-                  <div className="w-12 h-12 bg-gold-500/20 rounded-xl flex items-center justify-center">
-                    <Icon size={22} className="text-gold-400" />
-                  </div>
-                  <div>
-                    <div className="text-white font-bold text-sm">{title}</div>
-                    <div className="text-white/50 text-xs mt-1">{desc}</div>
-                  </div>
+                <div key={title} className="bg-navy-950 px-6 py-8 text-center">
+                  <Icon size={22} className="text-gold-400 mx-auto mb-4" aria-hidden="true" />
+                  <div className="text-white font-semibold text-sm mb-1.5">{title}</div>
+                  <div className="text-white/55 text-xs leading-relaxed">{desc}</div>
                 </div>
               );
             })}
@@ -62,87 +62,93 @@ export default function ComplexTreatmentsPage() {
       </section>
 
       {c.treatments.map((treatment, i) => (
-        <section key={treatment.id} id={treatment.id} className={`py-24 scroll-mt-20 ${i % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="grid lg:grid-cols-2 gap-14 items-start" data-aos="fade-up">
+        <section
+          key={treatment.id}
+          id={treatment.id}
+          className={`inst-section scroll-mt-20 ${i % 2 === 0 ? 'bg-navy-50 border-y border-clinical-line' : 'bg-white'}`}
+        >
+          <div className="max-w-7xl mx-auto px-5 sm:px-8">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start" data-aos="fade-up">
               <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
                 <div className="chip mb-4">{treatment.tag}</div>
-                <h2 className="font-serif text-3xl md:text-4xl font-bold text-navy-950 mb-3">{treatment.title}</h2>
+                <h2 className="font-serif text-2xl md:text-3xl font-medium text-navy-950 mb-4 tracking-tight">{treatment.title}</h2>
 
-                <div className="flex items-center gap-3 bg-navy-50 rounded-xl p-4 mb-6 border border-navy-100">
-                  <div className="w-10 h-10 bg-navy-950 rounded-full flex items-center justify-center flex-shrink-0">
+                <div className="flex items-center gap-4 border border-clinical-line bg-white px-4 py-4 mb-6">
+                  <div className="w-10 h-10 bg-navy-950 flex items-center justify-center flex-shrink-0">
                     <GraduationCap size={18} className="text-gold-400" />
                   </div>
                   <div>
-                    <div className="text-navy-950 font-bold text-sm">{c.leadSpecialist}</div>
-                    <div className="text-gold-600 text-xs font-medium">{treatment.leadDoctor}</div>
+                    <div className="text-navy-950 font-semibold text-sm">{c.leadSpecialist}</div>
+                    <div className="text-teal-medical text-xs font-medium mt-0.5">{treatment.leadDoctor}</div>
                   </div>
                 </div>
 
-                <p className="text-gray-600 leading-relaxed mb-6">{treatment.overview}</p>
+                <p className="text-navy-600 leading-[1.7] mb-6">{treatment.overview}</p>
 
-                <h3 className="font-bold text-navy-950 mb-4">{c.treatmentOptions}</h3>
-                <div className="space-y-4 mb-8">
-                  {treatment.options.map((opt) => (
-                    <div key={opt.name} className="bg-white rounded-xl border border-gray-100 p-4 shadow-sm">
+                <h3 className="text-[11px] font-semibold tracking-[0.18em] uppercase text-teal-medical mb-4">{c.treatmentOptions}</h3>
+                <div className="border border-clinical-line bg-white mb-8">
+                  {treatment.options.map((opt, oi) => (
+                    <div key={opt.name} className={`px-5 py-4 ${oi > 0 ? 'border-t border-clinical-line' : ''}`}>
                       <div className="font-semibold text-navy-900 text-sm mb-1">{opt.name}</div>
-                      <div className="text-gray-500 text-sm leading-relaxed">{opt.desc}</div>
+                      <div className="text-navy-500 text-sm leading-relaxed">{opt.desc}</div>
                     </div>
                   ))}
                 </div>
 
-                <a href="https://wa.me/905546745516" target="_blank" rel="noopener noreferrer" className="btn-primary">
+                <a href={wa} target="_blank" rel="noopener noreferrer" className="btn-primary">
                   {c.requestAssessment} <ArrowRight size={15} />
                 </a>
               </div>
 
               <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
-                <img src={treatmentImages[treatment.id]} alt={treatment.title} width={700} height={500} loading="lazy" decoding="async" className="rounded-2xl shadow-xl w-full h-64 lg:h-80 object-cover object-top" />
+                <ClinicalMedia src={treatmentImages[treatment.id]} alt={treatment.title} aspectClass="aspect-[5/4]">
+                  <div className="inst-includes mt-5">
+                    <h4 className="text-[11px] font-semibold tracking-[0.18em] uppercase text-teal-medical mb-4">
+                      {c.whyIstanbul} {treatment.tag}
+                    </h4>
+                    <ul className="space-y-2.5">
+                      {treatment.whyTurkey.map((item) => (
+                        <li key={item} className="flex items-start gap-2.5 text-navy-600 text-sm leading-relaxed">
+                          <CheckCircle size={15} className="text-gold-500 flex-shrink-0 mt-0.5" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </ClinicalMedia>
 
-                <div className="mt-6 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
-                  <h4 className="font-bold text-navy-950 mb-4 text-sm">{c.whyIstanbul} {treatment.tag}:</h4>
-                  <ul className="space-y-2.5">
-                    {treatment.whyTurkey.map((item) => (
-                      <li key={item} className="flex items-start gap-2.5 text-gray-600 text-sm">
-                        <CheckCircle size={15} className="text-gold-500 flex-shrink-0 mt-0.5" />{item}
-                      </li>
+                {treatment.faqs?.length > 0 && (
+                  <div className="mt-5 border border-clinical-line bg-white">
+                    {treatment.faqs.map((faq, fi) => (
+                      <details key={faq.q} className={fi > 0 ? 'border-t border-clinical-line group' : 'group'}>
+                        <summary className="flex items-center justify-between gap-4 px-4 py-4 cursor-pointer font-semibold text-navy-950 text-sm list-none">
+                          {faq.q}
+                          <ArrowRight size={14} className="text-gold-500 flex-shrink-0 transition-transform group-open:rotate-90" />
+                        </summary>
+                        <div className="px-4 pb-4 text-navy-500 text-sm leading-relaxed border-t border-clinical-line pt-3">{faq.a}</div>
+                      </details>
                     ))}
-                  </ul>
-                </div>
-
-                <div className="mt-4 space-y-2">
-                  {treatment.faqs.map(({ q, a }) => (
-                    <details key={q} className="bg-gray-50 rounded-xl border border-gray-200 group">
-                      <summary className="flex items-center justify-between p-4 cursor-pointer font-semibold text-navy-950 text-sm list-none">
-                        {q}<ChevronRight size={14} className="text-gold-500 flex-shrink-0 transition-transform group-open:rotate-90" />
-                      </summary>
-                      <div className="px-4 pb-4 text-gray-500 text-sm leading-relaxed border-t border-gray-100 pt-3">{a}</div>
-                    </details>
-                  ))}
-                </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </section>
       ))}
 
-      <section className="py-10 bg-gray-100 border-t border-gray-200">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-gray-500 text-xs leading-relaxed">
-            <strong className="text-gray-700">{c.medicalNotice}</strong> {c.closingDisclaimer}
+      <section className="py-10 bg-navy-50 border-t border-clinical-line">
+        <div className="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+          <p className="text-navy-500 text-xs leading-relaxed">
+            <strong className="text-navy-700">{c.medicalNotice}</strong> {c.closingDisclaimer}
           </p>
         </div>
       </section>
 
-      <section className="py-20 gradient-navy">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="font-serif text-4xl font-bold text-white mb-4">{c.ctaTitle}</h2>
-          <p className="text-white/70 text-lg mb-8">{c.ctaDesc}</p>
-          <a href="https://wa.me/905546745516" target="_blank" rel="noopener noreferrer" className="btn-primary text-base px-8 py-4">
-            {c.contactCoordinator} <ArrowRight size={16} />
-          </a>
-        </div>
-      </section>
+      <InstitutionalCta
+        title={c.ctaTitle}
+        subtitle={c.ctaDesc}
+        primaryLabel={c.contactCoordinator}
+      />
     </>
   );
 }

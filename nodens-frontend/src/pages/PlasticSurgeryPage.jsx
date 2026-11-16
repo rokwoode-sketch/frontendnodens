@@ -4,6 +4,9 @@ import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
 import ProcedurePageHero from '../components/ProcedurePageHero';
 import ProcedureMarquee from '../components/ProcedureMarquee';
+import ClinicalMedia from '../components/ClinicalMedia';
+import InstitutionalCta from '../components/InstitutionalCta';
+import { SOCIAL_URLS } from '../data/socialLinks';
 import { siteImages } from '../data/siteImages';
 
 const procedureImages = {
@@ -21,6 +24,7 @@ export default function PlasticSurgeryPage() {
   const { t } = useLanguage();
   const p = t.pages.plastic;
   const ps = t.procedureCards.plastic;
+  const wa = `${SOCIAL_URLS.whatsapp}?text=${encodeURIComponent(t.contact.whatsappPrefill)}`;
 
   return (
     <>
@@ -28,16 +32,16 @@ export default function PlasticSurgeryPage() {
 
       <ProcedurePageHero pageKey="plastic" image={siteImages.plastic}>
         <div className="flex flex-wrap gap-4 mb-10">
-          <a href="https://wa.me/905546745516" target="_blank" rel="noopener noreferrer" className="btn-primary">
+          <a href={wa} target="_blank" rel="noopener noreferrer" className="btn-primary">
             {p.cta1} <ArrowRight size={16} />
           </a>
           <Link to="/doctors" className="btn-outline">{p.cta2}</Link>
         </div>
-        <div className="grid grid-cols-3 gap-4 max-w-lg">
+        <div className="grid grid-cols-3 gap-px bg-white/15 border border-white/15 max-w-lg">
           {p.stats.map((label, i) => (
-            <div key={label} className="bg-white/10 rounded-xl p-4 text-center border border-white/10">
-              <div className="font-serif text-2xl font-bold text-gold-400">{p.statNums[i]}</div>
-              <div className="text-white/70 text-xs mt-1">{label}</div>
+            <div key={label} className="inst-stat-cell">
+              <div className="font-serif text-2xl font-medium text-gold-300">{p.statNums[i]}</div>
+              <div className="text-white/65 text-[11px] tracking-wide mt-1.5">{label}</div>
             </div>
           ))}
         </div>
@@ -45,26 +49,26 @@ export default function PlasticSurgeryPage() {
 
       <ProcedureMarquee items={ps.procedures} />
 
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-24">
+      <section className="inst-section-muted">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 space-y-20 md:space-y-24">
           {ps.procedures.map((proc, i) => (
             <div key={proc.id} id={proc.id} className="scroll-mt-28" data-aos="fade-up">
-              <div className={`grid lg:grid-cols-2 gap-12 items-start ${i % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
+              <div className={`grid lg:grid-cols-2 gap-10 lg:gap-14 items-start ${i % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
                 <div className={i % 2 === 1 ? 'lg:col-start-2' : ''}>
                   <div className="chip mb-4">{proc.tag}</div>
-                  <h2 className="font-serif text-3xl font-bold text-navy-950 mb-2">{proc.title}</h2>
-                  <p className="text-gold-600 text-sm font-semibold mb-4">{proc.subtitle}</p>
-                  <p className="text-gray-600 leading-relaxed mb-6">{proc.desc}</p>
-                  <div className="bg-navy-950 rounded-2xl p-5 mb-5">
-                    <div className="text-gold-400 text-xs font-semibold uppercase tracking-wider mb-1">{ps.priceLabel}</div>
-                    <div className="font-serif text-2xl font-bold text-white">{proc.price}</div>
+                  <h2 className="font-serif text-2xl md:text-3xl font-medium text-navy-950 mb-2 tracking-tight">{proc.title}</h2>
+                  <p className="text-teal-medical text-sm font-semibold mb-4">{proc.subtitle}</p>
+                  <p className="text-navy-600 leading-[1.7] mb-6">{proc.desc}</p>
+                  <div className="inst-price-band mb-5">
+                    <div className="text-gold-400 text-[11px] font-semibold uppercase tracking-[0.18em] mb-2">{ps.priceLabel}</div>
+                    <div className="font-serif text-2xl md:text-3xl font-medium text-white tracking-tight">{proc.price}</div>
                   </div>
-                  <a href="https://wa.me/905546745516" target="_blank" rel="noopener noreferrer" className="btn-primary">
+                  <a href={wa} target="_blank" rel="noopener noreferrer" className="btn-primary">
                     {ps.requestQuote} <ArrowRight size={15} />
                   </a>
                 </div>
                 <div className={i % 2 === 1 ? 'lg:col-start-1' : ''}>
-                  <img src={procedureImages[proc.id]} alt={proc.title} width={700} height={500} loading="lazy" decoding="async" className="rounded-2xl shadow-xl w-full h-72 lg:h-80 object-cover" />
+                  <ClinicalMedia src={procedureImages[proc.id]} alt={proc.title} />
                 </div>
               </div>
             </div>
@@ -72,14 +76,15 @@ export default function PlasticSurgeryPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-navy-950">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="font-serif text-3xl font-bold text-white mb-4">{ps.safetyTitle}</h2>
-          <p className="text-white/60 text-lg leading-relaxed mb-8 max-w-3xl mx-auto">{ps.safetyDesc}</p>
-          <div className="grid sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
+      <section className="bg-navy-950 py-16 md:py-20">
+        <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center">
+          <div className="w-10 h-px bg-gold-400 mx-auto mb-6" aria-hidden="true" />
+          <h2 className="font-serif text-2xl md:text-3xl font-medium text-white mb-4 tracking-tight">{ps.safetyTitle}</h2>
+          <p className="text-white/65 text-base md:text-lg leading-[1.7] mb-10 max-w-3xl mx-auto">{ps.safetyDesc}</p>
+          <div className="grid sm:grid-cols-3 gap-px bg-white/10 border border-white/10 max-w-3xl mx-auto">
             {ps.safetyPhases.map(({ title, desc }) => (
-              <div key={title} className="bg-white/10 rounded-xl p-4 border border-white/10 text-center">
-                <div className="text-gold-400 font-bold text-sm mb-2">{title}</div>
+              <div key={title} className="bg-navy-950 px-5 py-6 text-center">
+                <div className="text-gold-400 font-semibold text-sm mb-2 tracking-wide">{title}</div>
                 <div className="text-white/60 text-xs leading-relaxed">{desc}</div>
               </div>
             ))}
@@ -87,18 +92,12 @@ export default function PlasticSurgeryPage() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="font-serif text-4xl font-bold text-navy-950 mb-4">{p.ctaBottom}</h2>
-          <p className="text-gray-500 text-lg mb-8">{ps.ctaBottomDesc}</p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a href="https://wa.me/905546745516" target="_blank" rel="noopener noreferrer" className="btn-primary text-base px-8 py-4">
-              {ps.sendPhotos} <ArrowRight size={16} />
-            </a>
-            <Link to="/contact" className="btn-dark text-base px-8 py-4">{ps.contactForm}</Link>
-          </div>
-        </div>
-      </section>
+      <InstitutionalCta
+        title={p.ctaBottom}
+        subtitle={ps.ctaBottomDesc}
+        primaryLabel={ps.sendPhotos}
+        secondaryLabel={ps.contactForm}
+      />
     </>
   );
 }

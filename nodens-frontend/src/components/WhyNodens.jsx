@@ -1,10 +1,12 @@
 import { GraduationCap, ShieldCheck, GitMerge, Star, Clock, Globe } from 'lucide-react';
 import { useLanguage } from '../i18n/LanguageContext';
+import { SOCIAL_URLS } from '../data/socialLinks';
 
 const icons = [GraduationCap, Clock, GitMerge, Star, ShieldCheck, Globe];
 
 export default function WhyNodens() {
   const { t } = useLanguage();
+  const wa = `${SOCIAL_URLS.whatsapp}?text=${encodeURIComponent(t.contact.whatsappPrefill)}`;
 
   return (
     <section id="why" className="py-20 md:py-28 bg-navy-950">
@@ -57,7 +59,7 @@ export default function WhyNodens() {
             <p className="text-white/65 text-sm">{t.why.ctaSub}</p>
           </div>
           <a
-            href="https://wa.me/905546745516"
+            href={wa}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary flex-shrink-0"
